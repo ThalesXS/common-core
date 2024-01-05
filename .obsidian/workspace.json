@@ -11,8 +11,12 @@
             "id": "d6e64277e2019b90",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "notes/Markdown/3. Quoting and Alerts.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "notes/Markdown/3. Quoting and Alerts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "notes/Markdown/3. Quoting and Alerts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "notes/Markdown/3. Quoting and Alerts.md"
+              }
             }
           }
         ]
@@ -140,6 +148,7 @@
   },
   "active": "d6e64277e2019b90",
   "lastOpenFiles": [
+    "notes/Markdown/0.Intro.md",
     "notes/teste.md",
     "notes/SSH/4. OpenSSH.md",
     "notes/SSH/3. Port Forwarding.md",
@@ -152,7 +161,6 @@
     "notes/Markdown/3. Quoting and Alerts.md",
     "notes/Markdown/2. Links and Lists.md",
     "notes/Markdown/1. Basics.md",
-    "notes/Markdown/0.Intro.md",
     "notes/Markdown",
     "notes/Linux/99999. libpam pwquality.md",
     "notes/Linux/99999. AWK.md",

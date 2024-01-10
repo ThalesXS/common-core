@@ -18,13 +18,7 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "2185bd8e4000bba2",
-        "type": "tabs",
-        "children": [
+          },
           {
             "id": "6a1578a5b7201e5b",
             "type": "leaf",
@@ -87,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "799d20ab1d5d38c2",
@@ -166,6 +161,9 @@
   },
   "active": "d6e64277e2019b90",
   "lastOpenFiles": [
+    "tests/a.out",
+    "tests/test.c",
+    "tests",
     "notes/Markdown/3. Quoting and Alerts.md",
     "notes/C/0. Intro.md",
     "notes/Algoritmos/0. Intro.md",
@@ -198,9 +196,6 @@
     "notes/Dicionário/UFW.md",
     "notes/Dicionário/Snippets.md",
     "notes/Dicionário/Port.md",
-    "notes/Dicionário/PackageManager.md",
-    "notes/Dicionário",
-    "notes/Data Struct",
-    "notes/C"
+    "notes/Dicionário"
   ]
 }

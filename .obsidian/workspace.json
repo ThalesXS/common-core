@@ -18,9 +18,15 @@
                 "source": false
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "56aaf00ef7574ff9",
+        "type": "tabs",
+        "children": [
           {
-            "id": "6a1578a5b7201e5b",
+            "id": "909c892d0ea0b256",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -161,11 +167,11 @@
   },
   "active": "d6e64277e2019b90",
   "lastOpenFiles": [
+    "notes/C/0. Intro.md",
     "tests/a.out",
     "tests/test.c",
     "tests",
     "notes/Markdown/3. Quoting and Alerts.md",
-    "notes/C/0. Intro.md",
     "notes/Algoritmos/0. Intro.md",
     "notes/Markdown/0.Intro.md",
     "notes/teste.md",
@@ -195,7 +201,6 @@
     "notes/Git",
     "notes/Dicionário/UFW.md",
     "notes/Dicionário/Snippets.md",
-    "notes/Dicionário/Port.md",
-    "notes/Dicionário"
+    "notes/Dicionário/Port.md"
   ]
 }

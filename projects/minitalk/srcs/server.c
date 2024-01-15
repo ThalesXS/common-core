@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:22:55 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/15 19:48:30 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:59:43 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,19 @@ t_message message;
 
 int	main(void)
 {
-	int		pid;
-	struct sigaction zeroact;
-	struct sigaction oneact;
+	int					pid;
+	struct sigaction	zeroact;
+	struct sigaction	oneact;
+	sigset_t 			set;
 
 	pid = getpid();
+	sigemptyset(&set);
 	zeroact.sa_sigaction = ft_zerohandler;
 	oneact.sa_sigaction = ft_onehandler;
 	zeroact.sa_flags = SA_SIGINFO;
 	oneact.sa_flags = SA_SIGINFO;
+	zeroact.sa_mask = set;
+	oneact.sa_mask = set;
 	ft_printf("Server ID: %d\n", pid);
 	message.i = 0;
 	message.byte = 0;

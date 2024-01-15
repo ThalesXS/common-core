@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:37:38 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/15 19:46:56 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:01:58 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int	main(int argc, char **argv)
 	int					pid;
 	char				*message;
 	struct sigaction	sus;
+	sigset_t			set;
 
 	sus.sa_handler = ft_sus;
+	sigemptyset(&set);
+	sus.sa_mask = set;
+	sus.sa_flags = 0;
 	sigaction(SIGUSR1, &sus, NULL);
 	if (argc == 3)
 	{

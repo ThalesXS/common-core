@@ -4,24 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "10208abc3449585e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d6e64277e2019b90",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/C/0. Intro.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "56aaf00ef7574ff9",
         "type": "tabs",
         "children": [
@@ -165,12 +147,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d6e64277e2019b90",
+  "active": "909c892d0ea0b256",
   "lastOpenFiles": [
+    "projects/minitalk/client",
+    "projects/minitalk/objects/client.o",
+    "projects/minitalk/server",
+    "projects/minitalk/objects/server.o",
+    "projects/minitalk/objects/utils.o",
+    "projects/minitalk/libft/stVMKhoB",
+    "projects/minitalk/libft/libft.a",
+    "projects/minitalk/libft/ft_utoa.o",
+    "projects/minitalk/libft/ft_print_xx.o",
+    "projects/minitalk/libft/ft_printstr.o",
+    "projects/minitalk/libft/ft_print_d.o",
     "notes/C/0. Intro.md",
-    "tests/a.out",
-    "tests/test.c",
-    "tests",
     "notes/Markdown/3. Quoting and Alerts.md",
     "notes/Algoritmos/0. Intro.md",
     "notes/Markdown/0.Intro.md",
@@ -180,25 +170,18 @@
     "notes/SSH/2. SSH Commands.md",
     "notes/SSH/1. Working With SSH.md",
     "notes/SSH/0. Intro.md",
-    "notes/SSH",
     "notes/README.md",
     "notes/Markdown/4. Images and Emojis.md",
     "notes/Markdown/2. Links and Lists.md",
     "notes/Markdown/1. Basics.md",
-    "notes/Markdown",
     "notes/Linux/99999. libpam pwquality.md",
     "notes/Linux/99999. AWK.md",
     "notes/Linux/1. Command Line Interface.md",
     "notes/Linux/0. Intro.md",
-    "notes/Linux",
     "notes/HTML/0. Intro.md",
-    "notes/HTML",
     "notes/Holy Grail/0. Intro.md",
-    "notes/Holy Grail",
     "notes/Guia 42/0. Intro.md",
-    "notes/Guia 42",
     "notes/Git/0. Intro.md",
-    "notes/Git",
     "notes/Dicionário/UFW.md",
     "notes/Dicionário/Snippets.md",
     "notes/Dicionário/Port.md"

@@ -6,7 +6,7 @@ OBJ_DIR = objects
 
 # ============================ {Files      } ============================
 
-NAME = a.out
+NAME = push_swap
 FILES = push_swap.c utils.c	rules0.c rules1.c rules2.c rules3.c
 OBJ = $(FILES:.c=.o)
 ARQ = push_swap.a
@@ -51,7 +51,7 @@ $(OBJ_DIR)/%.o: $(SRC)/%.c
 
 clean:
 	make clean -C ft_printf
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	make fclean -C ft_printf

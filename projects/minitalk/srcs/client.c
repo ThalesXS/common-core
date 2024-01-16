@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:37:38 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/16 12:39:25 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:25:09 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@ int	main(int argc, char **argv)
 	int					pid;
 	char				*message;
 	struct sigaction	sus;
+	struct sigaction	roll;
 	sigset_t			set;
 
 	sus.sa_handler = ft_sus;
+	roll.sa_handler = ft_roll;
 	sigemptyset(&set);
 	sus.sa_mask = set;
+	roll.sa_mask = set;
 	sus.sa_flags = 0;
+	roll.sa_flags = 0;
 	sigaction(SIGUSR1, &sus, NULL);
+	sigaction(SIGUSR2, &roll, NULL);
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);
@@ -39,8 +44,8 @@ int	main(int argc, char **argv)
 
 void	ft_send(int pid, char *message)
 {
-	int i;
-	unsigned int byte;
+	long long		i;
+	unsigned char	byte;
 
 	i = 0;
 	while (message[i])
@@ -54,8 +59,8 @@ void	ft_send(int pid, char *message)
 
 void	ft_bitbybit(int pid, unsigned char byte)
 {
-	int	i;
-	unsigned char save;
+	long long		i;
+	unsigned char	save;
 
 	i = 0;
 	save = byte;
@@ -74,4 +79,10 @@ void	ft_bitbybit(int pid, unsigned char byte)
 		}
 		i++;
 	}
+}
+
+void	ft_roll(int sig)
+{
+	(void) sig;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:47:54 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/15 19:38:25 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:20:42 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	ft_onehandler(int sig, siginfo_t *info, void *nothing);
 void	ft_add(void);
 void	ft_receive(struct sigaction *zeroact, struct sigaction *oneact);
 void	ft_sus(int sig);
+void	ft_roll(int sig);
 
 #endif

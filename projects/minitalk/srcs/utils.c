@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:10:13 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/16 13:15:17 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:21:59 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 void	ft_bitone(int pid)
 {
 	kill(pid, SIGUSR2);
-	usleep(300);
+	pause();
 }
 
 void	ft_bitzero(int pid)
 {
 	kill(pid, SIGUSR1);
-	usleep(300);
+	pause();
 }
 
 void	ft_sus(int sig)

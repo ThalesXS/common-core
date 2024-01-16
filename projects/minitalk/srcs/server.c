@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:22:55 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/15 20:59:43 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:15:10 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_zerohandler(int sig, siginfo_t *info, void *nothing)
 	(void) sig;
 	(void) nothing;
 
+	//write(1, "0", 1);
 	if (!message.pid)
 		message.pid = info->si_pid;
 	message.byte = message.byte << 1;
@@ -65,6 +66,7 @@ void	ft_onehandler(int sig, siginfo_t *info, void *nothing)
 	(void) sig;
 	(void) nothing;
 
+	//write(1, "1", 1);
 	if (!message.pid)
 		message.pid = info->si_pid;
 	message.byte = message.byte << 1;
@@ -109,9 +111,9 @@ void	ft_receive(struct sigaction *zeroact, struct sigaction *oneact)
 			pause();
 		else
 		{
-			ft_printf(message.message);
-			message.received = 0;
+			ft_printf("%s", message.message);
 			free(message.message);
+			message.received = 0;
 			message.message = NULL;
 			kill(message.pid, SIGUSR1);
 			message.pid = 0;

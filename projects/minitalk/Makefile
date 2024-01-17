@@ -6,6 +6,7 @@ OBJ_DIR = objects
 
 # ============================ {Files      } ============================
 
+NAME = server client
 SERVER = server
 SV_FILES = server.c #utils.c
 SV_OBJ = $(SV_FILES:.c=.o)
@@ -41,14 +42,11 @@ WHITE = \033[0;37m
 
 # ============================ {Rules      } ============================
 
-all: $(SERVER) $(CLIENT)
+all: $(NAME)
 
-$(SERVER): $(OBJ_DIR) $(SV_TARGET)
+$(NAME): $(OBJ_DIR) $(SV_TARGET) $(CL_TARGET)
 	make -C ./libft $(WBLOCK)
 	$(CC) $(W) $(I) $(SV_TARGET) $(LIBFT) -o $(SERVER)
-
-$(CLIENT): $(OBJ_DIR) $(CL_TARGET)
-	make -C ./libft $(WBLOCK)
 	$(CC) $(W) $(I) $(CL_TARGET) $(LIBFT) -o $(CLIENT)
 
 $(OBJ_DIR):

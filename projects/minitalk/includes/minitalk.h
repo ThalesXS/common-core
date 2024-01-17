@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:47:54 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/16 16:20:42 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:16:41 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@
 # define _XOPEN_SOURCE 700
 # define _GNU_SOURCE
 
-
 typedef struct s_message
 {
-	char			*message;
 	unsigned char	byte;
 	int				i;
 	int				received;
 	int				pid;
 }	t_message;
-
 
 void	ft_send(int pid, char *message);
 void	ft_bitbybit(int pid, unsigned char byte);

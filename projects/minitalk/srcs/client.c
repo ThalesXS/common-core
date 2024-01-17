@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:37:38 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/16 16:25:09 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:48:24 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	main(int argc, char **argv)
 		ft_send(pid, message);
 	}
 	else if (argc < 3)
-		ft_printf("error_00: lack of arguments.");
+		ft_putstr_fd("error_00: lack of arguments.\n", 1);
 	else
-		ft_printf("error_01: too many arguments.");
+		ft_putstr_fd("error_01: too many arguments.\n", 1);
 }
 
 void	ft_send(int pid, char *message)

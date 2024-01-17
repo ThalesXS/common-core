@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:47:02 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/17 18:09:53 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:20:11 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,72 @@ void	ft_cost3(int len_a, int len_b, t_stack **aux, t_stack *save_b)
 			temp->cost--;
 			i++;
 		}
+	}
+}
+
+
+void	ft_newcost(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
+{
+	t_stack	*aux;
+	t_stack	*bux;
+
+	aux = *stack_a;
+	if ((*stack_b)->target)
+		ft_newtarget(stack_a, stack_b);
+	while (aux)
+	{
+		bux = *stack_b;
+		while (bux)
+		{
+			if (aux->current <= a_size / 2)
+				aux->cost = aux->current + 1 + aux->target->cost;
+			else
+				aux->cost = a_size - aux->current + 1 + aux->target->cost;
+			aux->nvs = aux->target->current;
+			ft_cost3(a_size, b_size, &aux, aux->target);
+			bux = bux->next;
+
+		}
+		aux = aux->next;
+	}
+}
+
+void	ft_target(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*aux;
+	t_stack	*bux;
+	t_stack	*bux2;
+
+	aux = *stack_a;
+	bux = *stack_b;
+	bux2 = bux->next;
+	while (aux)
+	{
+		if ((aux->dest > bux->dest && bux->dest > bux2->dest)
+			|| (bux->dest > bux2->dest && bux2->dest > aux->dest)
+			|| (bux2->dest > aux->dest && aux->dest > bux->dest))
+			aux->target = bux;
+		else
+			aux->target = bux2;
+		aux = aux->next;
+	}
+}
+
+void	ft_newtarget(t_stack **stack_a, t_stack **new_b)
+{ 
+	t_stack	*aux;
+	t_stack	*bux;
+	t_stack	*targ;
+
+	aux = *stack_a;
+	bux = *new_b;
+	targ = aux->target;
+	while (aux)
+	{
+		if ((aux->dest > bux->dest && bux->dest > targ->dest)
+			|| (bux->dest > targ->dest && targ->dest > aux->dest)
+			|| (targ->dest > aux->dest && aux->dest > bux->dest))
+			aux->target = bux;
+		aux = aux->next;
 	}
 }

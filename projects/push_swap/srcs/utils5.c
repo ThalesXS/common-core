@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:47:35 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/17 18:54:36 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:19:15 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,26 @@ void	ft_rd2(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 		}
 		bux = bux->next;
 	}
+}
+
+void	printall(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *sa;
+	t_stack	*sb;
+
+	sa = *stack_a;
+	sb = *stack_b;
+	while (sa)
+	{
+		ft_printf("A: V = %d, T = %d, C = %d\n", sa->content, sa->target->dest, sa->cost); //APAGAR++++++++++++
+		sa = sa->next;
+	}
+	ft_putchar_fd('\n', 1);
+	while (sb)
+	{
+		ft_printf("B: V = %d, T = %d, C = %d\n", sb->content, 0, 0); //APAGAR++++++++++++
+		sb = sb->next;
+	}
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('\n', 1);
 }

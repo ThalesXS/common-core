@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:03:19 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/02 18:48:33 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:55:26 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,9 @@ void	ft_exec(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
 void	ft_rexec(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
 void	ft_rd(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
 void	ft_rd2(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
-
+void	ft_pc2(t_stack *bux, t_stack *save_bux, t_stack *aux, int size[2]);
+void	ft_ifexec(t_stack **stack_a, t_stack **stack_b,
+			t_stack *aux[2], int size[2]);
+void	ft_ifrexec(t_stack **stack_a, t_stack **stack_b,
+			t_stack *aux[2], int size[2]);
 #endif

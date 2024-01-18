@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:47:02 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/17 22:20:11 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:39:41 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,9 +172,9 @@ void	ft_newtarget(t_stack **stack_a, t_stack **new_b)
 
 	aux = *stack_a;
 	bux = *new_b;
-	targ = aux->target;
 	while (aux)
 	{
+	targ = aux->target;
 		if ((aux->dest > bux->dest && bux->dest > targ->dest)
 			|| (bux->dest > targ->dest && targ->dest > aux->dest)
 			|| (targ->dest > aux->dest && aux->dest > bux->dest))

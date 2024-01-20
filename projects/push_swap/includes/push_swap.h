@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:03:19 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/17 21:49:08 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:00:19 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_stack
 	int				current;
 	int				dest;
 	int				cost;
-	int				stacksize;
 	int				nvs;
 	int				intstack;
 	struct s_stack	*target;
@@ -75,8 +74,12 @@ void	ft_ifexec(t_stack **stack_a, t_stack **stack_b,
 			t_stack *aux[2], int size[2]);
 void	ft_ifrexec(t_stack **stack_a, t_stack **stack_b,
 			t_stack *aux[2], int size[2]);
-void	ft_newcost(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
+void	ft_newcost(t_stack **stack_a, t_stack **stack_b,
+			int a_size, int b_size);
 void	ft_target(t_stack **stack_a, t_stack **stack_b);
 void	ft_newtarget(t_stack **stack_a, t_stack **new_b);
-void	printall(t_stack **stack_a, t_stack **stack_b);
+void	ft_newrd(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
+void	ft_targetrd(t_stack **stack_a, t_stack **stack_b);
+void	ft_newtargetrd(t_stack **new_a, t_stack **stack_b);
+
 #endif

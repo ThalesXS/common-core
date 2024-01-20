@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "56aaf00ef7574ff9",
+        "id": "3568335f6bc0d199",
         "type": "tabs",
         "children": [
           {
-            "id": "909c892d0ea0b256",
+            "id": "4f155fd4298cd730",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/C/0. Intro.md",
-                "mode": "preview",
+                "file": "notes/C/00. Intro.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "799d20ab1d5d38c2",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/C/0. Intro.md",
+                "file": "notes/C/00. Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/C/0. Intro.md",
+                "file": "notes/C/00. Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/C/0. Intro.md"
+                "file": "notes/C/00. Intro.md"
               }
             }
           }
@@ -147,43 +146,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "909c892d0ea0b256",
+  "active": "4f155fd4298cd730",
   "lastOpenFiles": [
-    "projects/minitalk/client",
-    "projects/minitalk/objects/client.o",
-    "projects/minitalk/server",
-    "projects/minitalk/objects/server.o",
-    "projects/minitalk/objects/utils.o",
-    "projects/minitalk/libft/stVMKhoB",
-    "projects/minitalk/libft/libft.a",
-    "projects/minitalk/libft/ft_utoa.o",
-    "projects/minitalk/libft/ft_print_xx.o",
-    "projects/minitalk/libft/ft_printstr.o",
-    "projects/minitalk/libft/ft_print_d.o",
-    "notes/C/0. Intro.md",
+    "projects/push_swap/0",
+    "projects/push_swap/traces.txt",
+    "projects/push_swap/test_check.txt",
+    "projects/push_swap/push_swap",
+    "projects/push_swap/st0GbXz5",
+    "projects/push_swap/libps.a",
+    "projects/push_swap/ft_printf/stCAlE8E",
+    "projects/push_swap/ft_printf/libftprintf.a",
+    "projects/push_swap/ft_printf/libft/stqzxtIT",
+    "projects/push_swap/ft_printf/libft/libft.a",
+    "projects/push_swap/ft_printf/libft/ft_toupper.o",
+    "notes/C/18. Outras Funções.md",
+    "notes/C/00. Intro.md",
+    "notes/C/17. Signals.md",
+    "notes/C/16. Variadic Function.md",
+    "notes/C/15. Recursividade.md",
+    "notes/C/14. Typedef.md",
+    "notes/C/13. Enums.md",
+    "notes/C/12. Structs.md",
+    "notes/C/11. Ponteiros.md",
+    "notes/C/10. Matriz.md",
+    "notes/C/09. Vetores.md",
+    "notes/C/08. Macros (define).md",
+    "notes/C/07. Loop.md",
+    "notes/C/06. Condicionais.md",
+    "notes/C/05. Operadores.md",
+    "notes/C/03. Variáveis.md",
+    "notes/C/02. Funções.md",
+    "notes/C/01. Bibliotecas.md",
+    "notes/C/04. Tipos de Dados.md",
+    "notes/C/19. math.h.md",
+    "projects/so_long/minilibx-linux/README.md",
     "notes/Markdown/3. Quoting and Alerts.md",
     "notes/Algoritmos/0. Intro.md",
     "notes/Markdown/0.Intro.md",
-    "notes/teste.md",
-    "notes/SSH/4. OpenSSH.md",
-    "notes/SSH/3. Port Forwarding.md",
-    "notes/SSH/2. SSH Commands.md",
-    "notes/SSH/1. Working With SSH.md",
-    "notes/SSH/0. Intro.md",
-    "notes/README.md",
-    "notes/Markdown/4. Images and Emojis.md",
-    "notes/Markdown/2. Links and Lists.md",
-    "notes/Markdown/1. Basics.md",
-    "notes/Linux/99999. libpam pwquality.md",
-    "notes/Linux/99999. AWK.md",
-    "notes/Linux/1. Command Line Interface.md",
-    "notes/Linux/0. Intro.md",
-    "notes/HTML/0. Intro.md",
-    "notes/Holy Grail/0. Intro.md",
-    "notes/Guia 42/0. Intro.md",
-    "notes/Git/0. Intro.md",
-    "notes/Dicionário/UFW.md",
-    "notes/Dicionário/Snippets.md",
-    "notes/Dicionário/Port.md"
+    "notes/teste.md"
   ]
 }

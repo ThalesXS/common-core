@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:46:33 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/18 11:40:33 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:59:57 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	ft_biggerstack(t_stack **stack_a, t_stack **stack_b)
 	ft_pb(stack_b, stack_a);
 	ft_pb(stack_b, stack_a);
 	ft_target(stack_a, stack_b);
-	//printall(stack_a, stack_b);
 	ft_sort_b(stack_a, stack_b);
 	a_size = ft_stacksize(stack_a);
 	while ((*stack_a)->dest != 0)
@@ -104,13 +103,13 @@ void	ft_sort_b(t_stack **stack_a, t_stack **stack_b)
 	while (a_size > 3 || a_size == 2)
 	{
 		ft_cost(stack_a, stack_b, a_size, b_size);
-		//printall(stack_a, stack_b);
 		ft_exec(stack_a, stack_b, a_size, b_size);
 		a_size--;
 		b_size++;
 	}
 	if (a_size == 3)
 		ft_threestack(stack_a);
+	ft_targetrd(stack_a, stack_b);
 	while (b_size > 0)
 	{
 		ft_rd(stack_a, stack_b, a_size, b_size);

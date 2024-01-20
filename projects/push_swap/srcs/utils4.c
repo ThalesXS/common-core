@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:47:02 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/18 11:39:41 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:59:08 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,36 +58,7 @@ void	ft_cost(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 			bux->cost = b_size - bux->current;
 		bux = bux->next;
 	}
-	ft_cost2(stack_a, stack_b, a_size, b_size);
-}
-
-void	ft_cost2(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
-{
-	t_stack	*aux[2];
-	t_stack	*save_b[2];
-
-	aux[0] = *stack_a;
-	save_b[1] = ft_smallestdest(stack_b);
-	while (aux[0])
-	{
-		aux[1] = *stack_b;
-		save_b[0] = save_b[1];
-		while (aux[1])
-		{
-			if (aux[1]->dest >= save_b[0]->dest && aux[1]->dest < aux[0]->dest)
-				save_b[0] = aux[1];
-			else if (save_b[1]->dest > aux[0]->dest)
-				save_b[0] = ft_biggestdest(stack_b);
-			if (aux[0]->current <= a_size / 2)
-				aux[0]->cost = aux[0]->current + 1 + save_b[0]->cost;
-			else
-				aux[0]->cost = a_size - aux[0]->current + 1 + save_b[0]->cost;
-			aux[0]->nvs = save_b[0]->current;
-			ft_cost3(a_size, b_size, &aux[0], save_b[0]);
-			aux[1] = aux[1]->next;
-		}
-		aux[0] = aux[0]->next;
-	}
+	ft_newcost(stack_a, stack_b, a_size, b_size);
 }
 
 void	ft_cost3(int len_a, int len_b, t_stack **aux, t_stack *save_b)
@@ -116,7 +87,6 @@ void	ft_cost3(int len_a, int len_b, t_stack **aux, t_stack *save_b)
 	}
 }
 
-
 void	ft_newcost(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 {
 	t_stack	*aux;
@@ -137,48 +107,7 @@ void	ft_newcost(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 			aux->nvs = aux->target->current;
 			ft_cost3(a_size, b_size, &aux, aux->target);
 			bux = bux->next;
-
 		}
-		aux = aux->next;
-	}
-}
-
-void	ft_target(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*aux;
-	t_stack	*bux;
-	t_stack	*bux2;
-
-	aux = *stack_a;
-	bux = *stack_b;
-	bux2 = bux->next;
-	while (aux)
-	{
-		if ((aux->dest > bux->dest && bux->dest > bux2->dest)
-			|| (bux->dest > bux2->dest && bux2->dest > aux->dest)
-			|| (bux2->dest > aux->dest && aux->dest > bux->dest))
-			aux->target = bux;
-		else
-			aux->target = bux2;
-		aux = aux->next;
-	}
-}
-
-void	ft_newtarget(t_stack **stack_a, t_stack **new_b)
-{ 
-	t_stack	*aux;
-	t_stack	*bux;
-	t_stack	*targ;
-
-	aux = *stack_a;
-	bux = *new_b;
-	while (aux)
-	{
-	targ = aux->target;
-		if ((aux->dest > bux->dest && bux->dest > targ->dest)
-			|| (bux->dest > targ->dest && targ->dest > aux->dest)
-			|| (targ->dest > aux->dest && aux->dest > bux->dest))
-			aux->target = bux;
 		aux = aux->next;
 	}
 }

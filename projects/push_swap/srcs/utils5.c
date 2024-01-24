@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:47:35 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/18 13:01:48 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:26:37 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_exec(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 {
 	t_stack	*aux[2];
 	int		size[2];
+	int		act_cost;
 
 	aux[0] = *stack_a;
 	aux[1] = aux[0];
@@ -28,9 +29,11 @@ void	ft_exec(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 			aux[1] = aux[0];
 		aux[0] = aux[0]->next;
 	}
-	while (aux[1]->cost > 1)
+	act_cost = aux[1]->cost;
+	while (act_cost > 1)
 	{
 		ft_ifexec(stack_a, stack_b, aux, size);
+		act_cost--;
 	}
 	ft_pb(stack_b, stack_a);
 }
@@ -39,6 +42,7 @@ void	ft_rexec(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 {
 	t_stack	*aux[2];
 	int		size[2];
+	int		act_cost;
 
 	aux[0] = *stack_b;
 	aux[1] = aux[0];
@@ -50,9 +54,11 @@ void	ft_rexec(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 			aux[1] = aux[0];
 		aux[0] = aux[0]->next;
 	}
-	while (aux[1]->cost > 1 && size[1] >= 1)
+	act_cost = aux[1]->cost;
+	while (act_cost > 1 && size[1] >= 1)
 	{
 		ft_ifrexec(stack_a, stack_b, aux, size);
+		act_cost--;
 	}
 	ft_pa(stack_a, stack_b);
 }

@@ -18,6 +18,7 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <fcntl.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -109,5 +110,20 @@ char	*ft_utoa(unsigned int n);
 char	*ft_xtoa(unsigned int n);
 char	*ft_xxtoa(unsigned int n);
 int		ft_specif(char specifier, char *flags, va_list lst, t_string *string);
+
+// GET_NEXT_LINE
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_getting(int fd, char *line);
+char	*ft_cut(char *line);
+char	*ft_update(char *line);
+size_t	ft_linelen(char *str);
+char	*ft_strjoin_nl(char *s1, char *s2);
+int		ft_eol(char *str);
+char	*ft_strncpy(char *dest, char *src, size_t len);
 
 #endif

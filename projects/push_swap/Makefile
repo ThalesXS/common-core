@@ -7,7 +7,7 @@ OBJ_DIR = objects
 # ============================ {Files      } ============================
 
 NAME = push_swap
-FILES = push_swap.c utils.c utils2.c utils3.c utils4.c utils5.c utils6.c rules0.c rules1.c rules2.c rules3.c
+FILES = push_swap.c utils.c utils2.c utils3.c utils4.c utils5.c utils6.c utils7.c rules0.c rules1.c rules2.c rules3.c
 OBJ = $(FILES:.c=.o)
 ARQ = push_swap.a
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -41,13 +41,6 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)/%.o: $(SRC)/%.c
 	$(CC) $(W) $(O) $< -o $@ $(I)
-
-
-
-
-
-
-
 
 clean:
 	make clean -C ft_printf

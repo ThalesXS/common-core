@@ -8,6 +8,7 @@ FILES = ft_atoi.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_print_c.c ft_printf.c ft_print_p.c ft_print_u.c ft_ptoa.c \
 	ft_xtoa.c ft_printchar.c ft_print_s.c ft_print_x.c ft_specif.c \
 	ft_xxtoa.c ft_print_d.c ft_printstr.c ft_print_xx.c ft_utoa.c
+	get_next_line_utils.c get_next_line_utils_bonus.c
 OBJ = $(FILES:.c=.o)
 CCW = gcc -Wall -Wextra -Werror
 BFILE = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c

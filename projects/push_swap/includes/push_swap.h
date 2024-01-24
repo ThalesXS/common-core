@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:03:19 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/18 13:00:19 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:47:58 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,11 @@ void	ft_newtarget(t_stack **stack_a, t_stack **new_b);
 void	ft_newrd(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size);
 void	ft_targetrd(t_stack **stack_a, t_stack **stack_b);
 void	ft_newtargetrd(t_stack **new_a, t_stack **stack_b);
+
+void	ft_printstack(t_stack **stack_a, t_stack **stack_b);
+void	ft_rotate_with_a(t_stack **stack_a, t_stack **stack_b,
+			t_stack *aux[2], int size[2]);
+void	ft_reverse_with_a(t_stack **stack_a, t_stack **stack_b,
+			t_stack *aux[2], int size[2]);
 
 #endif

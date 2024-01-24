@@ -13,8 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/C/00. Intro.md",
-                "mode": "source",
+                "file": "notes/C/20. MiniLibX.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bb16fcad2bc11770",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/Linux/1. Command Line Interface.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "799d20ab1d5d38c2",
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/C/00. Intro.md",
+                "file": "notes/C/20. MiniLibX.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/C/00. Intro.md",
+                "file": "notes/C/20. MiniLibX.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/C/00. Intro.md"
+                "file": "notes/C/20. MiniLibX.md"
               }
             }
           }
@@ -148,20 +161,38 @@
   },
   "active": "4f155fd4298cd730",
   "lastOpenFiles": [
-    "projects/push_swap/0",
-    "projects/push_swap/traces.txt",
-    "projects/push_swap/test_check.txt",
-    "projects/push_swap/push_swap",
-    "projects/push_swap/st0GbXz5",
-    "projects/push_swap/libps.a",
-    "projects/push_swap/ft_printf/stCAlE8E",
-    "projects/push_swap/ft_printf/libftprintf.a",
-    "projects/push_swap/ft_printf/libft/stqzxtIT",
-    "projects/push_swap/ft_printf/libft/libft.a",
-    "projects/push_swap/ft_printf/libft/ft_toupper.o",
+    "projects/so_long/mlx/man/man3/mlx_pixel_put.3",
+    "projects/so_long/mlx/man/man3/mlx_new_window.3",
+    "projects/so_long/mlx/man/man3/mlx_new_image.3",
+    "projects/so_long/mlx/man/man3/mlx_loop.3",
+    "projects/so_long/mlx/man/man3/mlx.3",
+    "projects/so_long/mlx/man/man1/mlx_pixel_put.1",
+    "projects/so_long/mlx/man/man1/mlx_new_window.1",
+    "projects/so_long/mlx/man/man1/mlx_new_image.1",
+    "projects/so_long/mlx/man/man1/mlx_loop.1",
+    "projects/so_long/mlx/man/man1/mlx.1",
+    "projects/so_long/mlx/test/run_tests.sh",
+    "projects/so_long/mlx/README.md",
+    "projects/so_long/mlx22/README.md",
+    "notes/Linux/1. Command Line Interface.md",
+    "projects/so_long/textures/nest/nest_7.png",
+    "projects/so_long/textures/nest/nest_6.png",
+    "projects/so_long/textures/nest/nest_5.png",
+    "projects/so_long/textures/nest/nest222.png",
+    "projects/so_long/textures/nest/nest221.png",
+    "projects/so_long/textures/nest/nest220.png",
+    "projects/so_long/textures/nest/nest_4.png",
+    "projects/so_long/textures/nest/nest_3.png",
+    "projects/so_long/textures/nest/nest4.png",
+    "projects/so_long/textures/nest/nest3.png",
     "notes/C/18. Outras Funções.md",
-    "notes/C/00. Intro.md",
+    "notes/C/20. MiniLibX.md",
     "notes/C/17. Signals.md",
+    "tests/42_so_long/mlx/README.md",
+    "tests/42_so_long/ft_printf/README.md",
+    "tests/42_so_long/README.md",
+    "notes/C/19. math.h.md",
+    "notes/C/00. Intro.md",
     "notes/C/16. Variadic Function.md",
     "notes/C/15. Recursividade.md",
     "notes/C/14. Typedef.md",
@@ -175,14 +206,6 @@
     "notes/C/06. Condicionais.md",
     "notes/C/05. Operadores.md",
     "notes/C/03. Variáveis.md",
-    "notes/C/02. Funções.md",
-    "notes/C/01. Bibliotecas.md",
-    "notes/C/04. Tipos de Dados.md",
-    "notes/C/19. math.h.md",
-    "projects/so_long/minilibx-linux/README.md",
-    "notes/Markdown/3. Quoting and Alerts.md",
-    "notes/Algoritmos/0. Intro.md",
-    "notes/Markdown/0.Intro.md",
-    "notes/teste.md"
+    "notes/C/02. Funções.md"
   ]
 }

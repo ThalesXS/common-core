@@ -8,9 +8,9 @@ OBJ_DIR = objects
 
 NAME = server client
 SERVER = server
-SV_FILES = server.c #utils.c
+SV_FILES = server.c
 SV_OBJ = $(SV_FILES:.c=.o)
-CL_FILES = client.c #utils.c
+CL_FILES = client.c
 CL_OBJ = $(CL_FILES:.c=.o)
 CLIENT = client
 FILES = utils.c

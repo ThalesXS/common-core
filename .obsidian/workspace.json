@@ -4,28 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "3568335f6bc0d199",
+        "id": "85942ab366b455b0",
         "type": "tabs",
         "children": [
           {
-            "id": "4f155fd4298cd730",
+            "id": "f059dad89be61ca0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/C/20. MiniLibX.md",
+                "file": "notes/C/22. Thread.md",
                 "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "bb16fcad2bc11770",
+            "id": "19ae2367a189d9ef",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Linux/1. Command Line Interface.md",
+                "file": "notes/C/19. Outras Funções.md",
                 "mode": "preview",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/C/20. MiniLibX.md",
+                "file": "notes/C/22. Thread.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/C/20. MiniLibX.md",
+                "file": "notes/C/22. Thread.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/C/20. MiniLibX.md"
+                "file": "notes/C/22. Thread.md"
               }
             }
           }
@@ -159,21 +159,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4f155fd4298cd730",
+  "active": "f059dad89be61ca0",
   "lastOpenFiles": [
-    "projects/so_long/mlx/man/man3/mlx_pixel_put.3",
-    "projects/so_long/mlx/man/man3/mlx_new_window.3",
-    "projects/so_long/mlx/man/man3/mlx_new_image.3",
-    "projects/so_long/mlx/man/man3/mlx_loop.3",
-    "projects/so_long/mlx/man/man3/mlx.3",
-    "projects/so_long/mlx/man/man1/mlx_pixel_put.1",
-    "projects/so_long/mlx/man/man1/mlx_new_window.1",
-    "projects/so_long/mlx/man/man1/mlx_new_image.1",
-    "projects/so_long/mlx/man/man1/mlx_loop.1",
-    "projects/so_long/mlx/man/man1/mlx.1",
-    "projects/so_long/mlx/test/run_tests.sh",
-    "projects/so_long/mlx/README.md",
-    "projects/so_long/mlx22/README.md",
+    "projects/philosophers/philo/philosophers",
+    "tests/42-Philosophers/philo/philo",
+    "tests/42-Philosophers/philo/validate_input.o",
+    "tests/42-Philosophers/philo/utils.o",
+    "tests/42-Philosophers/philo/thread_utils.o",
+    "tests/42-Philosophers/philo/routine.o",
+    "tests/42-Philosophers/philo/philo_utils.o",
+    "tests/42-Philosophers/philo/main.o",
+    "tests/42-Philosophers/philo/date_utils.o",
+    "tests/42-Philosophers/philo/validate_input.c",
+    "tests/42-Philosophers/philo/utils.c",
+    "notes/C/19. Outras Funções.md",
+    "notes/C/22. Thread.md",
+    "notes/C/21. MiniLibX.md",
+    "notes/C/04. Keywords.md",
+    "notes/C/05. Operadores.md",
+    "Untitled.md",
+    "notes/C/06. Condicionais.md",
+    "notes/C/20. math.h.md",
+    "notes/C/09. Vetores.md",
+    "notes/C/10. Matriz.md",
+    "notes/C/18. Signals.md",
+    "notes/C/17. Variadic Function.md",
+    "notes/C/16. Recursividade.md",
+    "notes/C/15. Typedef.md",
+    "notes/C/14. Union.md",
+    "notes/C/13. Enums.md",
+    "notes/C/12. Structs.md",
+    "notes/C/11. Ponteiros.md",
+    "notes/C/08. Macros (define).md",
+    "notes/C/07. Loop.md",
+    "notes/C/03. Variáveis.md",
+    "notes/C/02. Funções.md",
+    "notes/C/01. Bibliotecas.md",
+    "notes/C/00. Intro.md",
     "notes/Linux/1. Command Line Interface.md",
     "projects/so_long/textures/nest/nest_7.png",
     "projects/so_long/textures/nest/nest_6.png",
@@ -184,28 +206,6 @@
     "projects/so_long/textures/nest/nest_4.png",
     "projects/so_long/textures/nest/nest_3.png",
     "projects/so_long/textures/nest/nest4.png",
-    "projects/so_long/textures/nest/nest3.png",
-    "notes/C/18. Outras Funções.md",
-    "notes/C/20. MiniLibX.md",
-    "notes/C/17. Signals.md",
-    "tests/42_so_long/mlx/README.md",
-    "tests/42_so_long/ft_printf/README.md",
-    "tests/42_so_long/README.md",
-    "notes/C/19. math.h.md",
-    "notes/C/00. Intro.md",
-    "notes/C/16. Variadic Function.md",
-    "notes/C/15. Recursividade.md",
-    "notes/C/14. Typedef.md",
-    "notes/C/13. Enums.md",
-    "notes/C/12. Structs.md",
-    "notes/C/11. Ponteiros.md",
-    "notes/C/10. Matriz.md",
-    "notes/C/09. Vetores.md",
-    "notes/C/08. Macros (define).md",
-    "notes/C/07. Loop.md",
-    "notes/C/06. Condicionais.md",
-    "notes/C/05. Operadores.md",
-    "notes/C/03. Variáveis.md",
-    "notes/C/02. Funções.md"
+    "projects/so_long/textures/nest/nest3.png"
   ]
 }

@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:22:47 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/02 22:31:58 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:43:36 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,14 @@ int	ft_which_fork(t_table *table, t_philo *philo)
 	else
 	{
 		pthread_mutex_lock(&philo->forks[philo->right_fork]);
+		pthread_mutex_lock(&table->dead_mutex);
 		if (table->dead)
 		{
+			pthread_mutex_unlock(&table->dead_mutex);
 			pthread_mutex_unlock(&philo->forks[philo->right_fork]);
 			return (0);
 		}
+		pthread_mutex_unlock(&table->dead_mutex);
 		pthread_mutex_lock(&table->print);
 		printf("%ld %d has taken a fork\n", ft_get_time() - table->start,
 			philo->id);
@@ -64,11 +67,14 @@ int	ft_which_fork(t_table *table, t_philo *philo)
 int	ft_odd_id(t_table *table, t_philo *philo)
 {
 	pthread_mutex_lock(&philo->forks[philo->left_fork]);
+	pthread_mutex_lock(&table->dead_mutex);
 	if (table->dead)
 	{
+		pthread_mutex_unlock(&table->dead_mutex);
 		pthread_mutex_unlock(&philo->forks[philo->left_fork]);
 		return (0);
 	}
+	pthread_mutex_unlock(&table->dead_mutex);
 	pthread_mutex_lock(&table->print);
 	printf("%ld %d has taken a fork\n", ft_get_time() - table->start,
 		philo->id);

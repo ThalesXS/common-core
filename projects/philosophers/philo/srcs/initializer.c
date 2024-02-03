@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:37:51 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/01 22:31:47 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:07:31 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 int	ft_init_table(t_table *table, int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	table->nb_philo = ft_atoi(argv[1]);
+	if (ft_check_arguments(argc, argv))
+		return (1);
+	table->nb_philo = ft_atol(argv[1]);
 	table->nb_threads = 0;
 	table->finished_threads = 0;
-	table->time_to_die = ft_atoi(argv[2]);
-	table->time_to_eat = ft_atoi(argv[3]) * 1000;
-	table->time_to_sleep = ft_atoi(argv[4]) * 1000;
+	table->time_to_die = ft_atol(argv[2]);
+	table->time_to_eat = ft_atol(argv[3]) * 1000;
+	table->time_to_sleep = ft_atol(argv[4]) * 1000;
 	if (argc == 6)
-		table->nb_eat = ft_atoi(argv[5]);
+		table->nb_eat = ft_atol(argv[5]);
 	else
 		table->nb_eat = -1;
 	table->dead = 0;
@@ -61,6 +63,7 @@ int	ft_init_philos(t_table *table)
 		else
 			table->philo[i].right_fork = (i + 1);
 		table->philo[i].forks = table->forks;
+		table->philo[i].last_eat = -1;
 		i++;
 	}
 	return (0);
@@ -72,16 +75,49 @@ int	ft_init_threads(t_table *table)
 	pthread_t	thread;
 
 	i = 0;
+	table->start = 0;
+	pthread_mutex_init(&table->dead_mutex, NULL);
 	while (i < table->nb_philo)
 	{
 		if (pthread_create(&table->threads[i], NULL,
-		ft_routine, (void *) table))
+				ft_routine, (void *) table))
 			return (1);
 		i++;
 	}
-	while (table->nb_threads < table->nb_philo)
-		;
-	pthread_create(&thread, NULL, ft_end_threads,(void *) table);
+	pthread_create(&thread, NULL, ft_end_threads, (void *) table);
 	pthread_join(thread, NULL);
+	return (0);
+}
+
+int	ft_check_arguments(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_only_digit(argv[i]))
+			return (1);
+		else if (atol(argv[i]) > INT_MAX || atol(argv[i]) < 1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_only_digit(char *arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		if ((arg[i] < '0' || arg[i] > '9') && arg[i] != '-'
+			&& arg[i] != '+' && arg[i] != '\t' && arg[i] != '\n'
+			&& arg[i] != '\v' && arg[i] != '\f' && arg[i] != '\r'
+			&& arg[i] != ' ')
+			return (1);
+		i++;
+	}
 	return (0);
 }

@@ -10,8 +10,8 @@ BONUS_DIR = objects_bonus
 
 #	====================		Files      		====================
 
-NAME = philosophers
-FILES = philosophers.c utils.c initializer.c routine.c
+NAME = philo
+FILES = philosophers.c utils.c initializer.c routine.c routine2.c  
 OBJ = $(FILES:.c=.o)
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
 
@@ -27,7 +27,7 @@ CC = gcc
 RM = rm
 
 #	====================		Flags      		====================
-W = -Wall -Wextra -Werror
+W = -Wall -Wextra -Werror -fsanitize=thread
 O = -c
 I = -I $(INC)
 WBLOCK = --no-print-directory

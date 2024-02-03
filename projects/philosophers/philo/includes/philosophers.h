@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:39:57 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/01 22:04:18 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:42:23 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <limits.h>
 
 //	====================		MACROS		====================
 
@@ -53,34 +54,43 @@ typedef struct s_table
 	long			start;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
+	pthread_mutex_t	dead_mutex;
 	pthread_t		*threads;
 	t_philo			*philo;
 }					t_table;
 
 // ====================		UTILS				====================
 
-int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 long	ft_get_time(void);
-int	ft_which_fork(t_table *table, t_philo *philo);
+int		ft_which_fork(t_table *table, t_philo *philo);
+int		ft_odd_id(t_table *table, t_philo *philo);
+void	ft_time_init(t_table *table);
 
 // ====================		INITIALIZER			====================
 
 int		ft_init_table(t_table *table, int argc, char **argv);
 int		ft_init_philos(t_table *table);
 int		ft_init_threads(t_table *table);
-
+int		ft_check_arguments(int argc, char **argv);
+int		ft_only_digit(char *arg);
 // ====================		ROUTINE				====================
 
 void	*ft_routine(void *arg);
 void	ft_eat(t_table *table, t_philo *philo);
 void	ft_sleep(t_table *table, t_philo *philo);
 void	ft_think(t_table *table, t_philo *philo);
-int		ft_alive(t_table *table, t_philo *philo);
 void	*ft_end_threads(void *arg);
 
+// ====================		ROUTINE2			====================
+
+void	ft_eat_2(t_table *table, t_philo *philo);
+void	ft_only_one(t_table *table, t_philo *philo);
 
 // ====================		PHILOSOPHERS		====================
 
 void	ft_wait_threads(t_table *table);
+void	ft_free_table(t_table *table);
+void	*ft_died(t_table *table, t_philo *philo);
 
 #endif

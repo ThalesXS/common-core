@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 16:46:51 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/04 12:54:05 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/01/15 14:10:13 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/02/04 11:59:00 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "minitalk_bonus.h"
+#include "libft.h"
 
-int	ft_key_hook(int keycode, t_game *game)
+void	ft_bitone(int pid)
 {
-	if (keycode == 65307)
-		exit(ft_destroy_game(game));
-	else if (keycode == 'w' || keycode == 'a'
-		|| keycode == 's' || keycode == 'd'
-		|| keycode == 65362 || keycode == 65364
-		|| keycode == 65361 || keycode == 65363)
-		ft_move_player(keycode, game);
-	return (0);
+	kill(pid, SIGUSR2);
+	usleep(500);
 }
 
-int	ft_close_button(t_game *game)
+void	ft_bitzero(int pid)
 {
-	ft_destroy_game(game);
-	exit(0);
-	return (0);
+	kill(pid, SIGUSR1);
+	usleep(500);
+}
+
+void	ft_sus(int sig)
+{
+	(void) sig;
+	ft_putstr_fd("Message succesfully received\n", 1);
 }

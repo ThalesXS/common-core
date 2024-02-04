@@ -2,7 +2,9 @@
 
 INC = includes
 SRC = srcs
+SRC_BONUS = srcs_bonus
 OBJ_DIR = objects
+OBJ_DIR_BONUS = objects_bonus
 
 # ============================ {Files      } ============================
 
@@ -18,6 +20,21 @@ OBJ = $(FILES:.c=.o)
 ARQ = minitalk.a
 SV_TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ)) $(addprefix $(OBJ_DIR)/, $(SV_OBJ))
 CL_TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ)) $(addprefix $(OBJ_DIR)/, $(CL_OBJ))
+
+# ============================ {Bonus     } ============================
+
+BONUS = server_bonus client_bonus
+SERVER_BONUS = server_bonus
+SVB_FILES = server_bonus.c
+SVB_OBJ = $(SVB_FILES:.c=.o)
+CLB_FILES = client_bonus.c
+CLB_OBJ = $(CLB_FILES:.c=.o)
+CLIENT_BONUS = client_bonus
+FILES_BONUS = utils_bonus.c
+OBJ_BONUS = $(FILES_BONUS:.c=.o)
+ARQ_BONUS = minitalk.a
+SVB_TARGET = $(addprefix $(OBJ_DIR_BONUS)/, $(OBJ_BONUS)) $(addprefix $(OBJ_DIR_BONUS)/, $(SVB_OBJ))
+CLB_TARGET = $(addprefix $(OBJ_DIR_BONUS)/, $(OBJ_BONUS)) $(addprefix $(OBJ_DIR_BONUS)/, $(CLB_OBJ))
 
 # ============================ {Commands   } ============================
 
@@ -57,10 +74,25 @@ $(OBJ_DIR)/%.o: $(SRC)/%.c
 
 clean:
 	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR_BONUS)
 	make clean -C ./libft $(WBLOCK)
 
 fclean: clean
 	rm -f $(SERVER) $(CLIENT)
+	rm -f $(SERVER_BONUS) $(CLIENT_BONUS)
 	make fclean -C ./libft $(WBLOCK)
+
+bonus: $(BONUS)
+
+$(BONUS): $(OBJ_DIR_BONUS) $(SVB_TARGET) $(CLB_TARGET)
+	make -C ./libft $(WBLOCK)
+	$(CC) $(W) $(I) $(SVB_TARGET) $(LIBFT) -o $(SERVER_BONUS)
+	$(CC) $(W) $(I) $(CLB_TARGET) $(LIBFT) -o $(CLIENT_BONUS)
+
+$(OBJ_DIR_BONUS):
+	mkdir -p $(OBJ_DIR_BONUS)
+
+$(OBJ_DIR_BONUS)/%.o: $(SRC_BONUS)/%.c
+	$(CC) $(W) $(O) $(I) $< -o $@
 
 re: fclean all

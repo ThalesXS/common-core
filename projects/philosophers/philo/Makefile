@@ -27,7 +27,7 @@ CC = gcc
 RM = rm
 
 #	====================		Flags      		====================
-W = -Wall -Wextra -Werror -fsanitize=thread
+W = -Wall -Wextra -Werror -pthread -fsanitize=thread
 O = -c
 I = -I $(INC)
 WBLOCK = --no-print-directory

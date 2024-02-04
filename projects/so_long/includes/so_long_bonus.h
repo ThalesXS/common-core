@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:44:47 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/24 20:09:41 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:20:42 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define SO_LONG_BONUS_H
 
 # include "libft.h"
-# include "mlx.h"
-# include <math.h>
+# include "../minilibx-linux/mlx.h"
 
 //	====================			MACROS			====================
 

@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:19:14 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/24 18:49:20 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:34:36 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	ft_error(char *str, t_game *game)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
-	ft_destroy_game(game);
+	if (game)
+		ft_destroy_game(game);
 	return (1);
 }
 

@@ -6,11 +6,11 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:22:55 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/04 11:54:36 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:52:45 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 #include "libft.h"
 
 t_message	g_message;
@@ -41,8 +41,8 @@ int	main(void)
 
 void	ft_zerohandler(int sig, siginfo_t *info, void *nothing)
 {
-	(void) nothing;
 	(void) sig;
+	(void) nothing;
 	if (!g_message.pid)
 		g_message.pid = info->si_pid;
 	g_message.byte = g_message.byte << 1;
@@ -60,8 +60,8 @@ void	ft_zerohandler(int sig, siginfo_t *info, void *nothing)
 
 void	ft_onehandler(int sig, siginfo_t *info, void *nothing)
 {
-	(void) nothing;
 	(void) sig;
+	(void) nothing;
 	if (!g_message.pid)
 		g_message.pid = info->si_pid;
 	g_message.byte = g_message.byte << 1;

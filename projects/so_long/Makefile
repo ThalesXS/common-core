@@ -36,7 +36,7 @@ I = -I $(INC)
 WBLOCK = --no-print-directory
 
 LIBFT = -L ./libft -lft
-MLX = -L ./mlx -lmlx -lXext -lX11
+MLX = -L ./minilibx-linux -lmlx -lXext -lX11
 
 # ============================ {Colors     } ============================
 
@@ -52,7 +52,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(TARGET)
 	@make $(WBLOCK) -C ./libft
-	@make $(WBLOCK) -C ./mlx
+	@make $(WBLOCK) -C ./minilibx-linux
 	@$(CC) $(W) $(TARGET) $(LIBFT) $(MLX) -o $(NAME)
 	@echo "$(GREEN)$(NAME)$(RESET) created"
 
@@ -64,7 +64,7 @@ $(OBJ_DIR)/%.o: $(SRC)/%.c
 
 clean:
 	@make $(WBLOCK) clean -C ./libft
-	@make $(WBLOCK) clean -C ./mlx
+	@make $(WBLOCK) clean -C ./minilibx-linux
 	@$(RM) -rf $(OBJ_DIR) $(BONUS_DIR)
 	@echo "$(RED)$(OBJ_DIR)$(RESET) deleted"
 
@@ -79,7 +79,7 @@ bonus: $(BONUS)
 
 $(BONUS): $(BONUS_DIR) $(BONUS_TARGET)
 	@make $(WBLOCK) -C ./libft
-	@make $(WBLOCK) -C ./mlx
+	@make $(WBLOCK) -C ./minilibx-linux
 	@$(CC) $(W) $(BONUS_TARGET) $(LIBFT) $(MLX) -o $(BONUS)
 	@echo "$(GREEN)$(BONUS)$(RESET) created"
 
@@ -88,6 +88,8 @@ $(BONUS_DIR):
 
 $(BONUS_DIR)/%.o: $(BONUS_SRC)/%.c
 	@$(CC) $(W) $(O) $(I) $< -o $@
+
+reb: fclean bonus
 
 .PHONY: all clean fclean re
 

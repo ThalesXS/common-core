@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:37:38 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/04 11:55:05 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:58:34 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 #include "libft.h"
 
 int	main(int argc, char **argv)

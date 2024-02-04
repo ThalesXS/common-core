@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:47:37 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/24 19:53:15 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:52:46 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ void	ft_handle_rend(t_game *game, int x, int y, int s_xy[2])
 
 void	ft_handle_key(int keycode, int *x, int *y)
 {
-	if (keycode == 'w')
+	if (keycode == 'w' || keycode == 65362)
 		(*y)--;
-	else if (keycode == 's')
+	else if (keycode == 's' || keycode == 65364)
 		(*y)++;
-	else if (keycode == 'a')
+	else if (keycode == 'a' || keycode == 65361)
 		(*x)--;
-	else if (keycode == 'd')
+	else if (keycode == 'd' || keycode == 65363)
 		(*x)++;
 }

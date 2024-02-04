@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 14:47:54 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/04 11:54:50 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/02/03 19:35:29 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/02/04 11:59:20 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
 
 # include <signal.h>
 # include <sys/types.h>

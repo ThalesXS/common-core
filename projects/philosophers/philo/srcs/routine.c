@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:57:52 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/03 18:00:52 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:58:31 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ void	*ft_routine(void *arg)
 
 void	ft_think(t_table *table, t_philo *philo)
 {
+	pthread_mutex_lock(&table->dead_mutex);
 	pthread_mutex_lock(&table->print);
-	printf("%ld %d is thinking\n", ft_get_time() - table->start, philo->id);
+	if (!table->dead)
+		printf("%ld %d is thinking\n", ft_get_time() - table->start, philo->id);
 	pthread_mutex_unlock(&table->print);
+	pthread_mutex_unlock(&table->dead_mutex);
 	usleep(1000);
 	philo->state = EAT;
 }
@@ -77,9 +80,12 @@ void	ft_eat(t_table *table, t_philo *philo)
 
 void	ft_sleep(t_table *table, t_philo *philo)
 {
+	pthread_mutex_lock(&table->dead_mutex);
 	pthread_mutex_lock(&table->print);
-	printf("%ld %d is sleeping\n", ft_get_time() - table->start, philo->id);
+	if (!table->dead)
+		printf("%ld %d is sleeping\n", ft_get_time() - table->start, philo->id);
 	pthread_mutex_unlock(&table->print);
+	pthread_mutex_unlock(&table->dead_mutex);
 	usleep(table->time_to_sleep);
 	philo->state = THINK;
 }

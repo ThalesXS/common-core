@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:50:08 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/24 15:29:15 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:29:24 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ int	ft_destroy_game(t_game *game)
 {
 	ft_destroy_assets(game);
 	if (game->window)
+	{
 		mlx_destroy_window(game->connection, game->window);
+		write(1, "\n", 1);
+	}
 	if (game->connection)
 		mlx_destroy_display(game->connection);
 	ft_destroy_map(game);

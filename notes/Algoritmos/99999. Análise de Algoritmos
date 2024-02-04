@@ -1,0 +1,10 @@
+## O que é a Análise de Algoritmos?
+&nbsp; Na ciência da computação, a análise de algoritmos é processo de avaliar a
+complexidade computacional de um dado algoritmo, para tal, observa-se o tempo,
+memória e outros recursos necessários para a execução do mesmo. Geralmente, isso
+envolve determinar uma função que relaciona o tamanho do *input* de um algoritmo
+e o número de passos que ele dá (complexidade temporal) ou o número de locais de
+armazenamento que ele usa (complexidade espacial).
+
+&nbsp; Um algoritmo é dado como eficiente quando o valor dessa função é pequeno
+ou cresce lentamente quando comparado com o crescimento do tamanho do input.

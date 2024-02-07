@@ -13,7 +13,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/24. Funções Para o minishell.md",
+                "file": "C/25. Funções Para o minishell.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "1b93d6cb8d4e1a16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ec9d17ad25ebfc6e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C/23. Processos.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +87,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "78cbc0112d7bacea",
@@ -85,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C/24. Funções Para o minishell.md",
+                "file": "C/23. Processos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C/24. Funções Para o minishell.md",
+                "file": "C/23. Processos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C/24. Funções Para o minishell.md"
+                "file": "C/23. Processos.md"
               }
             }
           }
@@ -146,8 +165,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0cc04b19c1d6b05d",
+  "active": "ec9d17ad25ebfc6e",
   "lastOpenFiles": [
+    "C/25. Funções Para o minishell.md",
+    "C/23. Processos.md",
+    "C/18. Signals.md",
+    "C/24. Readline.md",
     "README.md",
     "teste.md"
   ]

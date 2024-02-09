@@ -4,40 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "d60551b5cc7ba17b",
+        "id": "305fd26e57ebe0cd",
         "type": "tabs",
         "children": [
           {
-            "id": "0cc04b19c1d6b05d",
+            "id": "78732e6395382304",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/25. Funções Para o minishell.md",
+                "file": "C/99. Funções Para o minishell.md",
                 "mode": "source",
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "1b93d6cb8d4e1a16",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "ec9d17ad25ebfc6e",
+            "id": "e50b90670726a5a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/23. Processos.md",
-                "mode": "source",
+                "file": "C/24. Readline.md",
+                "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -104,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C/23. Processos.md",
+                "file": "C/24. Readline.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C/23. Processos.md",
+                "file": "C/24. Readline.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C/23. Processos.md"
+                "file": "C/24. Readline.md"
               }
             }
           }
@@ -165,12 +160,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ec9d17ad25ebfc6e",
+  "active": "e50b90670726a5a3",
   "lastOpenFiles": [
-    "C/25. Funções Para o minishell.md",
-    "C/23. Processos.md",
-    "C/18. Signals.md",
+    "C/99. Funções Para o minishell.md",
+    "C/25. Stats Functions.md",
     "C/24. Readline.md",
+    "C/23. Processos.md",
+    "C/19. Extra Functions.md",
+    "C/14. Union.md",
+    "C/18. Signals.md",
     "README.md",
     "teste.md"
   ]

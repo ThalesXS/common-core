@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/07 13:37:07 by txisto-d          #+#    #+#             */
+/*   Updated: 2023/10/07 19:07:57 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

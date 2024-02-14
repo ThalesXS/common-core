@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_line_no_n.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/01/22 18:07:29 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/01/24 15:25:05 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_line_no_n(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
-	while (s[i])
+	while (str[i] && str[i] != '\n')
 		i++;
 	return (i);
 }

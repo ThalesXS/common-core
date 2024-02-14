@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/06 08:56:39 by txisto-d          #+#    #+#             */
+/*   Updated: 2023/10/09 15:04:25 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+static int	ft_in_set(char c, char const *set)
 {
-	int	i;
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*trim;
+	int		s1_len;
+
+	while (ft_in_set(*s1, set))
+		s1++;
+	s1_len = ft_strlen(s1);
+	while (ft_in_set(s1[s1_len - 1], set))
+		s1_len--;
+	trim = ft_substr(s1, 0, s1_len);
+	return (trim);
 }

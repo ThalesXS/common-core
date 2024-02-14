@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/12 12:46:00 by txisto-d          #+#    #+#             */
+/*   Updated: 2023/10/15 19:38:47 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_print_c(t_arg *arg, t_string *string, va_list lst)
 {
-	int	i;
+	char	c;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	c = va_arg(lst, int);
+	if (arg->minus)
+	{
+		ft_printchar(c, string);
+		while (arg->width > 1)
+		{
+			ft_printchar(' ', string);
+			arg->width--;
+		}
+	}
+	else
+	{
+		while (arg->width > 1)
+		{
+			ft_printchar(' ', string);
+			arg->width--;
+		}
+		ft_printchar(c, string);
+	}
 }

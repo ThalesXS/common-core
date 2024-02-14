@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/05 11:34:17 by txisto-d          #+#    #+#             */
+/*   Updated: 2023/10/06 11:20:14 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	little_len;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	little_len = ft_strlen(little);
+	if (*little == '\0' || !little)
+		return ((char *) big);
+	while (i < len && big[i])
+	{
+		if (little_len + i > len)
+			return (0);
+		if (ft_strncmp(&big[i], little, little_len) == 0)
+		{
+			return ((char *) &big[i]);
+		}
 		i++;
-	return (i);
+	}
+	return (0);
 }

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/06 08:32:59 by txisto-d          #+#    #+#             */
+/*   Updated: 2023/10/06 11:19:43 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*joined;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	joined = ft_calloc(s1_len + s2_len + 1, 1);
+	if (!joined)
+		return (NULL);
+	ft_strlcpy(joined, s1, s1_len + 1);
+	ft_strlcat(joined, s2, s1_len + s2_len + 1);
+	return (joined);
 }

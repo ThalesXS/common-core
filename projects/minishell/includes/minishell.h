@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 00:18:39 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/14 00:32:09 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:42:12 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,23 @@
 
 //	====================		STRUCTS      		====================
 
+typedef struct s_minishell
+{
+	char	**envp;
+	char	*input;
+	char	**tokens;
+	char	*dir;
+}	t_minishell;
+
+
+//	====================		MINISHELL.C      		====================
+void	ft_loop(t_minishell *minishell);
+void	ft_token_handler(t_minishell *minishell);
+
+//	====================		SPLIT_TOKEN.C      		====================
+
+//	====================		INPUT_VALIDATOR.C      		====================
+
+//	====================		DIRECTORY.C      		====================
+void	ft_get_dir(t_minishell *minishell);
 #endif

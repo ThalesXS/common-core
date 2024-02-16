@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "C/Tutorial/26. Readline.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "78cbc0112d7bacea",
@@ -146,7 +147,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c793fc924ca067c1",
+  "active": "439532ccccf7631d",
   "lastOpenFiles": [
     "C/Tutorial/25. Processos.md",
     "C/Tutorial/24. Thread.md",

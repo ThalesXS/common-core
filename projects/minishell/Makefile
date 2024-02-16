@@ -9,7 +9,7 @@ OBJ_DIR = objects
 
 NAME = minishell
 
-FILES =
+FILES = minishell.c directory.c
 OBJ = $(FILES:.c=.o)
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
 
@@ -17,6 +17,8 @@ TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+LIBFT = -Llibft -lft
+LIBREADLINE = -lreadline
 RM = rm -f
 
 #	====================		Colors     		====================
@@ -32,7 +34,8 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME):$(OBJ_DIR) $(TARGET)
-	@$(CC) $(CFLAGS) -o $@ $^
+	@make -C libft --no-print-directory
+	@$(CC) $(CFLAGS) -o $@ $(TARGET) $(LIBREADLINE) $(LIBFT)
 	@echo "$(GREEN)$(NAME) created$(RESET)"
 
 $(OBJ_DIR)/%.o: $(SRC)/%.c
@@ -44,10 +47,12 @@ $(OBJ_DIR):
 
 clean:
 	@rm -rf $(OBJ_DIR)
+	@make -C libft clean --no-print-directory
 	@echo "$(RED)$(NAME) objects removed$(RESET)"
 
 fclean: clean
 	@$(RM) $(NAME)
+	@make -C libft fclean --no-print-directory
 	@echo "$(RED)$(NAME) removed$(RESET)"
 
 re: fclean all

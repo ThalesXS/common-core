@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 00:18:39 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/16 19:42:12 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/17 00:00:36 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 //	====================		MACROS      		====================
 
-# define PROMPT "minishell$ "
+# define PROMPT "$ "
 # define PROMPT_SIZE 11
 
 //	====================		STRUCTS      		====================
@@ -45,7 +45,6 @@ typedef struct s_minishell
 	char	**tokens;
 	char	*dir;
 }	t_minishell;
-
 
 //	====================		MINISHELL.C      		====================
 void	ft_loop(t_minishell *minishell);

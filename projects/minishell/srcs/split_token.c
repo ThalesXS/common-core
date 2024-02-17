@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:28:12 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/16 20:01:50 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/16 22:37:54 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,17 @@ static char	**ft_splitting(char **split, char const *s)
 {
 	size_t	len;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
+	j = 0;
 	while (*s)
 	{
-		while (*s == c && *s)
+		while (*s == ' ')
 			s++;
-		if (*s != c && *s)
+		if (*s != ' ' && *s)
 		{
-			len = ft_wordlen(s, c);
+			len = ft_stringlen(s, c);
 			split[i] = ft_substr(s, 0, len);
 			if (!split[i])
 			{
@@ -93,12 +95,9 @@ char	**ft_split_token(char const *s)
 	char	**split;
 	size_t	wc;
 
-	wc = ft_stringcount(s);
-	aux = ft_calloc(ft_strlen(s), 1);
-	if (!aux)
-		return (NULL);
-	free(aux);
-	split = (char **) ft_calloc(wc + 1, 8);
+	aux = (char *)s;
+	wc = ft_stringcount(aux);
+	split = (char **) ft_calloc(wc + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
 	split = ft_splitting(split, s);

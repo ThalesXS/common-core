@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 00:18:18 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/16 19:57:42 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/17 00:01:40 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int	main(int argc, char **argv, char **envp)
 {
-	(void) argc;
-	(void) argv;
 	t_minishell	minishell;
 
+	(void) argc;
+	(void) argv;
 	minishell.envp = envp;
 	minishell.dir = NULL;
-	ft_get_dir(&minishell);
 	ft_loop(&minishell);
 	return (0);
 }
@@ -29,6 +28,7 @@ void	ft_loop(t_minishell *minishell)
 {
 	while (1)
 	{
+		ft_get_dir(minishell);
 		minishell->input = readline(minishell->dir);
 		if (minishell->input == NULL)
 			break ;
@@ -41,7 +41,6 @@ void	ft_loop(t_minishell *minishell)
 			//ft_token_validator(minishell);
 			ft_token_handler(minishell);
 			free(minishell->tokens);
-			
 			free(minishell->input);
 		}
 	}

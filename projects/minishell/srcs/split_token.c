@@ -6,102 +6,120 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:28:12 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/16 22:37:54 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/02/22 11:10:59 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../headers/minishell.h"
 
-static int ft_stringlen(char *s, char c)
+static void	ft_quotes_len(char *str, size_t *i, size_t *len, char quote)
 {
-	int	len;
-
-	len = 0;
-	if (*s == c)
-		s++;
-	while (*s != c && *s)
+	if (str[*i] == quote)
 	{
-		len++;
-		s++;
-	}
-	return (len);
-
-}
-
-static size_t	ft_stringcount(char const *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (*s)
-	{
-		while (*s == ' ')
-			s++;
-		if (*s != ' ' && *s)
+		(*i)++;
+		(*len)++;
+		while (str[*i] && str[*i] != quote)
 		{
-			i++;
-			if (*s == '\'')
-				ft_stringlen((char *)s, '\'');
-			else if (*s == '\"')
-				ft_stringlen((char *)s, '\"');
-			else
-				ft_stringlen((char *)s, ' ');
+			(*len)++;
+			(*i)++;
+		}
+		if (str[*i] == quote)
+		{
+			(*len)++;
+			(*i)++;
 		}
 	}
-	return (i);
 }
 
-static void	ft_clean(char **split, size_t i)
-{
-	size_t	n;
-
-	n = 0;
-	while (n < i)
-		free(split[n++]);
-	free(split);
-}
-
-static char	**ft_splitting(char **split, char const *s)
+static size_t	ft_token_len(char *str, int *start)
 {
 	size_t	len;
 	size_t	i;
-	size_t	j;
 
-	i = 0;
-	j = 0;
-	while (*s)
+	len = 0;
+	i = *start;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\''
+		&& str[i] != '\"')
 	{
-		while (*s == ' ')
-			s++;
-		if (*s != ' ' && *s)
-		{
-			len = ft_stringlen(s, c);
-			split[i] = ft_substr(s, 0, len);
-			if (!split[i])
-			{
-				ft_clean(split, i);
-				return (NULL);
-			}
-			s += len;
-			i++;
-		}
+		len++;
+		i++;
 	}
-	return (split);
+	if (len == 0)
+		ft_quotes_len(str, &i, &len, '\"');
+	if (len == 0)
+		ft_quotes_len(str, &i, &len, '\'');
+	if (len != 0)
+		*start = i;
+	return (len);
 }
 
-char	**ft_split_token(char const *s)
+static void	ft_token_list(char *line, t_parsed *lst, int *i)
 {
-	char	*aux;
-	char	**split;
-	size_t	wc;
+	size_t		len;
+	int			start;
+	t_parsed	*aux;
 
-	aux = (char *)s;
-	wc = ft_stringcount(aux);
-	split = (char **) ft_calloc(wc + 1, sizeof(char *));
-	if (!split)
-		return (NULL);
-	split = ft_splitting(split, s);
-	if (!split)
-		return (NULL);
-	return (split);
+	start = 0;
+	len = 0;
+	aux = lst;
+	while (line[start])
+	{
+		len = ft_token_len(line, &start);
+		start -= len;
+		aux->text = ft_substr(line, start, len);
+		start += len;
+		aux->next = ft_calloc(1, sizeof(t_parsed));
+		aux->next->prev = aux;
+		if (!aux->next)
+			exit(1);
+		aux = aux->next;
+		(*i)++;
+		if ((line[start] == ' ' || line[start] == '\t')
+			&& line[start + 1] == '\0')
+			start++;
+	}
+	aux->prev->next = NULL;
+	free(aux);
+}
+
+t_special	find_type(char *arg)
+{
+	if (!arg)
+		return (0);
+	if (ft_strcmp(arg, ">") == 0)
+		return (RD_OVERWRITE);
+	if (ft_strcmp(arg, ">>") == 0)
+		return (RD_APPEND);
+	if (ft_strcmp(arg, "<") == 0)
+		return (RD_INPUT);
+	if (ft_strcmp(arg, "<<") == 0)
+		return (RD_HEREDOC);
+	if (ft_strcmp(arg, "|") == 0)
+		return (PIPE);
+	return (STRING);
+}
+
+t_parsed	*ft_split_token(char *line)
+{
+	t_parsed	*aux;
+	t_parsed	*head;
+	int			i;
+
+	i = 0;
+	aux = ft_calloc(1, sizeof(t_parsed));
+	if (!aux)
+		exit(1);
+	head = aux;
+	aux->prev = NULL;
+	ft_token_list(line, aux, &i);
+	aux->type = find_type(aux->text);
+	aux = aux->next;
+	while (aux)
+	{
+		aux->type = find_type(aux->text);
+		aux = aux->next;
+	}
+	return (head);
 }

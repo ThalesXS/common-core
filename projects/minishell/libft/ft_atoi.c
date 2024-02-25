@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 21:15:20 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/05 11:57:13 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/06 09:00:15 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/06 09:28:15 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,35 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	ans;
-	int	negative;
+	int	sum;
+	int	i;
+	int	signs;
 
-	ans = 0;
-	negative = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '+' || *nptr == '-')
+	i = 0;
+	sum = 0;
+	signs = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (*nptr == '-')
-			negative = -1;
-		nptr++;
+		if (nptr[i] == '-')
+			signs++;
+		i++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		ans = ans * 10 + (*nptr++ - '0');
+		sum = sum * 10 + (nptr[i] - '0');
+		i++;
 	}
-	return (ans * negative);
+	if (signs)
+		sum *= -1;
+	return (sum);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%i",ft_atoi("-1234adaw"));
+	return (0);
+}*/

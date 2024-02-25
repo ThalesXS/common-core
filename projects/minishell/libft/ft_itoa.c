@@ -3,59 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 14:14:28 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/07 09:49:36 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/09 17:41:25 by pabernar          #+#    #+#             */
+/*   Updated: 2023/11/13 10:12:11 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_itlen(long n)
+int	ft_itoalen(int n)
 {
-	size_t	len;
+	int	count;
 
-	len = 0;
-	if (n < 0)
-	{
-		len = 2;
-		n = -n;
-	}
+	count = 0;
+	if (n >= 0)
+		count++;
 	else
-		len = 1;
-	while (n >= 10)
+		count += 2;
+	if (n == 0)
+		return (count + 1);
+	while (n != 0)
 	{
 		n /= 10;
-		len++;
+		count++;
 	}
-	return (len);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*ittoed;
-	long	num;
-	size_t	len;
-	size_t	i;
+	char	*str;
+	int		len;
 
-	i = 2;
-	num = n;
-	len = ft_itlen(num) + 1;
-	ittoed = ft_calloc(len, 1);
-	if (!ittoed)
-		return (NULL);
-	if (num < 0)
+	len = ft_itoalen(n);
+	str = malloc(len);
+	if (!str)
+		return (0);
+	if (n < 0)
+		str[0] = '-';
+	else if (n == 0)
+		str[0] = '0';
+	str[len - 1] = '\0';
+	while (n != 0)
 	{
-		ittoed[0] = '-';
-		num = -num;
+		if (n < 0)
+			str[len - 2] = (n % 10 * -1) + 48;
+		else
+			str[len - 2] = (n % 10) + 48;
+		n /= 10;
+		len--;
 	}
-	while (num >= 10)
-	{
-		ittoed[len - i] = num % 10 + '0';
-		num /= 10;
-		i++;
-	}
-	ittoed[len - i] = num + '0';
-	return (ittoed);
+	return (str);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s", ft_itoa(-2147483648));
+	return (0);
+}*/

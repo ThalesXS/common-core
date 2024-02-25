@@ -3,24 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 21:27:43 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/06 11:20:20 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/06 13:21:48 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/06 14:34:16 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *src)
 {
-	size_t	slen;
+	int		count;
+	char	*nstr;
+
+	count = 0;
+	while (src[count])
+		count++;
+	nstr = malloc(count + 1);
+	if (!nstr)
+		return (0);
+	count = 0;
+	while (src[count])
+	{
+		nstr[count] = src[count];
+		count++;
+	}
+	nstr[count] = '\0';
+	return (nstr);
+}
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*frase;
 	char	*newstr;
 
-	slen = ft_strlen(s) + 1;
-	newstr = ft_calloc(slen, 1);
-	if (!newstr)
-		return (NULL);
-	ft_memcpy(newstr, s, slen);
-	return (newstr);
-}
+	frase = "hello world!";
+	newstr = ft_strdup(frase);
+	printf("%s", newstr);
+	free(newstr);
+	return (0);	
+}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:58:24 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/09 11:54:02 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/06 16:18:32 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/09 08:50:09 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,41 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*sub;
-	size_t	slen;
+	char	*str;
+	size_t	i;
+	size_t	size;
 
-	slen = ft_strlen(s);
-	if (start + len >= slen)
-		len = slen - start;
-	if (start > slen)
+	i = 0;
+	size = ft_strlen(s);
+	if (start > size)
+		str = malloc(1);
+	else if (len < (size - start))
+		str = malloc(len + 1);
+	else
+		str = malloc(size + 1 - start);
+	if (!str)
+		return (0);
+	if (size > start)
 	{
-		sub = ft_calloc(1, 1);
-		if (!sub)
-			return (NULL);
-		return (sub);
+		while (i < len && s[start])
+		{
+			str[i] = s[start];
+			start++;
+			i++;
+		}
 	}
-	sub = ft_calloc(len + 1, 1);
-	if (!sub)
-		return (NULL);
-	ft_strlcpy(sub, &s[start], len + 1);
-	return (sub);
+	str[i] = '\0';
+	return (str);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*frase;
+	
+	frase = "The Cake is a Lie!";	
+	printf("%s\n", ft_substr(frase, 4, 10));
+	printf("%zu", ft_strlen(ft_substr(frase, 4, 10)));
+	return (0);
+}*/

@@ -3,16 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 13:33:21 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/03 13:34:20 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/04 09:15:14 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/04 09:38:31 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
+	if (ft_isalpha(c) && c <= 'Z')
+		return (c + 32);
 	return (c);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%c\n", ft_tolower('A'));
+	return (0);
+}*/

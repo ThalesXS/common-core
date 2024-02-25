@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 20:44:53 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/06 11:21:10 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/04 11:09:26 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/06 12:03:25 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,32 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t				i;
-	unsigned char		*aux;
+	unsigned char	*ptr;	
+	unsigned char	num;
+	size_t			i;
 
-	aux = (unsigned char *) s;
+	ptr = (unsigned char *) s;
+	num = (unsigned char) c;
 	i = 0;
 	while (i < n)
 	{
-		if (aux[i] == (unsigned char) c)
-			return (&aux[i]);
+		if (ptr[i] == num)
+			return (&ptr[i]);
 		i++;
 	}
 	return (0);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*str;
+	
+//	str = "/|\x12\xff\x09\x42\2002\42|\\";
+//	printf("%s\n", (char *)ft_memchr(str, '\200', 10));
+	str = "/|\x12\xff\x09\x42\042\42|\\";
+	printf("%s\n", (char *)ft_memchr(str, '\200', 10));
+	return (0);
+
+}*/

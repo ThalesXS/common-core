@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:20:16 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/03 10:28:24 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/02 12:20:32 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/04 14:33:52 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {
@@ -16,3 +18,16 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%i\n", ft_isascii(65));
+	printf("%i\n", ft_isascii(94));
+	printf("%i\n", ft_isascii(99));
+	printf("%i\n", ft_isascii('P'));
+	printf("%i\n", ft_isascii(-1));
+	printf("%i", ft_isascii(256));
+	return (0);
+}*/

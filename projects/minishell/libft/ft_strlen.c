@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:34:04 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:18 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/02 12:57:39 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/06 12:17:56 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,25 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t			count;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	count = 0;
+	while (*s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%i\n", ft_strlen("test"));
+	printf("%i\n", ft_strlen(" "));
+	printf("%i\n", ft_strlen("the cake is a lie!"));
+	printf("%i\n", ft_strlen("1234567890"));
+	printf("%i\n", ft_strlen("Ken"));
+	return (0);
+}*/

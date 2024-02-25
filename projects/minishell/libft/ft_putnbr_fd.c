@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 11:07:48 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/09 14:10:57 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/10 10:46:48 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/10 10:59:52 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == INT_MIN)
+	if (n == -2147483648)
+	{
 		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
+		return ;
+	}
+	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n = -n;
-		ft_putnbr_fd(n, fd);
+		n *= -1;
 	}
-	else if (n >= 10)
+	if (n >= 10)
 	{
 		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putchar_fd(n % 10 + 48, fd);
 	}
 	else
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd(n + 48, fd);
 }

@@ -3,22 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: pabernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 13:34:38 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/05 14:24:53 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/04 09:38:51 by pabernar          #+#    #+#             */
+/*   Updated: 2023/10/06 13:05:10 by pabernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	unsigned char	car;
+	unsigned int	i;	
+
+	i = 0;
+	car = (unsigned char) c;
+	while (s[i])
 	{
-		if (*s == (char) c)
-			return ((char *) s);
-		s++;
+		if (s[i] == car)
+			return ((char *) &s[i]);
+		i++;
 	}
-	if ((char) c == *s)
-		return ((char *) s);
+	if (s[i] == car)
+		return ((char *) &s[i]);
 	return (0);
 }
+/*
+#include <stdio.h>
+// ft_strchr(s, 't' + 256) == s)
+int	main(void)
+{
+	char	*str;
+	char	*frase;
+	char	c;
+
+	str = "teste";
+	c = 'e';
+	frase = ft_strchr(str, c);
+	printf("%s\n", frase);
+	return (0);
+}*/

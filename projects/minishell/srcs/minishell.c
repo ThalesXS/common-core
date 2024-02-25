@@ -5,55 +5,125 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 00:18:18 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/17 00:01:40 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/01/25 09:24:42 by pabernar          #+#    #+#             */
+/*   Updated: 2024/02/24 11:19:32 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../headers/minishell.h"
 
-int	main(int argc, char **argv, char **envp)
+static t_parsed	*ft_tokenizer(char *line);
+
+void	ft_minishell(void)
 {
-	t_minishell	minishell;
+	char		*line;
+	char		*prompt;
+	t_parsed	*tokens;
+	t_envs		*envs;
 
-	(void) argc;
-	(void) argv;
-	minishell.envp = envp;
-	minishell.dir = NULL;
-	ft_loop(&minishell);
-	return (0);
-}
-
-void	ft_loop(t_minishell *minishell)
-{
+	envs = NULL;
 	while (1)
 	{
-		ft_get_dir(minishell);
-		minishell->input = readline(minishell->dir);
-		if (minishell->input == NULL)
-			break ;
-		if (minishell->input[0] != '\0')
-		{
-			add_history(minishell->input);
-			minishell->tokens = ft_split(minishell->input, ' ');
-			if (minishell->tokens == NULL)
-				exit(1);
-			//ft_token_validator(minishell);
-			ft_token_handler(minishell);
-			free(minishell->tokens);
-			free(minishell->input);
-		}
+		prompt = ft_get_dir();
+		line = readline(prompt);
+		free(prompt);
+		if (!envs)
+			envs = return_envs(ft_create_envs());
+		if (!line)
+			ft_handle_eof();
+		if (!line[0])
+			continue ;
+		add_history(line);
+		tokens = ft_tokenizer(line);
+		if (!tokens)
+			continue ;
+		ft_parser(tokens);
+		//ft_free_tokens(tokens);
+		free(line);
 	}
 }
 
-void	ft_token_handler(t_minishell *minishell)
+static t_parsed	*ft_tokenizer(char *line)
+{
+	t_parsed	*tokens;
+	char		*help_hugo_god;
+
+	if (!ft_check_open_quotes(line))
+		return (NULL);
+	if (!redirect_basic_check(line))
+	{
+		ft_printf("invalid redirect\n");
+		return (NULL);
+	}
+	if (!pipe_check(line))
+	{
+		ft_printf("Unexpected near '|'\n");
+		return (NULL);
+	}
+	help_hugo_god = pad_central(line);
+	tokens = ft_split_token(help_hugo_god);
+	ft_treat_token(tokens, help_hugo_god);
+	free(help_hugo_god);
+	return (tokens);
+}
+
+void	ft_free_tokens(t_parsed *tokens)
+{
+	t_parsed	*tmp;
+
+	while (tokens)
+	{
+		//printf("freeing %s\n", tokens->text); //APAGAAAAAR
+		tmp = tokens->next;
+		free(tokens->text);
+		free(tokens);
+		tokens = tmp;
+	}
+}
+
+int	ft_check_open_quotes(char *line)
+{
+	char	quote;
+	int		state;
+
+	state = 0;
+	while (*line)
+	{
+		if (!state && (*line == '\'' || *line == '\"'))
+		{
+			state = 1;
+			quote = *line;
+		}
+		else if (state && *line == quote)
+			state = 0;
+		line++;
+	}
+	if (state && write(2, "Error: Open quotes\n", 19))
+		return (0);
+	return (1);
+}
+
+int	redirect_basic_check(char *line)
 {
 	int	i;
+	int	count;
 
-	i = 0;
-	while (minishell->tokens[i])
+	i = -1;
+	while (line[++i])
 	{
-		printf("Token %d: %s\n", i, minishell->tokens[i]);
-		i++;
+		count = 0;
+		if (find_char(line[i], "><") && !quotes_open(line, i))
+		{
+			while (line[i] && find_char(line[i], "><"))
+			{
+				if (find_char(line[i + 1], "><") && line[i + 1] != line[i])
+					return (0);
+				count++;
+				i++;
+			}
+		}
+		if (count > 2)
+			return (0);
 	}
+	return (1);
 }

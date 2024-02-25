@@ -1,0 +1,1 @@
+Serifa ideal para textos impressos, não-serifa melhor para textos em ecr

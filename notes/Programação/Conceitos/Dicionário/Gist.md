@@ -1,6 +1,6 @@
 ## O que é um Gist?
 
-&nbsp;Gists servem para prover uma forma simples de compartilhar *[Snippets](../Dicionário/Snippets.md)* de códigos.
+&nbsp;Gists servem para prover uma forma simples de compartilhar *[Snippets](Snippets.md)* de códigos.
 
 &nbsp;Todo gist é um repositório Git, o que significa que podemos usar *fork* e *clone* nos mesmos.
 
@@ -11,7 +11,7 @@
 - Públicos:
 Gists públicos aparecem em *[Discover](https://gist.github.com/discover)*, onde as pessoas procuram novos gists conforme estes são criados.
 - Secretos:
-Gists secretos por sua vez não podem ser encontrados por outros usuários para além do autor. para além disso, um gist secreto não é privado, ele pode ser acessado por outras pessoas caso o autor compartilhe a URL, caso alguém desconhecido descubra a URL, esta pessoa também terá acesso ao gist, para evitar casos como este, um [repositório](../Git/0.%20Intro.md) privado deverá ser criado.
+Gists secretos por sua vez não podem ser encontrados por outros usuários para além do autor. para além disso, um gist secreto não é privado, ele pode ser acessado por outras pessoas caso o autor compartilhe a URL, caso alguém desconhecido descubra a URL, esta pessoa também terá acesso ao gist, para evitar casos como este, um [repositório](Programação/Utilidades/Git/0.%20Intro.md) privado deverá ser criado.
 PS: Após criar um gist, não é possível alterar se o mesmo é secreto ou público.
 
 ## Como criar um Gist?

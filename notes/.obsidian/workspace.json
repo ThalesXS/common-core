@@ -4,46 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "d6b2db67ef8b8d88",
+        "id": "e2c92699fb2a531c",
         "type": "tabs",
         "children": [
           {
-            "id": "439532ccccf7631d",
+            "id": "1231b69908e5e345",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/Tutorial/26. Readline.md",
-                "mode": "preview",
+                "file": "Criação de Conteúdo/Tipos e Formatos de Citação/APA.md",
+                "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "1ca140d66ca45af4",
+            "id": "112adf5a32341f8f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C/Functions/98. Term.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c61116e2fc424369",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C/Functions/98. Termios.md",
+                "file": "Programação/Linguagens/C/Tutorial/25. Processos.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "78cbc0112d7bacea",
@@ -110,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C/Tutorial/26. Readline.md",
+                "file": "Programação/Linguagens/C/Tutorial/25. Processos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C/Tutorial/26. Readline.md",
+                "file": "Programação/Linguagens/C/Tutorial/25. Processos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C/Tutorial/26. Readline.md"
+                "file": "Programação/Linguagens/C/Tutorial/25. Processos.md"
               }
             }
           }
@@ -171,35 +159,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "439532ccccf7631d",
+  "active": "112adf5a32341f8f",
   "lastOpenFiles": [
-    "C/Functions/98. Term.md",
-    "C/Functions/98. Termios.md",
-    "C/Tutorial/26. Readline.md",
-    "C/Tutorial/25. Processos.md",
-    "C/Tutorial/24. Thread.md",
-    "C/Functions/98. System Calls.md",
-    "C/Functions/98. Executing Files.md",
-    "C/Functions/09. Working With Directories.md",
-    "C/Functions/08. Working With Files.md",
-    "C/Functions/07. Stats Functions.md",
-    "C/Functions/03. errors.md",
-    "C/Tutorial/28. Environment Variables.md",
-    "C/Tutorial/27. TTY.md",
-    "().md",
-    "C/Functions/99. Funções Para o minishell.md",
-    "C/Functions/01. open, close, read, write.md",
-    "C/Functions/06. MiniLibX.md",
-    "C/Functions/05. math.h.md",
-    "C/Functions/04. time.md",
-    "C/Functions/02. Variadic Function.md",
-    "C/Tutorial/10. Matriz.md",
-    "C/Tutorial/09. Vetores.md",
-    "C/Tutorial/11. Ponteiros.md",
-    "C/Tutorial/12. argc, argv (to do).md",
-    "C/Tutorial/13. Memory Allocation (to do).md",
-    "C/Tutorial/14. Headers (to do).md",
-    "C/Tutorial",
-    "C/Functions"
+    "Criação de Conteúdo/Tipos e Formatos de Citação/APA.md",
+    "Programação/Linguagens/C/Tutorial/25. Processos.md",
+    "Criação de Conteúdo/Tipos e Formatos de Citação",
+    "Programação/Linguagens/C/Functions/08. Working With Files.md",
+    "Criação de Conteúdo/Design/serifa e não serifa.md",
+    "Programação/Holy Grail/0. Intro.md",
+    "Programação/Utilidades",
+    "Programação/Conceitos",
+    "Programação/Linguagens/C_Sharp",
+    "Programação/Linguagens/C++",
+    "Programação/Linguagens",
+    "Programação/Linguagens/Java",
+    "Programação/Linguagens/JS",
+    "Programação/Linguagens/CSS",
+    "Untitled.md",
+    "Criação de Conteúdo/Design",
+    "Programação/Linguagens/C/Functions/98. Executing Files.md",
+    "Criação de Conteúdo/Direitos de Autor/Direitos Autorais.md",
+    "Criação de Conteúdo/Direitos de Autor/Domínio Público.md",
+    "Programação/Linguagens/C/Functions/98. Term.md",
+    "Programação/Linguagens/C/Tutorial/26. Readline.md",
+    "Criação de Conteúdo/Direitos de Autor/Fair Use (Uso Justo).md",
+    "Criação de Conteúdo/Direitos de Autor/Creative Comments.md",
+    "Programação/Linguagens/C/Functions/09. Working With Directories.md",
+    "Programação/Linguagens/C/Tutorial/18. Union.md",
+    "Programação/Linguagens/C/Tutorial/17. Enums.md",
+    "Programação/Linguagens/C/Tutorial/24. Thread.md",
+    "Programação/Linguagens/C/Tutorial/13. Memory Allocation (to do).md",
+    "Programação/Linguagens/C/Tutorial/16. Structs.md",
+    "Programação/Utilidades/Discord/Bot/0. Owl-ner.md",
+    "Discord/Bot/Owlner/Token.md",
+    "Programação/Linguagens/C/Tutorial/04. Keywords (to do).md",
+    "Programação/Linguagens/C/Functions/98. Termios.md",
+    "Programação/Linguagens/C/Functions/98. System Calls.md",
+    "Programação/Linguagens/C/Functions/07. Stats Functions.md",
+    "Programação/Linguagens/C/Functions/03. errors.md"
   ]
 }

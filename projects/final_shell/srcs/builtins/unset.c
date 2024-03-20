@@ -26,11 +26,11 @@ t_envs	*ft_exec_unset(t_envs *envs, t_parsed *tokens)
 		key = tokens->text;
 	else
 		key = NULL;
-	if (key && !ft_strcmp(key, envs->value))
+	if (key && !ft_strcmp(key, envs->key))
 		start = envs->next;
 	else
 	{
-		while (envs && key && ft_strcmp(key, envs->value))
+		while (envs && key && ft_strcmp(key, envs->key))
 		{
 			last = envs;
 			envs = envs->next;
@@ -49,5 +49,6 @@ static t_envs	*ft_finish(t_envs *envs, t_envs *start, char *key)
 	free(envs->value);
 	free(envs);
 	return_envs(start);
+
 	return (start);
 }

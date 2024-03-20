@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:00:28 by pabernar          #+#    #+#             */
-/*   Updated: 2024/02/26 22:24:24 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:53:43 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,16 @@ t_envs	*ft_add_env(t_envs *envs, t_envs *new)
 	if (envs && new)
 	{
 		start = envs;
-		while (envs->next)
+		while (envs->next && ft_strcmp(envs->key, new->key))
 			envs = envs->next;
+		if (!ft_strcmp(envs->key, new->key))
+		{
+			free(envs->value);
+			envs->value = new->value;
+			free(new->key);
+			free(new);
+			return (start);
+		}
 		envs->next = new;
 		return (start);
 	}

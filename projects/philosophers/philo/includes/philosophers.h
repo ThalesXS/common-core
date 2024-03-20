@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:39:57 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/02 22:42:23 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:33:31 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	*ft_end_threads(void *arg);
 
 void	ft_eat_2(t_table *table, t_philo *philo);
 void	ft_only_one(t_table *table, t_philo *philo);
+int		ft_life_loop(t_table *table, t_philo *philo);
 
 // ====================		PHILOSOPHERS		====================
 

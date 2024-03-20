@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:57:52 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/04 14:58:31 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:39:08 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	*ft_routine(void *arg)
 {
 	t_table	*table;
 	t_philo	*philo;
+	int		loop;
 
+	loop = 1;
 	table = (t_table *)arg;
 	pthread_mutex_lock(&table->print);
 	philo = &table->philo[table->nb_threads];
@@ -25,22 +27,8 @@ void	*ft_routine(void *arg)
 	pthread_mutex_lock(&table->dead_mutex);
 	ft_time_init(table);
 	pthread_mutex_unlock(&table->dead_mutex);
-	while (1)
-	{
-		if (philo->state == THINK)
-			ft_think(table, philo);
-		else if (philo->state == EAT)
-			ft_eat(table, philo);
-		else if (philo->state == SLEEP)
-			ft_sleep(table, philo);
-		pthread_mutex_lock(&table->dead_mutex);
-		if (table->dead || philo->state == DEAD)
-		{
-			pthread_mutex_unlock(&table->dead_mutex);
-			return (NULL);
-		}
-		pthread_mutex_unlock(&table->dead_mutex);
-	}
+	while (loop)
+		loop = ft_life_loop(table, philo);
 	return (NULL);
 }
 

@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 22:32:52 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/04 14:38:33 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:40:23 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,22 @@ void	ft_only_one(t_table *table, t_philo *philo)
 		philo->id);
 	pthread_mutex_unlock(&philo->forks[philo->left_fork]);
 	philo->state = DEAD;
+}
+
+int	ft_life_loop(t_table *table, t_philo *philo)
+{
+	if (philo->state == THINK)
+		ft_think(table, philo);
+	else if (philo->state == EAT)
+		ft_eat(table, philo);
+	else if (philo->state == SLEEP)
+		ft_sleep(table, philo);
+	pthread_mutex_lock(&table->dead_mutex);
+	if (table->dead || philo->state == DEAD)
+	{
+		pthread_mutex_unlock(&table->dead_mutex);
+		return (0);
+	}
+	pthread_mutex_unlock(&table->dead_mutex);
+	return (1);
 }

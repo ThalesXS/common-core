@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:12:17 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/02/20 13:17:00 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/03/21 19:42:30 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	ft_expanding(t_parsed *tokens, char *new, char *tmp, t_envs *envs)
 	klen = ft_key_len(tokens->text);
 	tmp = ft_substr(tokens->text, 0, before_len);
 	point = tokens->text + before_len + 1;
-	while (envs && ft_strncmp(point, envs->key, klen) != 0)
+	while (envs && ft_strncmp(point, envs->key, klen + 1) != 0)
 		envs = envs->next;
 	if (envs)
 	{
@@ -77,7 +77,7 @@ int	ft_key_len(char *str)
 	{
 		i++;
 	}
-	while (str[i] && (ft_isalnum(str[i]) || str[i] == '_'))
+	while (str[i] && (ft_isalnum(str[i]) || str[i] == '_' || str[i] == '?'))
 	{
 		i++;
 		j++;

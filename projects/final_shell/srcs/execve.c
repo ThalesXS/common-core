@@ -30,15 +30,14 @@ static void	ft_exec_command(char *command, t_parsed *tokens)
 	array_env = ft_array_envs(envs);
 	new_process = fork();
 	if (!new_process)
-	{
 		ft_executer(command, new_array, array_env, tokens);
-	}
 	ft_ignore_signals();
 	waitpid(-1, &status, 0);
 	if (status == 131)
 		printf("Quit (core dumped)\n");
 	else if (status == 2)
 		printf("\n");
+	ft_save_exit_status(status, envs);
 	free(command);
 	free_splits(new_array);
 	free_splits(array_env);

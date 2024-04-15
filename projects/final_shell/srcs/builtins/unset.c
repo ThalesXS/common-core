@@ -49,6 +49,5 @@ static t_envs	*ft_finish(t_envs *envs, t_envs *start, char *key)
 	free(envs->value);
 	free(envs);
 	return_envs(start);
-
 	return (start);
 }

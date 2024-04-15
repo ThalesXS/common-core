@@ -10,7 +10,7 @@
 >&nbsp; Diversos pontos de reflexão são adicionados à *framework* para permitir que os membros da equipe revejam seu progresso. Gerentes do projeto usam _insights_ destas reuniões de análise para estimar e planejar o futuro. Como resultado, os projetos fluem de forma mais eficiente, dentro do orçamento e dentro do cronograma.
 #### Adaptação.
 
->&nbps; Membros da equipe podem mudar a prioridade das tarefas baseado na alteração dos requisitos do consumidor. Eles decidem qual tarefa será completada primeiro e quais precisarão ser revisadas no futuro.
+>&nbsp; Membros da equipe podem mudar a prioridade das tarefas baseado na alteração dos requisitos do consumidor. Eles decidem qual tarefa será completada primeiro e quais precisarão ser revisadas no futuro.
 ## Valores do Scrum para Equipes.
 &nbsp; Equipes "_Scrum_" seguem 5 valores básicos.
 #### Compromisso.
@@ -73,7 +73,7 @@
 >* Coordenar o planejamento e estimar quanto trabalho será possível completar a cada _Sprint_.
 
 # O que são os Eventos _Scrum_?
-&nbps; Eventos ou cerimônias _Scrum_ são um conjunto de reuniões em sequência que equipes efetuam regularmente. Alguns eventos incluem:
+&nbsp; Eventos ou cerimônias _Scrum_ são um conjunto de reuniões em sequência que equipes efetuam regularmente. Alguns eventos incluem:
 #### _Sprint Planning_.
 >&nbsp; Neste evento, a equipe estima o trabalho a ser completado na próxima _Sprint_. Os membros da equipe definem objetivos específicos, mensuráveis e atingíveis para a _Sprint_. No final da reunião de planejamento, todos os membros sabem como cada _Increment_ pode ser entregue na _Sprint_.
 

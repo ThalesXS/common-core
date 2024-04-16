@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "94746e536380d542",
+        "id": "62489155d06f9dc4",
         "type": "tabs",
         "children": [
           {
-            "id": "38b230cf105a38cf",
+            "id": "247eb8efa54f8716",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "78cbc0112d7bacea",
@@ -146,16 +147,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "38b230cf105a38cf",
+  "active": "247eb8efa54f8716",
   "lastOpenFiles": [
+    "Programação/Linguagens/Markdown/2. Links and Lists.md",
+    "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
+    "Programação/Linguagens/CPP/Tutorial/00. Intro.md",
+    "Programação/Linguagens/CPP/Tutorial/99. Bibliotecas.md",
+    "Programação/Linguagens/CPP/Tutorial/99. Keywords.md",
+    "Programação/Linguagens/CPP/Bibliotecas/00. iostream.md",
+    "README.md",
+    "Untitled.canvas",
+    "2024-04-16.md",
     "Programação/Linguagens/CPP/Tutorial/03. Namespace.md",
     "Programação/Linguagens/CPP/Tutorial/02. Tipos de Variáveis.md",
     "Programação/Linguagens/CPP/Tutorial/01. Syntax.md",
-    "Programação/Linguagens/CPP/Tutorial/00. Intro.md",
-    "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
     "().md",
-    "Programação/Linguagens/CPP/Tutorial/99. Bibliotecas.md",
-    "Programação/Linguagens/CPP/Tutorial/99. Keywords.md",
     "Programação/Linguagens/C/Tutorial/00. Intro.md",
     "Programação/Linguagens/C/Tutorial/01. Bibliotecas (to do).md",
     "Programação/Linguagens/C/Tutorial/01. Syntax.md",
@@ -168,15 +174,11 @@
     "Programação/Linguagens/C/Bibliotecas/stdlib.h.md",
     "Programação/Linguagens/C/Bibliotecas/unistd.h.md",
     "Programação/Linguagens/C/Bibliotecas",
-    "Programação/Linguagens/CPP/Bibliotecas/00. iostream.md",
     "Programação/Linguagens/C/Tutorial/16. Structs.md",
     "C/Tutorial/16. Structs.md",
     "C/Tutorial",
     "C",
     "Work/Agile/Scrum.md",
-    "Programação/Linguagens/Markdown/0.Intro.md",
-    "Programação/Linguagens/Markdown/1. Basics.md",
-    "Programação/Linguagens/CPP/Tutorial/03. Operadores.md",
     "Audio",
     "Work/DevOps",
     "Work/Agile",

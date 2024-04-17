@@ -1,5 +1,5 @@
 # iomanip 
-&nbsp; iomanip é uma biblioteca usada para manipular o output em programas de C++. Para tal, fazemos uso de um conjunto de métodos fornecidos pela mesma.
+&nbsp; iomanip é uma biblioteca usada para manipular o [output](./iostream#cout) em programas de C++. Para tal, fazemos uso de um conjunto de métodos fornecidos pela mesma.
 
 ## Index
 * [setbase](#setbase)

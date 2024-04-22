@@ -8,31 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "247eb8efa54f8716",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Programação/Linguagens/CPP/Tutorial/03. Namespace.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "42290a1cf5b6aaa6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programação/Linguagens/CPP/Tutorial/03. Namespace.md",
-                "mode": "preview",
+                "file": "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
+                "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "78cbc0112d7bacea",
@@ -98,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programação/Linguagens/CPP/Tutorial/03. Namespace.md",
+                "file": "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programação/Linguagens/CPP/Tutorial/03. Namespace.md",
+                "file": "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Programação/Linguagens/CPP/Tutorial/03. Namespace.md"
+                "file": "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md"
               }
             }
           }
@@ -161,9 +149,9 @@
   },
   "active": "42290a1cf5b6aaa6",
   "lastOpenFiles": [
-    "Programação/Linguagens/CPP/Tutorial/02. Tipos de Variáveis.md",
     "Programação/Linguagens/CPP/Tutorial/03. Namespace.md",
     "Programação/Linguagens/CPP/Tutorial/04. Classes e Objetos.md",
+    "Programação/Linguagens/CPP/Tutorial/02. Tipos de Variáveis.md",
     "Programação/Linguagens/CPP/Tutorial/99. Keywords.md",
     "Programação/Linguagens/CPP/Tutorial/00. Intro.md",
     "Programação/Linguagens/CPP/Tutorial/99. Bibliotecas.md",

@@ -1,6 +1,6 @@
 # iostream
 
-A biblioteca `iostream` é responsável por conter as funções/objetos de input e output na linguagem C++.
+&nbsp; A biblioteca `iostream` é responsável por conter as funções/objetos de input e output na linguagem C++.
 
 ## Index
 

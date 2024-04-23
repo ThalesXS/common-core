@@ -1,5 +1,8 @@
-&nbsp;Seja bem vindo à minha coletânea de conhecimento. Como é óbvio este é um trabalho que está constantemente a crescer e a evoluir, portanto grande parte dos hyperlinks podem estar vazios, e a maioria dos arquivos não possui um hyperlink para os acessar, neste momento, a melhor forma de navegar é diretamente nos arquivos.
+# _Grimoire_
 
-1. [Anotações.](Programação/Holy%20Grail/0.%20Intro.md)
+&nbsp;Seja bem vindo à minha coletânea de conhecimento. Como é óbvio este é um trabalho que está constantemente a crescer e a evoluir, portanto grande parte dos hyperlinks podem estar vazios, e a maioria dos arquivos não possui um hyperlink para os acessar, neste momento, a melhor forma de navegar é diretamente nos arquivos, porém uma conexão por hiperlinks está a ser feita aos poucos.
 
-2. [Guia Para Projetos 42 (*em breve*)]()
+* [[Programação]]
+
+> [!TIP] Obsidian
+> &nbsp; Toda esta documentação foi feita através do [Obsidian](https://obsidian.md/), e é recomendado que a leitura seja feita através do mesmol

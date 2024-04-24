@@ -1,4 +1,4 @@
-## O que é um Algoritmo.
+# Algoritmos
 &nbsp; Algoritmo é um processo/conjunto de regras a se seguir para a resolução
 de uma dada tarefa.
 

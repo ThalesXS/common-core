@@ -8,11 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "42290a1cf5b6aaa6",
+            "id": "645ecf9dc19a1272",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Programação/Linguagens/C++/Tutorial/New in C++/03. Namespace.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Programação/Linguagens/C++/Tutorial/New in C++/03. Namespace.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Programação/Linguagens/C++/Tutorial/New in C++/03. Namespace.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Programação/Linguagens/C++/Tutorial/New in C++/03. Namespace.md"
+              }
             }
           }
         ]
@@ -138,43 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c793fc924ca067c1",
+  "active": "645ecf9dc19a1272",
   "lastOpenFiles": [
-    "Programação/Linguagens/Linguagens.md",
-    "Programação/Programação.md",
-    "Programação/Linguagens/C++/C++.md",
-    "README.md",
     "Programação/Linguagens/C++/Bibliotecas/Bibliotecas.md",
-    "Programação/Linguagens/C/C.md",
-    "Programação/Linguagens/Markdown/0. Intro.md",
     "Programação/Linguagens/C++/Bibliotecas/iostream/iostream.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/04. Classes e Objetos.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/03. Namespace.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/07. Referência.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/06. Funções.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/05. Exceptions.md",
+    "Programação/Linguagens/C++/Bibliotecas/cctype/cctype.md",
+    "Programação/Linguagens/C++/Bibliotecas/fstream/fstream.md",
+    "Programação/Linguagens/C++/Bibliotecas/iomanip/iomanip.md",
+    "Programação/Linguagens/C++/Bibliotecas/cctype/Funções/isalnum.md",
+    "Programação/Linguagens/C++/Bibliotecas/cctype/Funções",
+    "Programação/Linguagens/C++/Bibliotecas/cctype",
+    "Programação/Linguagens/C++/Tutorial/New in C++/08. Endereço de Memória.md",
+    "Programação/Conceitos/Dicionário/Gist.md",
+    "Programação/Linguagens/C/Functions/98. System Calls.md",
+    "Programação/Linguagens/C/Functions/07. Stats Functions.md",
+    "Programação/Linguagens/C/Functions/06. MiniLibX.md",
+    "Programação/Linguagens/C/Functions/08. Working With Files.md",
+    "Programação/Linguagens/C/Functions/09. Working With Directories.md",
+    "Work/Framework/Scrum.md",
+    "Work/Framework/Agile.md",
+    "Programação/Linguagens/C++/Tutorial/Tutorial.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/02. Tipos de Variáveis.md",
+    "Programação/Linguagens/C++/Tutorial/New in C++/01. Syntax.md",
+    "Programação/Linguagens/C++/C++.md",
+    "Programação/Conceitos/Dicionário/OOP.md",
+    "Programação/Conceitos/Linux/99999. libpam pwquality.md",
+    "Programação/Linguagens/C++/Tutorial/TODO",
+    "Programação/Conceitos/Linux/Command Line Interface/AWK",
+    "Programação/Conceitos/Linux/Command Line Interface",
+    "Programação/Linguagens/CSharp",
+    "Programação/Linguagens/C++/Tutorial/New in C++",
     "Programação/Linguagens/C++/Bibliotecas/iostream/wclog",
     "Programação/Linguagens/C++/Bibliotecas/iostream/wcerr",
     "Programação/Linguagens/C++/Bibliotecas/iostream/wcout",
-    "Programação/Linguagens/C++/Bibliotecas/iostream/wcin",
-    "Programação/Linguagens/C++/Bibliotecas/iostream/clog",
-    "Programação/Linguagens/C++/Bibliotecas/iostream/cerr",
-    "Programação/Linguagens/C++/Bibliotecas/iostream/cout",
-    "Programação/Linguagens/C++/Bibliotecas/iostream/cin",
-    "Programação/Linguagens/C++/Bibliotecas/iomanip/iomanip.md",
-    "Programação/Linguagens/C++/Bibliotecas/iomanip/setw",
-    "Programação/Linguagens/C++/Bibliotecas/iomanip/setprecision",
-    "Programação/Linguagens/C++/Bibliotecas/fstream/fstream.md",
-    "Programação/Conceitos/Linux/1. Command Line Interface.md",
-    "Programação/Linguagens/C++/Tutorial/03. Namespace.md",
-    "Programação/Linguagens/Markdown/3. Quoting and Alerts.md",
-    "Programação/Linguagens/Markdown/4. Images and Emojis.md",
-    "Programação/Linguagens/Markdown/1. Basics.md",
-    "Programação/Linguagens/Markdown/2. Links and Lists.md",
-    "Programação/Linguagens/CPP/Bibliotecas/fstream/ofstream/ofstream.md",
-    "Programação/Linguagens/CPP/Bibliotecas/fstream/ofstream/(constructor).md",
-    "Programação/Linguagens/C++/Tutorial/04. Classes e Objetos.md",
-    "Programação/Linguagens/C/Functions/03. errors.md",
-    "Programação/Linguagens/C/Functions/07. Stats Functions.md",
-    "Programação/Linguagens/C/Functions/09. Working With Directories.md",
-    "Programação/Linguagens/C/Functions/98. Executing Files.md",
-    "Programação/Linguagens/C/Functions/98. System Calls.md",
-    "Programação/Linguagens/C/Tutorial/25. Processos.md",
     "Untitled.canvas"
   ]
 }

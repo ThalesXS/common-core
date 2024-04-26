@@ -1,8 +1,8 @@
 #	====================		Files      		====================
 
-INC = includes 
+INC = includes
 NAME = PhoneBook
-FILES = PhoneBook.cpp 
+FILES = PhoneBook.cpp Contact.cpp main.cpp
 OBJ = $(FILES:.cpp=.o)
 
 #	====================		Commands   		====================

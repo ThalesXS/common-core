@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:20 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/26 20:51:13 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/04/27 00:19:53 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ string	Contact::getAttribute(attributeType attr)
 			return (darkestSecret);
 			break ;
 		default:
-			;
+			return ("");
 	}
 }

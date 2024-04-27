@@ -1,4 +1,0 @@
-# Frameworks
-* [[Agile]]
-* [[Kanban]]
-* [[Scrum]]

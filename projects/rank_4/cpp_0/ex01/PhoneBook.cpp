@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:22 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/27 01:13:05 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/04/27 11:00:34 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ PhoneBook::PhoneBook(void)
 
 	contactIndex = 0;
 	displayBook();
-/* 	std::cout << DIVIDER2;
-	while (contactIndex < 8)
-	{
-		std::cout << "│ I. │    Name    │   Number   │\n";
-		contactIndex++;
-	} */
+	std::cout << "Enter a command: ";
+	std::cin >> std::setw(3) >> contactInfo;
+	std::cout << contactInfo;
 }
 
 void	PhoneBook::displayBook(void)

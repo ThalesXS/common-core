@@ -6,13 +6,14 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:25 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/26 20:47:25 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/04/27 10:59:11 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+# include <cstdlib>
 # include <iomanip>
 # include <iostream>
 

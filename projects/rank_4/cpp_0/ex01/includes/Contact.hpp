@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:25 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/27 10:59:11 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/04/27 21:18:05 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@
 
 typedef enum	e_attributeType
 {
-	FIRSTNAME,
+	FIRSTNAME = 1,
 	LASTNAME,
+	NICKNAME,
 	PHONENUMBER,
-	DARKESTSECRET
+	DARKESTSECRET,
+	INVALNUMBER,
+	INVALCOMMAND
 }	attributeType;
 
 //	====================			CLASSES					====================
@@ -39,28 +42,14 @@ class Contact
 	private:
 		string	firstName;
 		string	lastName;
+		string	nickname;
 		string	phoneNumber;
 		string	darkestSecret;
-		enum	attributeType
-		{
-			FIRSTNAME,
-			LASTNAME,
-			PHONENUMBER,
-			DARKESTSECRET
-		};
 
 	public:
-		Contact(void);
 		void	setAttribute(string str, attributeType attr);
 		string	getAttribute(attributeType attr);
-		/* void	setFirstName(string name);
-		string	getFirstName(void);
-		void	setLastName(string name);
-		string	getLastName(void);
-		void	setPhoneNumber(string number);
-		string	getPhoneNumber(void);
-		void	setDarkestSecret(string secret);
-		string	getDarkestSecret(void); */
+		string	strTrim(string str);
 };
 
 #endif

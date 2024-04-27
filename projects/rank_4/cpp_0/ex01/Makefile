@@ -1,21 +1,29 @@
-#	====================		Files      		====================
+#	====================		Directories		====================
 
 INC = includes
+SRC = srcs
+OBJ_DIR = objects
+
+#	====================		Files			====================
+
 NAME = PhoneBook
 FILES = PhoneBook.cpp Contact.cpp main.cpp
 OBJ = $(FILES:.cpp=.o)
+TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
 
-#	====================		Commands   		====================
+#	====================		Commands		====================
 
 CC = c++
 RM = rm
 
-#	====================		Flags      		====================
+#	====================		Flags			====================
 
 W = -Wall -Wextra -Werror -std=c++98
+O = -c
+I = -I $(INC)
 WBLOCK = --no-print-directory
 
-#	====================		Colors     		====================
+#	====================		Colors			====================
 
 RED = \033[0;31m
 GREEN = \033[0;32m
@@ -35,21 +43,27 @@ L_BLUE = \033[1;94m
 
 RESET = \033[0m
 
-#	====================		Rules      		====================
+#	====================		Rules			====================
 
 all: $(NAME)
 
-$(NAME):$(FILES)
-	@$(CC) $(W) $(FILES) -o $(NAME)
+$(NAME):$(OBJ_DIR) $(TARGET)
+	@$(CC) $(W) $(TARGET) -o $(NAME)
 	@echo "$(B_GREEN)$(NAME) created$(RESET)"
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC)/%.cpp
+	@$(CC) $(W) $(O) $(I) $< -o $@
+	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $@ created$(RESET)"
 
 clean:
-	@$(RM) -rf $(NAME)
-	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $(NAME) deleted$(RESET)"
+	@$(RM) -rf $(OBJ_DIR)
+	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $(OBJ_DIR) deleted$(RESET)"
 
-fclean:
-	@$(RM) -rf $(NAME)
+fclean: clean
+	@$(RM) $(NAME)
 	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $(NAME) deleted$(RESET)"
 
 re: fclean all

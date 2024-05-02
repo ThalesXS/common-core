@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/ex01/includes",
-                "${workspaceFolder}/ex03/includes"
+                "${workspaceFolder}/ex03/includes",
+                "${workspaceFolder}/ex05/includes"
             ],
             "defines": [],
             "cStandard": "c17",

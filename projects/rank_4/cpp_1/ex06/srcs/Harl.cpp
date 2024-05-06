@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:30:30 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/02 11:42:02 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:40:42 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ void	Harl::complain(std::string level)
 		{
 			switch (i)
 			{
-			case (DEBUG):
-				(this->*list[DEBUG])();
+			case (0):
+				(this->*list[0])();
 				break ;
-			case (INFO):
-				(this->*list[INFO])();
+			case (1):
+				(this->*list[1])();
 				break ;
-			case (WARNING):
-				(this->*list[WARNING])();
+			case (2):
+				(this->*list[2])();
 				break ;
-			case (ERROR):
-				(this->*list[ERROR])();
+			case (3):
+				(this->*list[3])();
 				break ;
 			}
 			i++;

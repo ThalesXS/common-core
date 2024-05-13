@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:22 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/27 23:58:42 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:02:09 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ PhoneBook::PhoneBook(void)
 {
 	contactIndex = 0;
 	error = 0;
-	while (1)
-	{
-		displayIntro();
-	}
+	string command = "a";
+	displayIntro();
 }
 
 void	PhoneBook::displayIntro(void)
@@ -43,7 +41,8 @@ void	PhoneBook::displayIntro(void)
 	std::cout << BOTTOM;
 	printError();
 	std::cout << "Please enter a command: ";
-	getline(std::cin, command);
+	if (!getline(std::cin, command))
+		exit(0);
 	if (command == "ADD")
 		addContact();
 	else if (command == "SEARCH")
@@ -52,6 +51,7 @@ void	PhoneBook::displayIntro(void)
 		exit(0);
 	else
 		error = INVALCOMMAND;
+	displayIntro();
 }
 
 void	PhoneBook::displayList(void)
@@ -92,7 +92,8 @@ void	PhoneBook::displayList(void)
 	std::cout << "│ └───────────────────────────────────────┘ │\n";
 	std::cout << BOTTOM;
 	std::cout << "Please enter a command: ";
-	getline(std::cin, command);
+	if (!getline(std::cin, command))
+		exit(0);
 	if (command == "0")
 		return ;
 	else if (command == "1" || command == "2" || command == "3" || command == "4" || command == "5" || command == "6" || command == "7" || command == "8")
@@ -107,7 +108,7 @@ void	PhoneBook::displayList(void)
 
 void	PhoneBook::displayContact(int index)
 {
-	string name;
+	string command;
 
 	system("clear");
 	std::cout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
@@ -128,8 +129,9 @@ void	PhoneBook::displayContact(int index)
 	std::cout << "│ └───────────────────────────────────────┘ │\n";
 	std::cout << BOTTOM;
 	std::cout << "Please enter a command: ";
-	std::cin >> name;
-	if (name == "0")
+	if (!getline(std::cin, command))
+		exit(0);
+	if (command == "0")
 		return ;
 	else
 		displayContact(index);
@@ -144,19 +146,24 @@ void	PhoneBook::addContact(void)
 	std::cout <<"│  Please enter the following information:  │\n";
 	std::cout << BOTTOM;
 	std::cout << "First Name: ";
-	getline(std::cin, str);
+	if (!getline(std::cin, str))
+		exit(0);
 	contactBook[contactIndex].setAttribute(str, FIRSTNAME);
 	std::cout << "Last Name: ";
-	getline(std::cin, str);
+	if (!getline(std::cin, str))
+		exit(0);
 	contactBook[contactIndex].setAttribute(str, LASTNAME);
 	std::cout << "Nickname: ";
-	getline(std::cin, str);
+	if (!getline(std::cin, str))
+		exit(0);
 	contactBook[contactIndex].setAttribute(str, NICKNAME);
 	std::cout << "Phone Number: ";
-	getline(std::cin, str);
+	if (!getline(std::cin, str))
+		exit(0);
 	contactBook[contactIndex].setAttribute(str, PHONENUMBER);
 	std::cout << "Darkest Secret: ";
-	getline(std::cin, str);
+	if (!getline(std::cin, str))
+		exit(0);
 	contactBook[contactIndex].setAttribute(str, DARKESTSECRET);
 	mustFlush();
 	if (contactIndex == 8)
@@ -255,7 +262,8 @@ void	PhoneBook::displayEmpty(void)
 	std::cout << "│ └───────────────────────────────────────┘ │\n";
 	std::cout << BOTTOM;
 	std::cout << "Please enter a command: ";
-	getline(std::cin, command);
+	if (!getline(std::cin, command))
+		exit(0);
 	if (command == "0")
 		return ;
 	else

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:10:59 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 17:54:09 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/06/05 17:06:49 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/06/05 18:55:37 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-# include "Animal.hpp"
-
-class Cat : public Animal
+int main()
 {
-	public:
-		Cat();
-		~Cat();
-		Cat(Cat& obj);
-		Cat&	operator=(const Cat& obj);
-		void	makeSound() const;
-};
-
-#endif
+	//const Animal* m = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;//should not create a leak
+	delete i;
+	return 0;
+}

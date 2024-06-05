@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:10:59 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 17:54:09 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/05/22 11:06:39 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/06/05 18:54:55 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "Animal.hpp"
+# include <iostream>
 
-class Cat : public Animal
+class Animal
 {
+	protected:
+		std::string type;
+		Animal(std::string animal = "Animal");
+		Animal(Animal& obj);
+		Animal& operator=(const Animal& obj);
 	public:
-		Cat();
-		~Cat();
-		Cat(Cat& obj);
-		Cat&	operator=(const Cat& obj);
-		void	makeSound() const;
+		virtual ~Animal();
+		virtual void	makeSound() const;
+		std::string	getType(void) const;
 };
 
 #endif

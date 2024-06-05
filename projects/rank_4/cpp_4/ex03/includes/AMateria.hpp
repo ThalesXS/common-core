@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:10:59 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 17:54:09 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/06/05 18:57:01 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/06/05 19:01:00 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-# include "Animal.hpp"
+# include <iostream>
 
-class Cat : public Animal
+class AMateria
 {
+	protected:
+
+
 	public:
-		Cat();
-		~Cat();
-		Cat(Cat& obj);
-		Cat&	operator=(const Cat& obj);
-		void	makeSound() const;
+		AMateria(std::string const &type);
+		virtual ~AMateria(void);
+		AMateria
 };
 
 #endif

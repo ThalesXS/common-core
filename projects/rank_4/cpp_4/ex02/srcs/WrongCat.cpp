@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:21:37 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 17:58:54 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/06/05 18:03:57 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/06/05 18:17:30 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(void) : Animal()
+WrongCat::WrongCat(void) : WrongAnimal()
 {
-	this->type = "Cat";
-	std::cout << "Standard CAT constructor\n";
+	this->type = "Wrong Cat";
+	std::cout << "Standard WRONG CAT constructor\n";
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "The CAT just died.\n";
+	std::cout << "The WRONG CAT just died.\n";
 }
 
-Cat::Cat(Cat& obj) : Animal(obj.type)
+WrongCat::WrongCat(WrongCat& obj)
 {
 	this->type = obj.type;
-	std::cout << "Copy CAT constructor\n";
+	std::cout << "Copy WRONG CAT constructor\n";
 }
 
-Cat& Cat::operator=(const Cat& obj)
+WrongCat& WrongCat::operator=(const WrongCat& obj)
 {
 	this->type = obj.type;
-	std::cout << "Assignment CAT operator\n";
+	std::cout << "Assignment WRONG CAT operator\n";
 	return (*this);
 }
 
-void	Cat::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << this->type << ": meow meow.\n";
+	std::cout << this->type << ": WHAT DOES THE FOX SAY???.\n";
 }

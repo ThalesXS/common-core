@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:41:34 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/21 13:28:29 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:54:56 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class ClapTrap
         int    attackDamage;
     public:
         ClapTrap(std::string name = "CL4P_TP");
-        ~ClapTrap();
+        virtual ~ClapTrap();
         ClapTrap(ClapTrap& CL4P_TP);
         ClapTrap &operator=(const ClapTrap& CL4P_TP);
 

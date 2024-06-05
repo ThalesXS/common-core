@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 09:39:21 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/20 12:25:37 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/05/21 13:40:19 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/05/21 13:42:45 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int main(void)
+# include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-    Fixed a;
-    Fixed b(a);
-    Fixed c;
+    public:
+        FragTrap(std::string name = "FR4G_TP");
+        ~FragTrap();
+        FragTrap(FragTrap& FR4G_TP);
+        FragTrap &operator=(const FragTrap& FR4G_TP);
 
-    c = b;
+        void    highFivesGuys(void);
+};
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-
-    return (0);
-}
+#endif

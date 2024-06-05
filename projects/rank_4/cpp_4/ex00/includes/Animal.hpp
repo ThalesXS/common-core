@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 09:39:21 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/20 12:25:37 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/05/22 11:06:39 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/05/22 11:13:26 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-int main(void)
+# include <iostream>
+
+class Animal
 {
-    Fixed a;
-    Fixed b(a);
-    Fixed c;
+	protected:
+		std::string type;
+	
+	public:
+		Animal(std::string animal = "");
+		~Animal();
+		Animal(Animal& obj);
+		Animal& operator=(const Animal& obj);
+		void	makeSound();
+};
 
-    c = b;
-
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-
-    return (0);
-}
+#endif

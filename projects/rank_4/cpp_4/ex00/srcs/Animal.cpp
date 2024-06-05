@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 09:39:21 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/20 12:25:37 by txisto-d         ###   ########.fr       */
+/*   Created: 2024/05/22 11:13:28 by txisto-d          #+#    #+#             */
+/*   Updated: 2024/05/22 11:24:35 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Animal.hpp"
 
-int main(void)
+Animal::Animal(std::string animal)
 {
-    Fixed a;
-    Fixed b(a);
-    Fixed c;
 
-    c = b;
+}
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
+Animal::~Animal()
+{
 
-    return (0);
+}
+
+Animal::Animal(Animal& obj)
+{
+
+}
+
+Animal& Animal::operator=(const Animal& obj)
+{
+
+}
+
+void	Animal::makeSound()
+{
+
 }

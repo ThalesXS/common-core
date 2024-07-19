@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:03:57 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 18:17:30 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:51:35 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ WrongCat::~WrongCat()
 	std::cout << "The WRONG CAT just died.\n";
 }
 
-WrongCat::WrongCat(WrongCat& obj)
+WrongCat::WrongCat(WrongCat& obj) : WrongAnimal(obj)
 {
 	this->type = obj.type;
 	std::cout << "Copy WRONG CAT constructor\n";

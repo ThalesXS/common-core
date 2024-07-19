@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:57:01 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 19:01:00 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:05:00 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 # define AMATERIA_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
 
 class AMateria
 {
 	protected:
-
+		std::string type;
 
 	public:
 		AMateria(std::string const &type);
-		virtual ~AMateria(void);
-		AMateria
+		virtual ~AMateria();
+		AMateria(AMateria& obj);
+		AMateria& operator=(const AMateria& obj);
+		
+		std::string const &getType() const; // Returns the materia type
+
+		virtual AMateria *clone( const = 0);
+		virtual void use(ICharacter &target);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:21:37 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 17:58:54 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:22:14 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::~Cat()
 	std::cout << "The CAT just died.\n";
 }
 
-Cat::Cat(Cat& obj) : Animal(obj.type)
+Cat::Cat(Cat& obj) : Animal(obj)
 {
 	this->type = obj.type;
 	std::cout << "Copy CAT constructor\n";

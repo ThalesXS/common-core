@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:35:11 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/07/19 17:39:36 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:56:06 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Ice::Ice() : AMateria("Ice")
 {
-	this->type = "Ice";
+	this->type = "ice";
 }
 
 Ice::~Ice() {};
@@ -27,6 +27,7 @@ Ice::Ice(Ice& obj) : AMateria(obj.getType())
 Ice& Ice::operator=(const Ice& obj)
 {
 	this->type = obj.getType();
+	return (*this);
 }
 
 Ice* Ice::clone() const

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:34:54 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/07/19 17:39:39 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/20 13:52:51 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Cure::Cure(Cure& obj) : AMateria(obj.getType())
 Cure& Cure::operator=(const Cure& obj)
 {
 	this->type = obj.getType();
+	return (*this);
 }
 
 Cure* Cure::clone() const

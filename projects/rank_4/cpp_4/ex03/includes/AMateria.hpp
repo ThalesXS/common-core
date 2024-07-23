@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:57:01 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/07/19 16:33:21 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/23 15:16:53 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -32,5 +34,7 @@ class AMateria
 		virtual AMateria* clone()const = 0;
 		virtual void use(ICharacter &target);
 };
+
+typedef AMateria* mat_ptr;
 
 #endif

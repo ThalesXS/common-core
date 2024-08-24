@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:31:01 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/21 13:35:15 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 09:59:54 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
-    std::cout << "A new ScavTrap has been born! Welcome " << this->name << "." <<std::endl;
+    std::cout << "The gatekeeper showed himself! Welcome " << this->name << "." <<std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout <<"ScavTrap " << this->name << " exploded." << std::endl;
+	std::cout <<"The Gatekeeper " << this->name << " exploded." << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap& SC4V_TP) : ClapTrap(SC4V_TP)

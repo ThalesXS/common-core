@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:44:00 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/21 13:46:49 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 10:02:33 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
-    std::cout << "A new FragTrap has been born! Welcome " << this->name << "." <<std::endl;
+    std::cout << "Everyone, say hey to the new ninja, " << this->name << "." <<std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout <<"FragTrap " << this->name << " exploded." << std::endl;
+	std::cout <<"FragTrap, a ninja robot called " << this->name << " exploded." << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap& FR4G_TP) : ClapTrap(FR4G_TP)

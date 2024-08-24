@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 09:39:27 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/20 14:32:57 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 08:24:04 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 */
 Fixed::Fixed()
 {
+	std::cout << "Default constructor called" << std::endl;
 	this->fixedNumber = 0;
 }
 
@@ -31,6 +32,7 @@ Fixed::Fixed()
 */
 Fixed::Fixed(const int value)
 {
+	std::cout << "Int constructor called" << std::endl;
 	fixedNumber = value << this->bits;
 }
 
@@ -39,7 +41,8 @@ Fixed::Fixed(const int value)
 */
 Fixed::Fixed(const float value)
 {
-	fixedNumber = value * (1 << this->bits);
+	std::cout << "Float constructor called" << std::endl;
+	fixedNumber = roundf(value * (1 << this->bits));;
 }
 
 /**
@@ -47,11 +50,13 @@ Fixed::Fixed(const float value)
 */
 Fixed::Fixed(const Fixed &obj)
 {
+	std::cout << "Copy constructor called" << std::endl;
 	fixedNumber = obj.getRawBits();
 }
 
 Fixed::~Fixed()
 {
+	std::cout << "Destructor called" << std::endl;
 }
 
 /*
@@ -104,6 +109,7 @@ void	Fixed::setRawBits(int const raw)
 */
 Fixed Fixed::operator=(const Fixed &obj)
 {
+	std::cout << "Copy assingment operator called" << std::endl;
 	this->fixedNumber = obj.getRawBits();
 	return (*this);
 }
@@ -116,22 +122,22 @@ Fixed Fixed::operator=(const Fixed &obj)
 
 Fixed Fixed::operator+(const Fixed &obj)
 {
-	return (this->toFloat() + obj.toFloat());
+	return (Fixed(this->toFloat() + obj.toFloat()));
 }
 
 Fixed Fixed::operator-(const Fixed &obj)
 {
-	return (this->toFloat() - obj.toFloat());
+	return (Fixed(this->toFloat() - obj.toFloat()));
 }
 
 Fixed Fixed::operator*(const Fixed &obj)
 {
-	return (this->toFloat() * obj.toFloat());
+	return (Fixed(this->toFloat() * obj.toFloat()));
 }
 
 Fixed Fixed::operator/(const Fixed &obj)
 {
-	return (this->toFloat() / obj.toFloat());
+	return (Fixed(this->toFloat() / obj.toFloat()));
 }
 
 /*
@@ -190,11 +196,11 @@ Fixed Fixed::operator--(void)
 
 Fixed Fixed::operator++(int empty)
 {
-		Fixed aux(*this);
+	Fixed aux(*this);
 
-		(void) empty;
-		++(*this);
-		return (aux);
+	(void) empty;
+	++(*this);
+	return (aux);
 }
 
 Fixed Fixed::operator--(int empty)

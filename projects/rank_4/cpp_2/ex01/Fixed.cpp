@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 09:39:27 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/20 13:42:34 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 07:00:09 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	fixedNumber = value * (1 << this->bits);
+	fixedNumber = roundf(value * (1 << this->bits));
 }
 
 /**

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:03:41 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/08/24 10:49:17 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:16:20 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 WrongAnimal::WrongAnimal(std::string animal)
 {
 	this->type = animal;
-	std::cout << "Standard WRONG ANIMAL constructor" << std::endl;
+	std::cout << "Standard WRONG ANIMAL constructor: " << this->type << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
@@ -26,13 +26,13 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal::WrongAnimal(WrongAnimal& obj)
 {
 	this->type = obj.type;
-	std::cout << "Copy WRONG ANIMAL constructor" << std::endl;
+	std::cout << "Copy WRONG ANIMAL constructor: " << this->type << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj)
 {
 	this->type = obj.type;
-	std::cout << "Assignment WRONG ANIMAL operator" << std::endl;
+	std::cout << "Assignment WRONG ANIMAL operator: " << this->type << std::endl;
 	return (*this);
 }
 

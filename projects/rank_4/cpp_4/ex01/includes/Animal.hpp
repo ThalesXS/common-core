@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:06:39 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/06/05 17:55:00 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/19 16:05:26 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal
 {
 	protected:
-		std::string type;
+		std::string	type;
 	
 	public:
 		Animal(std::string animal = "Animal");

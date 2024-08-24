@@ -9,7 +9,7 @@ OBJ_DIR = objs
 
 #	====================		Files      		====================
 
-NAME = cub3d
+NAME = cub3D
 
 _FILES = file_checker.c flood.c map_checker.c padding.c cub_init.c \
 		game_init.c texture_init.c window_init.c \
@@ -111,7 +111,7 @@ norm:
 
 leak: all
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes \
-	./$(NAME) maps/valid/cheese_maze.cub
+	./$(NAME) maps/invalid/map_missing.cub
 
 test: all
 	./$(NAME) maps/valid/map.cub

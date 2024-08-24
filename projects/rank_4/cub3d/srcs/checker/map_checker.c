@@ -61,6 +61,7 @@ static char	**extract_map_from_file(char **data_file, t_cub3d *cub3D)
 	map = ft_calloc(sizeof(char *), cub3D->map->rows + 1);
 	if (!map)
 		return (NULL);
+	map_test(cub3D, map, data_file);
 	while (data_file[++i])
 	{
 		if (i >= cub3D->map->start_map)

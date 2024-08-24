@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:55:14 by dmeirele          #+#    #+#             */
-/*   Updated: 2024/07/17 21:30:05 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:01:08 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,14 @@ void	free_row(t_cub3d *cub3d, int row, char **map)
 	free(map[row - 1]);
 	map[row - 1] = NULL;
 	cub3d->map->rows--;
+}
+
+void	map_test(t_cub3d *cub3d, char **map, char **data_file)
+{
+	if (!cub3d->map->rows)
+	{
+		free_splits(data_file);
+		free(map);
+		p_error(INVALID_MAP, cub3d);
+	}
 }

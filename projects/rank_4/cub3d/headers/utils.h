@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:14:57 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/07/17 21:29:00 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:59:23 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
  * @param cub3d Struct containing all the parameters for the program.
  */
 void	p_error(t_error type, t_cub3d *cub3d);
+
+void	map_test(t_cub3d *cub3d, char **map, char **data_file);
 
 /*
 ██    ██ ████████ ██ ██      ███████      ██

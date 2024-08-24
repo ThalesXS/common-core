@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:22:57 by dmeirele          #+#    #+#             */
-/*   Updated: 2024/07/24 23:30:51 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:32:08 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	main(int argc, char **argv)
 		free_cub3d(cub3d);
 	}
 	else
-		ft_printf("Wrong number of arguments!\n");
+		ft_printf("Error\nInvalid number of arguments.\n");
 	return (0);
 }

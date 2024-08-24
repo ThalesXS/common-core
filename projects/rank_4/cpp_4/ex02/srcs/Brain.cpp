@@ -42,10 +42,14 @@ Brain& Brain::operator=(Brain& obj)
 
 void	Brain::setIdea(std::string idea, unsigned int num)
 {
+	if (num < 0 || num > 99)
+		return ;
 	this->ideas[num] = idea;
 }
 
 std::string	Brain::getIdea(unsigned int num)
 {
+	if (num < 0 || num > 99)
+		return "";
 	return (this->ideas[num]);
 }

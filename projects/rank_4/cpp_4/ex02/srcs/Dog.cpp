@@ -27,6 +27,7 @@ Dog::~Dog(void)
 
 Dog::Dog(Dog& obj) : Animal()
 {
+	this->brain = new Brain();
 	this->type = obj.type;
 	this->brain = obj.brain;
 	std::cout << "Copy DOG constructor\n";
@@ -35,7 +36,7 @@ Dog::Dog(Dog& obj) : Animal()
 Dog& Dog::operator=(const Dog& obj)
 {
 	this->type = obj.type;
-	this->brain = obj.brain;
+	*(this->brain) = *(obj.brain);
 	std::cout << "Assignment DOG operator\n";
 	return (*this);
 }
@@ -47,10 +48,14 @@ void	Dog::makeSound() const
 
 void	Dog::setIdeaInBrain(std::string idea, unsigned int num)
 {
-	this->brain->setIdea(idea, num);
+	if (num >= 0 && num < 100)
+		this->brain->setIdea(idea, num);
 }
 
-std::string	Dog::getIdeaFromBrain(unsigned int num)
+std::string	Dog::getIdeaFromBrain(unsigned int num) const
 {
-	return (this->brain->getIdea(num));
+	if (num < 100 && num >= 0)
+		return (this->brain->getIdea(num));
+	else
+		return ("");
 }

@@ -18,16 +18,17 @@
 
 class Dog : public Animal
 {
+	private:
+		Brain*	brain;
+		
 	public:
 		Dog(void);
 		~Dog(void);
 		Dog(Dog& obj);
 		Dog& operator=(const Dog& obj);
 		void	makeSound() const;
-		void		setIdeaInBrain(std::string idea = "?", unsigned int num = 0);
-		std::string	getIdeaFromBrain(unsigned int num);
-	private:
-		Brain*	brain;
+		void		setIdeaInBrain(std::string idea = "", unsigned int num = 0);
+		std::string	getIdeaFromBrain(unsigned int num) const;
 };
 
 #endif

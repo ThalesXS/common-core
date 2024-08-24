@@ -15,7 +15,7 @@
 Animal::Animal(std::string animal)
 {
 	this->type = animal;
-	std::cout << "Standard ANIMAL constructor: " << this->type << std::endl;
+	std::cout << "Standard ANIMAL constructor" << std::endl;
 }
 
 Animal::~Animal()
@@ -26,13 +26,13 @@ Animal::~Animal()
 Animal::Animal(Animal& obj)
 {
 	this->type = obj.type;
-	std::cout << "Copy ANIMAL constructor: " << this->type << std::endl;
+	std::cout << "Copy ANIMAL constructor" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& obj)
 {
 	this->type = obj.type;
-	std::cout << "Assignment ANIMAL operator: " << this->type << std::endl;
+	std::cout << "Assignment ANIMAL operator" << std::endl;
 	return (*this);
 }
 

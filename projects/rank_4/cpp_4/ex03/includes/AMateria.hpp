@@ -21,6 +21,7 @@ class ICharacter;
 class AMateria
 {
 	protected:
+		AMateria();
 		std::string type;
 
 	public:

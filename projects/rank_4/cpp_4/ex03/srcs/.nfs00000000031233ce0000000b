@@ -95,7 +95,6 @@ void	Floor::push(AMateria* materia)
 void	Floor::erase()
 {
 	int	i = 0;
-
 	if (this->droppedItems)
 	{
 		while (this->droppedItems[i])

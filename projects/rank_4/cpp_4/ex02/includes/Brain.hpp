@@ -25,7 +25,7 @@ class Brain
 		~Brain(void);
 		Brain(Brain& obj);
 		Brain& operator=(Brain& obj);
-		void		setIdea(std::string idea, unsigned int num);
+		void		setIdea(std::string idea = "", unsigned int num = 0);
 		std::string	getIdea(unsigned int num);
 };
 

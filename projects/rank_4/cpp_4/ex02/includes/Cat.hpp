@@ -25,7 +25,7 @@ class Cat : public Animal
 		Cat&		operator=(const Cat& obj);
 		void		makeSound() const;
 		void		setIdeaInBrain(std::string idea = "?", unsigned int num = 0);
-		std::string	getIdeaFromBrain(unsigned int num);
+		std::string	getIdeaFromBrain(unsigned int num) const;
 	private:
 		Brain*	brain;
 };

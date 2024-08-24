@@ -14,7 +14,6 @@
 # define CHARACTER_HPP
 
 #include "ICharacter.hpp"
-#include "Floor.hpp"
 
 class Character : public ICharacter
 {
@@ -22,7 +21,8 @@ class Character : public ICharacter
 		AMateria*		inventory[4];
 		std::string		name;
 		int				items;
-		Floor			floor;
+		AMateria*		floor[50];
+		int				trashAmount;
 		
 	public:
 		Character(std::string name="random");
@@ -36,7 +36,8 @@ class Character : public ICharacter
 		void				use(int idx, ICharacter& target);
 		int					getItems() const;
 		AMateria*			getInventory(int index) const;
-		Floor				getFloor();
+		AMateria**			getFloor();
+		void				addToFloor(AMateria* materia);
 };
 
 #endif

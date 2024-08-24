@@ -8,7 +8,7 @@ OBJ_DIR = objects
 
 NAME = Interface
 FILES = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
-		MateriaSource.cpp Floor.cpp
+		MateriaSource.cpp
 OBJ = $(FILES:.cpp=.o)
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
 

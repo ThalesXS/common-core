@@ -19,15 +19,18 @@ Character::Character(std::string name) : name(name)
 	this->inventory[1] = NULL;
 	this->inventory[2] = NULL;
 	this->inventory[3] = NULL;
+	trashAmount = 0;
 }
 
 Character::~Character()
 {
+	int	i = 0;
 	while (this->items)
 	{
 		this->unequip(0);
 	}
-	this->floor.erase();
+	while (i < this->trashAmount)
+		delete this->floor[i++];
 }
 
 Character::Character(Character& obj) : name(obj.getName())
@@ -65,14 +68,17 @@ void	Character::equip(AMateria* m)
 		this->items++;
 	}
 	else
+	{
 		std::cout << "Inventory is full.\n";
+		this->addToFloor(m);
+	}
 }
 
 void	Character::unequip(int idx)
 {
+	this->addToFloor(this->inventory[idx]);
 	while (idx < 3 && idx >= 0)
 	{
-		this->floor.push(this->inventory[idx]);
 		this->inventory[idx] = this->inventory[idx + 1];
 		idx++;
 	}
@@ -103,7 +109,25 @@ AMateria*	Character::getInventory(int index) const
 		return (NULL);
 }
 
-Floor	Character::getFloor()
+AMateria**	Character::getFloor()
 {
 	return (this->floor);
+}
+
+void	Character::addToFloor(AMateria* materia)
+{
+	int i = 0;
+	if (trashAmount == 50)
+	{
+		delete this->floor[i];
+		while (i < 49)
+		{
+			this->floor[i] = this->floor[i + 1];
+			i++;
+		}
+		this->floor[trashAmount] = materia;
+		return ;
+	}
+	this->floor[trashAmount] = materia;
+	this->trashAmount++;
 }

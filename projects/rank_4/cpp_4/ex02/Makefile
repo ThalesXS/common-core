@@ -6,7 +6,7 @@ OBJ_DIR = objects
 
 #	====================		Files      		====================
 
-NAME = Abstract
+NAME = Smart
 FILES = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ = $(FILES:.cpp=.o)
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))

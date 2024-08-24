@@ -50,7 +50,7 @@ void	Cat::setIdeaInBrain(std::string idea, unsigned int num)
 	this->brain->setIdea(idea, num);
 }
 
-std::string	Cat::getIdeaFromBrain(unsigned int num)
+std::string	Cat::getIdeaFromBrain(unsigned int num) const
 {
 	return (this->brain->getIdea(num));
 }

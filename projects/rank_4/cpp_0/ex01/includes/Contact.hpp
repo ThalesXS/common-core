@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:25 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/27 21:18:05 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 02:07:55 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 # include <cstdlib>
 # include <iomanip>
 # include <iostream>
-
-# ifndef USING_STRING
-# define USING_STRING
-	using std::string;
-# endif
+# include <locale>
 
 //	====================			ENUMS					====================
 
@@ -40,16 +36,16 @@ typedef enum	e_attributeType
 class Contact
 {
 	private:
-		string	firstName;
-		string	lastName;
-		string	nickname;
-		string	phoneNumber;
-		string	darkestSecret;
+		std::wstring	firstName;
+		std::wstring	lastName;
+		std::wstring	nickname;
+		std::wstring	phoneNumber;
+		std::wstring	darkestSecret;
 
 	public:
-		void	setAttribute(string str, attributeType attr);
-		string	getAttribute(attributeType attr);
-		string	strTrim(string str);
+		void	setAttribute(std::wstring str, attributeType attr);
+		std::wstring	getAttribute(attributeType attr);
+		std::wstring	strTrim(std::wstring str);
 };
 
 #endif

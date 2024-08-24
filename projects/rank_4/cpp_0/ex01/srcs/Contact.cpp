@@ -6,22 +6,22 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:20 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/27 21:20:28 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 02:01:08 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-string	Contact::strTrim(string str)
+std::wstring	Contact::strTrim(std::wstring str)
 {
 	if (str.empty())
-		return ("");
-	return (str.substr(str.find_first_not_of(" \t\n"),
-			str.find_last_not_of(" \t\n") \
-			+ 1 - str.find_first_not_of(" \t\n")));
+		return (L"");
+	return (str.substr(str.find_first_not_of(L" \t\n"),
+			str.find_last_not_of(L" \t\n") \
+			+ 1 - str.find_first_not_of(L" \t\n")));
 }
 
-void	Contact::setAttribute(string str, attributeType attr)
+void	Contact::setAttribute(std::wstring str, attributeType attr)
 {
 	str = strTrim(str);
 	switch(attr)
@@ -46,7 +46,7 @@ void	Contact::setAttribute(string str, attributeType attr)
 	}
 }
 
-string	Contact::getAttribute(attributeType attr)
+std::wstring	Contact::getAttribute(attributeType attr)
 {
 	switch(attr)
 	{
@@ -66,6 +66,6 @@ string	Contact::getAttribute(attributeType attr)
 			return (darkestSecret);
 			break ;
 		default:
-			return ("");
+			return (L"");
 	}
 }

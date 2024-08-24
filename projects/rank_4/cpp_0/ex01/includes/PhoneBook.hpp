@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:12:28 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/06 11:15:09 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 02:17:28 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 # include "Contact.hpp"
 
-# define TOP		"╔───────────────────────────────────────────╗\n"
-# define PROMPT_1	"│        ╔═╗┬ ┬┌─┐┌┐┌┌─┐╔╗ ┌─┐┌─┐┬┌─        │\n"
-# define PROMPT_2	"│        ╠═╝├─┤│ ││││├┤ ╠╩╗│ ││ │├┴┐        │\n"
-# define PROMPT_3	"│        ╩  ┴ ┴└─┘┘└┘└─┘╚═╝└─┘└─┘┴ ┴        │\n"
-# define START_LIST	"╠──────────┬──────────┬──────────┬──────────╣\n"
-# define MID_LIST	"├──────────┼──────────┼──────────┼──────────┤\n"
-# define END_LIST	"╚──────────┴──────────┴──────────┴──────────╝\n"
-# define MIDDLE		"╠───────────────────────────────────────────╣\n"
-# define MIDDLE_2	"├───────────────────────────────────────────┤\n"
-# define WALL		"│                                           │\n"
-# define BOTTOM		"╚───────────────────────────────────────────╝\n"
+# define TOP		L"╔───────────────────────────────────────────╗\n"
+# define PROMPT_1	L"│        ╔═╗┬ ┬┌─┐┌┐┌┌─┐╔╗ ┌─┐┌─┐┬┌─        │\n"
+# define PROMPT_2	L"│        ╠═╝├─┤│ ││││├┤ ╠╩╗│ ││ │├┴┐        │\n"
+# define PROMPT_3	L"│        ╩  ┴ ┴└─┘┘└┘└─┘╚═╝└─┘└─┘┴ ┴        │\n"
+# define START_LIST	L"╠──────────┬──────────┬──────────┬──────────╣\n"
+# define MID_LIST	L"├──────────┼──────────┼──────────┼──────────┤\n"
+# define END_LIST	L"╚──────────┴──────────┴──────────┴──────────╝\n"
+# define MIDDLE		L"╠───────────────────────────────────────────╣\n"
+# define MIDDLE_2	L"├───────────────────────────────────────────┤\n"
+# define WALL		L"│                                           │\n"
+# define BOTTOM		L"╚───────────────────────────────────────────╝\n"
 
 class PhoneBook
 {
@@ -49,7 +49,7 @@ class PhoneBook
 		int		wrongNumber(void);
 		void	printError(void);
 		void	displayEmpty(void);
-		void	printFullArgument(string str, long unsigned int size);
+		void	printFullArgument(std::wstring str, long unsigned int size);
 		int		error;
 };
 

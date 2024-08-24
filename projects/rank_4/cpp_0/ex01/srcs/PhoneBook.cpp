@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:15:22 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/08 11:02:09 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 02:19:10 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,38 @@ PhoneBook::PhoneBook(void)
 {
 	contactIndex = 0;
 	error = 0;
-	string command = "a";
+	std::wstring command = L"a";
 	displayIntro();
 }
 
 void	PhoneBook::displayIntro(void)
 {
-	string	command;
+	std::wstring	command;
 
 	system("clear");
-	std::cout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE << WALL;
-	std::cout << "│         Welcome to the PhoneBook!         │\n";
-	std::cout << WALL;
-	std::cout << "│ ┌───────────────────────────────────────┐ │\n";
-	std::cout << "│ │  Please enter one of the following.   │ │\n";
-	std::cout << "│ ├────────┬──────────────────────────────┤ │\n";
-	std::cout << "│ │  ADD   │ Add a new contact to the list│ │\n";
-	std::cout << "│ ├────────┼──────────────────────────────┤ │\n";
-	std::cout << "│ │ SEARCH │ Display the list of contacts │ │\n";
-	std::cout << "│ ├────────┼──────────────────────────────┤ │\n";
-	std::cout << "│ │  EXIT  │ Exit the PhoneBook           │ │\n";
-	std::cout << "│ └────────┴──────────────────────────────┘ │\n";
-	std::cout << WALL ;
-	std::cout << BOTTOM;
+	std::wcout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE << WALL;
+	std::wcout << L"│         Welcome to the PhoneBook!         │\n";
+	std::wcout << WALL;
+	std::wcout << L"│ ┌───────────────────────────────────────┐ │\n";
+	std::wcout << L"│ │  Please enter one of the following.   │ │\n";
+	std::wcout << L"│ ├────────┬──────────────────────────────┤ │\n";
+	std::wcout << L"│ │  ADD   │ Add a new contact to the list│ │\n";
+	std::wcout << L"│ ├────────┼──────────────────────────────┤ │\n";
+	std::wcout << L"│ │ SEARCH │ Display the list of contacts │ │\n";
+	std::wcout << L"│ ├────────┼──────────────────────────────┤ │\n";
+	std::wcout << L"│ │  EXIT  │ Exit the PhoneBook           │ │\n";
+	std::wcout << L"│ └────────┴──────────────────────────────┘ │\n";
+	std::wcout << WALL ;
+	std::wcout << BOTTOM;
 	printError();
-	std::cout << "Please enter a command: ";
-	if (!getline(std::cin, command))
+	std::wcout << L"Please enter a command: ";
+	if (!getline(std::wcin, command))
 		exit(0);
-	if (command == "ADD")
+	if (command == L"ADD")
 		addContact();
-	else if (command == "SEARCH")
+	else if (command == L"SEARCH")
 		displayList();
-	else if (command == "EXIT")
+	else if (command == L"EXIT")
 		exit(0);
 	else
 		error = INVALCOMMAND;
@@ -57,48 +57,48 @@ void	PhoneBook::displayIntro(void)
 void	PhoneBook::displayList(void)
 {
 	int	i;
-	string	command;
-	string	temp;
+	std::wstring	command;
+	std::wstring	temp;
 
 	i = 0;
 	system("clear");
-	std::cout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << START_LIST;
-	std::cout << "│  Index   │   Name   │ Sur-name │ Nickname │\n";
-	std::cout << MID_LIST;
+	std::wcout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << START_LIST;
+	std::wcout << L"│  Index   │   Name   │ Sur-name │ Nickname │\n";
+	std::wcout << MID_LIST;
 	while (i < 8)
 	{
-		std::cout << "│" << std::setw(10) << std::right <<  i + 1;
+		std::wcout << L"│" << std::setw(10) << std::right <<  i + 1;
 		temp = contactBook[i].getAttribute(FIRSTNAME);
 		if (temp.length() > 10)
-			temp = temp.substr(0, 9) + ".";
-		std::cout << "│" << std::setw(10) << std::right << temp;
+			temp = temp.substr(0, 9) + L".";
+		std::wcout << L"│" << std::setw(10) << std::right << temp;
 		temp = contactBook[i].getAttribute(LASTNAME);
 		if (temp.length() > 10)
-			temp = temp.substr(0, 9) + ".";
-		std::cout << "│" << std::setw(10) << std::right << temp;
+			temp = temp.substr(0, 9) + L".";
+		std::wcout << L"│" << std::setw(10) << std::right << temp;
 		temp = contactBook[i].getAttribute(NICKNAME);
 		if (temp.length() > 10)
-			temp = temp.substr(0, 9) + ".";
-		std::cout << "│" << std::setw(10) << std::right << temp << "│" << std::endl;
+			temp = temp.substr(0, 9) + L".";
+		std::wcout << L"│" << std::setw(10) << std::right << temp << L"│" << std::endl;
 		if (i != 7)
-			std::cout << MID_LIST;
+			std::wcout << MID_LIST;
 		i++;
 	}
-	std::cout << MIDDLE;
-	std::cout << "│ ┌───────────────────────────────────────┐ │\n";
-	std::cout << "│ │ Please enter the index of the contact │ │\n";
-	std::cout << "│ │ you would like to display, or 0 to    │ │\n";
-	std::cout << "│ │ return to the main menu.              │ │\n";
-	std::cout << "│ └───────────────────────────────────────┘ │\n";
-	std::cout << BOTTOM;
-	std::cout << "Please enter a command: ";
-	if (!getline(std::cin, command))
+	std::wcout << MIDDLE;
+	std::wcout << L"│ ┌───────────────────────────────────────┐ │\n";
+	std::wcout << L"│ │ Please enter the index of the contact │ │\n";
+	std::wcout << L"│ │ you would like to display, or 0 to    │ │\n";
+	std::wcout << L"│ │ return to the main menu.              │ │\n";
+	std::wcout << L"│ └───────────────────────────────────────┘ │\n";
+	std::wcout << BOTTOM;
+	std::wcout << L"Please enter a command: ";
+	if (!getline(std::wcin, command))
 		exit(0);
-	if (command == "0")
+	if (command == L"0")
 		return ;
-	else if (command == "1" || command == "2" || command == "3" || command == "4" || command == "5" || command == "6" || command == "7" || command == "8")
+	else if (command == L"1" || command == L"2" || command == L"3" || command == L"4" || command == L"5" || command == L"6" || command == L"7" || command == L"8")
 	{
-		if (contactBook[command[0] - '0' - 1].getAttribute(FIRSTNAME) != "")
+		if (contactBook[command[0] - '0' - 1].getAttribute(FIRSTNAME) != L"")
 			displayContact(command[0] - '0' - 1);
 		else
 			displayEmpty();
@@ -108,30 +108,30 @@ void	PhoneBook::displayList(void)
 
 void	PhoneBook::displayContact(int index)
 {
-	string command;
+	std::wstring command;
 
 	system("clear");
-	std::cout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
-	std::cout << WALL << "│ First Name: ";
+	std::wcout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
+	std::wcout << WALL << L"│ First Name: ";
 	printFullArgument(contactBook[index].getAttribute(FIRSTNAME), 29);
-	std::cout << WALL << "│ Last Name: ";
+	std::wcout << WALL << L"│ Last Name: ";
 	printFullArgument(contactBook[index].getAttribute(LASTNAME), 30);
-	std::cout << WALL << "│ Nickname: ";
+	std::wcout << WALL << L"│ Nickname: ";
 	printFullArgument(contactBook[index].getAttribute(NICKNAME), 31);
-	std::cout << WALL << "│ Phone Number: ";
+	std::wcout << WALL << L"│ Phone Number: ";
 	printFullArgument(contactBook[index].getAttribute(PHONENUMBER), 27);
-	std::cout << WALL << "│ Darkest Secret: ";
+	std::wcout << WALL << L"│ Darkest Secret: ";
 	printFullArgument(contactBook[index].getAttribute(DARKESTSECRET), 25);
-	std::cout << WALL << WALL << WALL;
-	std::cout << MIDDLE;
-	std::cout << "│ ┌───────────────────────────────────────┐ │\n";
-	std::cout << "│ │    Enter 0 to return to the list.     │ │\n";
-	std::cout << "│ └───────────────────────────────────────┘ │\n";
-	std::cout << BOTTOM;
-	std::cout << "Please enter a command: ";
-	if (!getline(std::cin, command))
+	std::wcout << WALL << WALL << WALL;
+	std::wcout << MIDDLE;
+	std::wcout << L"│ ┌───────────────────────────────────────┐ │\n";
+	std::wcout << L"│ │    Enter 0 to return to the list.     │ │\n";
+	std::wcout << L"│ └───────────────────────────────────────┘ │\n";
+	std::wcout << BOTTOM;
+	std::wcout << L"Please enter a command: ";
+	if (!getline(std::wcin, command))
 		exit(0);
-	if (command == "0")
+	if (command == L"0")
 		return ;
 	else
 		displayContact(index);
@@ -139,30 +139,30 @@ void	PhoneBook::displayContact(int index)
 
 void	PhoneBook::addContact(void)
 {
-	string	str;
+	std::wstring	str;
 
 	system("clear");
-	std::cout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
-	std::cout <<"│  Please enter the following information:  │\n";
-	std::cout << BOTTOM;
-	std::cout << "First Name: ";
-	if (!getline(std::cin, str))
+	std::wcout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
+	std::wcout << L"│  Please enter the following information:  │\n";
+	std::wcout << BOTTOM;
+	std::wcout << L"First Name: ";
+	if (!getline(std::wcin, str))
 		exit(0);
 	contactBook[contactIndex].setAttribute(str, FIRSTNAME);
-	std::cout << "Last Name: ";
-	if (!getline(std::cin, str))
+	std::wcout << L"Last Name: ";
+	if (!getline(std::wcin, str))
 		exit(0);
 	contactBook[contactIndex].setAttribute(str, LASTNAME);
-	std::cout << "Nickname: ";
-	if (!getline(std::cin, str))
+	std::wcout << L"Nickname: ";
+	if (!getline(std::wcin, str))
 		exit(0);
 	contactBook[contactIndex].setAttribute(str, NICKNAME);
-	std::cout << "Phone Number: ";
-	if (!getline(std::cin, str))
+	std::wcout << L"Phone Number: ";
+	if (!getline(std::wcin, str))
 		exit(0);
 	contactBook[contactIndex].setAttribute(str, PHONENUMBER);
-	std::cout << "Darkest Secret: ";
-	if (!getline(std::cin, str))
+	std::wcout << L"Darkest Secret: ";
+	if (!getline(std::wcin, str))
 		exit(0);
 	contactBook[contactIndex].setAttribute(str, DARKESTSECRET);
 	mustFlush();
@@ -172,15 +172,15 @@ void	PhoneBook::addContact(void)
 
 void	PhoneBook::mustFlush(void)
 {
-	if (contactBook[contactIndex].getAttribute(FIRSTNAME) == "")
+	if (contactBook[contactIndex].getAttribute(FIRSTNAME) == L"")
 		flushContact(FIRSTNAME);
-	else if(contactBook[contactIndex].getAttribute(LASTNAME) == "")
+	else if(contactBook[contactIndex].getAttribute(LASTNAME) == L"")
 		flushContact(LASTNAME);
-	else if(contactBook[contactIndex].getAttribute(NICKNAME) == "")
+	else if(contactBook[contactIndex].getAttribute(NICKNAME) == L"")
 		flushContact(NICKNAME);
-	else if(contactBook[contactIndex].getAttribute(PHONENUMBER) == "")
+	else if(contactBook[contactIndex].getAttribute(PHONENUMBER) == L"")
 		flushContact(PHONENUMBER);
-	else if(contactBook[contactIndex].getAttribute(DARKESTSECRET) == "")
+	else if(contactBook[contactIndex].getAttribute(DARKESTSECRET) == L"")
 		flushContact(DARKESTSECRET);
 	else if (wrongNumber())
 		flushContact(INVALNUMBER);
@@ -191,17 +191,17 @@ void	PhoneBook::mustFlush(void)
 void	PhoneBook::flushContact(int err)
 {
 	error = err;
-	contactBook[contactIndex].setAttribute("", FIRSTNAME);
-	contactBook[contactIndex].setAttribute("", LASTNAME);
-	contactBook[contactIndex].setAttribute("", NICKNAME);
-	contactBook[contactIndex].setAttribute("", PHONENUMBER);
-	contactBook[contactIndex].setAttribute("", DARKESTSECRET);
+	contactBook[contactIndex].setAttribute(L"", FIRSTNAME);
+	contactBook[contactIndex].setAttribute(L"", LASTNAME);
+	contactBook[contactIndex].setAttribute(L"", NICKNAME);
+	contactBook[contactIndex].setAttribute(L"", PHONENUMBER);
+	contactBook[contactIndex].setAttribute(L"", DARKESTSECRET);
 }
 
 int	PhoneBook::wrongNumber(void)
 {
 	int	i;
-	string number;
+	std::wstring number;
 
 	i = 0;
 	number = contactBook[contactIndex].getAttribute(PHONENUMBER);
@@ -219,25 +219,25 @@ void	PhoneBook::printError(void)
 	switch (error)
 	{
 	case FIRSTNAME:
-		std::cout << "Error: First Name cannot be empty.\n\n";
+		std::wcout << L"Error: First Name cannot be empty.\n\n";
 		break;
 	case LASTNAME:
-		std::cout << "Error: Last Name cannot be empty.\n\n";
+		std::wcout << L"Error: Last Name cannot be empty.\n\n";
 		break;
 	case NICKNAME:
-		std::cout << "Error: Nickname cannot be empty.\n\n";
+		std::wcout << L"Error: Nickname cannot be empty.\n\n";
 		break;
 	case PHONENUMBER:
-		std::cout << "Error: Phone Number cannot be empty.\n\n";
+		std::wcout << L"Error: Phone Number cannot be empty.\n\n";
 		break;
 	case DARKESTSECRET:
-		std::cout << "Error: Darkest Secret cannot be empty.\n\n";
+		std::wcout << L"Error: Darkest Secret cannot be empty.\n\n";
 		break;
 	case INVALNUMBER:
-		std::cout << "Error: Phone Number must be numeric only.\n\n";
+		std::wcout << L"Error: Phone Number must be numeric only.\n\n";
 		break;
 	case INVALCOMMAND:
-		std::cout << "Error: Invalid command.\n\n";
+		std::wcout << L"Error: Invalid command.\n\n";
 		break;
 	default:
 		break;
@@ -247,46 +247,46 @@ void	PhoneBook::printError(void)
 
 void	PhoneBook::displayEmpty(void)
 {
-	string	command;
+	std::wstring	command;
 	system("clear");
-	std::cout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
-	std::cout << WALL << WALL << "│  This contact is empty. Please add some   │\n";
-	std::cout << "│  information to display it.               │\n" << WALL;
-	std::cout << WALL << WALL << "│ TIP: Use the ADD command to add a new     │\n";
-	std::cout << "│      contact.                             │\n";
-	std::cout << WALL << WALL << "│ TIP 2: Try to make some friends.          │\n";
-	std::cout << WALL;
-	std::cout << MIDDLE;
-	std::cout << "│ ┌───────────────────────────────────────┐ │\n";
-	std::cout << "│ │    Enter 0 to return to the list.     │ │\n";
-	std::cout << "│ └───────────────────────────────────────┘ │\n";
-	std::cout << BOTTOM;
-	std::cout << "Please enter a command: ";
-	if (!getline(std::cin, command))
+	std::wcout << TOP << PROMPT_1 << PROMPT_2 << PROMPT_3 << MIDDLE;
+	std::wcout << WALL << WALL << L"│  This contact is empty. Please add some   │\n";
+	std::wcout << L"│  information to display it.               │\n" << WALL;
+	std::wcout << WALL << WALL << L"│ TIP: Use the ADD command to add a new     │\n";
+	std::wcout << L"│      contact.                             │\n";
+	std::wcout << WALL << WALL << L"│ TIP 2: Try to make some friends.          │\n";
+	std::wcout << WALL;
+	std::wcout << MIDDLE;
+	std::wcout << L"│ ┌───────────────────────────────────────┐ │\n";
+	std::wcout << L"│ │    Enter 0 to return to the list.     │ │\n";
+	std::wcout << L"│ └───────────────────────────────────────┘ │\n";
+	std::wcout << BOTTOM;
+	std::wcout << L"Please enter a command: ";
+	if (!getline(std::wcin, command))
 		exit(0);
-	if (command == "0")
+	if (command == L"0")
 		return ;
 	else
 		displayEmpty();
 }
 
-void	PhoneBook::printFullArgument(string str, long unsigned int size)
+void	PhoneBook::printFullArgument(std::wstring str, long unsigned int size)
 {
-	string	temp;
+	std::wstring	temp;
 	
 	if (str.length() > size)
 	{
 		temp = str.substr(size, str.length() - size);
 		while (str.length() > size)
 		{
-			std::cout << str.substr(0, size) << " │\n";
-			std::cout << "│" << std::setw(42 - size) << std::left << " ";
+			std::wcout << str.substr(0, size) << L" │\n";
+			std::wcout << L"│" << std::setw(42 - size) << std::left << L" ";
 			str = temp;
 			if (str.length() > size)
 				temp = str.substr(size, str.length() - size - 1);
 		}
-		std::cout << std::setw(size) << std::left << str.substr(0, size) << " │\n";
+		std::wcout << std::setw(size) << std::left << str.substr(0, size) << L" │\n";
 	}
 	else
-		std::cout << std::setw(size) << std::left <<  str << " │\n";
+		std::wcout << std::setw(size) << std::left <<  str << L" │\n";
 }

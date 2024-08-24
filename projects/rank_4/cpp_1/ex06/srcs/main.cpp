@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:30:05 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/02 10:54:07 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 04:21:24 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	std::string	command;
 
 	if (argc != 2)
-		std::cout << "message\n";
+		std::cout << "Try only one of the following: \"DEBUG\", \"INFO\", \"WARNING\", \"ERROR\"\n";
 	else 
 	{
 		command = argv[1];

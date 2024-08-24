@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 09:33:35 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/30 20:31:12 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 02:33:11 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 	else
 	{
+		std::cout << "withdrawal:" << withdrawal << ";";
 		_amount -= withdrawal;
 		_totalAmount -= withdrawal;
 		_nbWithdrawals++;

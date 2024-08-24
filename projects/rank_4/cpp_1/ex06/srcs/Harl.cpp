@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:30:30 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/02 15:40:42 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 04:24:04 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,20 @@ void	Harl::complain(std::string level)
 			break;
 		i++;
 	}
-	if (i < 4)
+	switch (i)
 	{
-		while (i < 4)
-		{
-			switch (i)
-			{
-			case (0):
-				(this->*list[0])();
-				break ;
-			case (1):
-				(this->*list[1])();
-				break ;
-			case (2):
-				(this->*list[2])();
-				break ;
-			case (3):
-				(this->*list[3])();
-				break ;
-			}
-			i++;
-		}
-	}
-	else
+	case (0):
+		(this->*list[0])();
+	case (1):
+		(this->*list[1])();
+	case (2):
+		(this->*list[2])();
+	case (3):
+		(this->*list[3])();
+		break ;
+	default:
 		std::cout << "Invalid Command\n";
+	}
 }
 
 void	Harl::debug(void)

@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 20:03:47 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/05/01 23:28:33 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 04:02:54 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	open_file(int argc, char **argv, std::ifstream &file)
 {
 	if (argc != 4)
 	{
-		std::cout << "<filename> <s1> <s2> (elaborar)";
+		std::cout << "<filename> <s1> <s2> to change all strings corresponding to <s1> into <s2>";
 		return (0);
 	}
 	file.open(argv[1]);
@@ -56,6 +56,8 @@ void	replace_file(std::ofstream &out_file, std::ifstream &in_file, char **argv)
 
 	while (getline(in_file, line))
 		replace_line(line, out_file, s1, s2);
+	in_file.close();
+	out_file.close();
 }
 
 int	main(int argc, char **argv)
@@ -71,6 +73,12 @@ int	main(int argc, char **argv)
 	filename = ss.str();
 	filename.append(".replace");
 	out_file.open(filename.c_str());
+	if (!out_file.is_open())
+	{
+		std::cout << "error: " << argv[1] << ".replace" << " is not a valid file or path";
+		in_file.close();
+		return (1);
+	}
 	replace_file(out_file, in_file, argv);
 	return (0);
 }

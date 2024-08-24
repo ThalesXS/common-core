@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:54:23 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/04/30 22:23:36 by txisto-d         ###   ########.fr       */
+/*   Updated: 2024/08/24 03:27:00 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
 
 	private:
 		std::string	name;
-		Weapon	*equipment;
+		Weapon		*equipment;
 };
 
 #endif

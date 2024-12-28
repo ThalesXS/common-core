@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 21:08:33 by txisto-d          #+#    #+#             */
-/*   Updated: 2024/11/22 22:13:05 by txisto-d         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "mlx_int.h"
 
-Zombie*	zombieHorde(int N, std::string name)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	int i;
-	Zombie *horde;
-
-	i = 0;
-  if (N < 0)
-    return NULL;
-	horde = new Zombie[N];
-	while (i < N)
-	{
-		horde[i].setName(name);
-		i++;
-	}
-	return (horde);
+	XCloseDisplay(xvar->display);
 }

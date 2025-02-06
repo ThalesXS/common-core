@@ -6,7 +6,7 @@ OBJ_DIR = objects
 
 #	====================		Files      		====================
 
-NAME = GetTheRightForm
+NAME = Intern
 FILES = main.cpp Bureaucrat.cpp AForm.cpp ShruberryCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJ = $(FILES:.cpp=.o)
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))

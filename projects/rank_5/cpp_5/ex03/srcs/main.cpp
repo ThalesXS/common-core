@@ -17,6 +17,14 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define ORANGE "\033[38;5;208m"
+#define PURPLE "\e[35m"
+#define YELLOW "\033[33m"
+#define CYAN "\033[36m"
+#define RESET "\033[0m"
+
 static void step(std::string msg = "")
 {
 	std::cout << "\n\nPress [Enter] to continue\n";
@@ -34,13 +42,13 @@ static void createForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		AForm* form = intern.makeForm("shruberry creation", "Joe");
 		b1.signForm(*form);
-		std::cout << std::endl << *form << std::endl;
+		std::cout << std::endl << CYAN << *form << RESET << std::endl;
 		b1.executeForm(*form);
 		delete form;
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Good ROBOTOMY");
 	try
@@ -48,13 +56,13 @@ static void createForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		AForm* form = intern.makeForm("robotomy request", "Joe");
 		b1.signForm(*form);
-		std::cout << std::endl << *form << std::endl;
+		std::cout << std::endl << CYAN << *form << RESET << std::endl;
 		b1.executeForm(*form);
 		delete form;
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Good PRESIDENTIAL");
 	try
@@ -62,13 +70,13 @@ static void createForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		AForm* form = intern.makeForm("presidential pardon", "Joe");
 		b1.signForm(*form);
-		std::cout << std::endl << *form << std::endl;
+		std::cout << std::endl << CYAN << *form << RESET << std::endl;
 		b1.executeForm(*form);
 		delete form;
 	}
 		catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Form not Found");
 	try
@@ -76,13 +84,13 @@ static void createForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		AForm* form = intern.makeForm("create excalibur", "Joe");
 		b1.signForm(*form);
-		std::cout << std::endl << *form << std::endl;
+		std::cout << std::endl << CYAN << *form << RESET << std::endl;
 		b1.executeForm(*form);
 		delete form;
 	}
 		catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 }
 
@@ -95,16 +103,16 @@ void	copyCreate()
 		Bureaucrat b1("Bureaucrat1", 1);
 		AForm* form = intern.makeForm("shruberry creation", "Joe");
 		b1.signForm(*form);
-		std::cout << std::endl << *form << std::endl;
+		std::cout << std::endl << CYAN << *form << RESET << std::endl;
 		AForm* form2 = intern.makeForm("shruberry creation", "Joe");
 		*form2 = *form;
-		std::cout << std::endl << *form2 << std::endl;
+		std::cout << std::endl << CYAN << *form2 << RESET << std::endl;
 		delete form;
 		delete form2;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 	
 }

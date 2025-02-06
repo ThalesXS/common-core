@@ -64,7 +64,7 @@ void Bureaucrat::incGrade()
   else
   {
     this->grade--;
-    std::cout << *this;
+    std::cout << *this << std::endl;
   }
 }
 
@@ -75,7 +75,7 @@ void Bureaucrat::decGrade()
   else
   {
     this->grade++;
-    std::cout << *this;
+    std::cout << *this << std::endl;
   }
 }
 

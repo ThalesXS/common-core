@@ -65,7 +65,7 @@ static void incDecTest()
   try
   {
     Bureaucrat b1("Bureaucrat1", 3);
-    std::cout << b1;
+    std::cout << b1 << std::endl;
     b1.incGrade();
     b1.incGrade();
     b1.incGrade();
@@ -77,7 +77,7 @@ static void incDecTest()
   try
   {
     Bureaucrat b2("Bureaucrat2", 148);
-    std::cout << b2;
+    std::cout << b2 << std::endl;
     b2.decGrade();
     b2.decGrade();
     b2.decGrade();

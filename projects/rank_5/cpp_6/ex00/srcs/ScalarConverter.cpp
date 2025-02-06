@@ -36,7 +36,7 @@ void ScalarConverter::convert(std::string& str)
 {
 	long double ld = std::strtold(str.c_str(), NULL);
 
-	if (str.length() == 1 && isPrintNoNum(str.c_str()[1]))
+	if (str.length() == 1 && isPrintNoNum(str.c_str()[0]))
 		convertChar(str, ld);
 	else if (isInt(str))
 		convertInt(str, ld);
@@ -56,7 +56,7 @@ void ScalarConverter::convert(std::string& str)
 
 void ScalarConverter::convertChar(std::string const str, long double ld)
 {
-	char c = str.c_str()[1];
+	char c = str.c_str()[0];
 	int i = static_cast<int>(c);
 	float f = static_cast<float>(c);
 	double d = static_cast<double>(c);
@@ -88,7 +88,7 @@ void ScalarConverter::convertFloat(std::string const str, long double ld)
 	float f = std::strtof(str.c_str(), NULL);
 	char c = static_cast<char>(f);
 	int i = static_cast<int>(f);
-	double d = static_cast<double>(f);0
+	double d = static_cast<double>(f);
 
 	if (ld < -std::numeric_limits<float>::max() || ld > std::numeric_limits<float>::max())
 	{
@@ -138,22 +138,22 @@ void ScalarConverter::printInt(int i, long double ld)
 
 void ScalarConverter::printFloat(float f, long double ld)
 {
-	if (((f * f) / f != f && f < 0) || ld < -std::numeric_limits<float>::max())
-		std::cout << "float: -inff" << std::endl;
-	else if (((f * f) / f != f && f > 0) || ld > std::numeric_limits<float>::max())
-		std::cout << "float: +inff" << std::endl;
-	else
+	if (f > -1e6 && f < 1e6)
 		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	else if (ld >= -std::numeric_limits<float>::max() && ld <= std::numeric_limits<float>::max())
+		std::cout << "float: " << std::scientific << std::setprecision(1) << f << "f" << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 }
 
 void ScalarConverter::printDouble(double d, long double ld)
 {
-	if (((d * d) / d != d && d < 0) || ld < -std::numeric_limits<double>::max())
-		std::cout << "double: -inf" << std::endl;
-	else if (((d * d) / d != d && d > 0) || ld > std::numeric_limits<double>::max())
-		std::cout << "double: +inf" << std::endl;
-	else
+	if (d > -1e6 && d < 1e6)
 		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	else if (ld >= -std::numeric_limits<double>::max() && ld <= std::numeric_limits<double>::max())
+		std::cout << "double: " << std::scientific << std::setprecision(1) << d << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 }
 
 void ScalarConverter::printOverflow()
@@ -163,4 +163,3 @@ void ScalarConverter::printOverflow()
 	std::cout << "float: overflow" << std::endl;
 	std::cout << "double: overflow" << std::endl;
 }
-

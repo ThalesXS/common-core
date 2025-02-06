@@ -16,6 +16,14 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define ORANGE "\033[38;5;208m"
+#define PURPLE "\e[35m"
+#define YELLOW "\033[33m"
+#define CYAN "\033[36m"
+#define RESET "\033[0m"
+
 static void step(std::string msg = "")
 {
 	std::cout << "\n\nPress [Enter] to continue\n";
@@ -32,12 +40,12 @@ static void goodForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		ShruberryCreationForm form("file");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Good ROBOTOMY");
 	try
@@ -45,12 +53,12 @@ static void goodForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		RobotomyRequestForm form("Joe");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Good PRESIDENTIAL");
 	try
@@ -58,12 +66,12 @@ static void goodForms()
 		Bureaucrat b1("Bureaucrat1", 1);
 		PresidentialPardonForm form("Jack");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 		catch(std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 }
 
@@ -75,12 +83,12 @@ static void badSign()
 		Bureaucrat b1("Bureaucrat1", 150);
 		ShruberryCreationForm form("fail");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Bad Sign ROBOTOMY");
 	try
@@ -88,12 +96,12 @@ static void badSign()
 		Bureaucrat b1("Bureaucrat1", 150);
 		RobotomyRequestForm form("Thales");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 	step("Bad Sign PRESIDENTIAL");
 	try
@@ -101,12 +109,12 @@ static void badSign()
 		Bureaucrat b1("Bureaucrat1", 150);
 		PresidentialPardonForm form("Jeffrey");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << RESET << std::endl;
 	}
 }
 
@@ -117,12 +125,12 @@ static void twiceSign()
 		Bureaucrat b1("Bureaucrat1", 1);
 		ShruberryCreationForm form("file");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.signForm(form);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 }
 
@@ -133,12 +141,12 @@ static void badExecute()
 		Bureaucrat b1("Bureaucrat1", 145);
 		ShruberryCreationForm form("file");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 	step("Bad Execute ROBOTOMY");
 	try
@@ -146,12 +154,12 @@ static void badExecute()
 		Bureaucrat b1("Bureaucrat1", 72);
 		RobotomyRequestForm form("Joe");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 	step("Bad Execute PRESIDENTIAL");
 	try
@@ -159,12 +167,12 @@ static void badExecute()
 		Bureaucrat b1("Bureaucrat1", 25);
 		PresidentialPardonForm form("Jack");
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
 		b1.executeForm(form);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 }
 
@@ -176,14 +184,14 @@ void	copy()
 		ShruberryCreationForm form("file");
 		ShruberryCreationForm form2(form);
 		b1.signForm(form);
-		std::cout << std::endl << form << std::endl;
-		std::cout << std::endl << form2 << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
+		std::cout << std::endl << CYAN << form2 << RESET << std::endl;
 		form2 = form;
-		std::cout << std::endl << form2 << std::endl;
+		std::cout << std::endl << CYAN << form2 << RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 	step("Copy");
 	try
@@ -192,12 +200,12 @@ void	copy()
 		RobotomyRequestForm form("Joe");
 		b1.signForm(form);
 		RobotomyRequestForm form2(form);
-		std::cout << std::endl << form << std::endl;
-		std::cout << std::endl << form2 << std::endl;
+		std::cout << std::endl << CYAN << form << RESET << std::endl;
+		std::cout << std::endl << CYAN << form2 << RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << RESET << '\n';
 	}
 }
 

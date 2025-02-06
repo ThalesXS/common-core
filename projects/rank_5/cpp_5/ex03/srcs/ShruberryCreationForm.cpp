@@ -28,7 +28,7 @@ ShruberryCreationForm& ShruberryCreationForm::operator=(ShruberryCreationForm& o
 void ShruberryCreationForm::execute(Bureaucrat const & executor) const
 {
   (void) executor;
-  std::ofstream file((this->getName() + "_shruberry").c_str(), std::ios::trunc);
+  std::ofstream file((this->getTarget() + "_shruberry").c_str(), std::ios::trunc);
   std::string tree = "               ,@@@@@@@,\n"
                      "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
                      "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"

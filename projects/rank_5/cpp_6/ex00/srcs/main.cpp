@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 		break;	
 	}
 	default:
-		std::cout << "Please write only one C++ literal.";
+		std::cout << "Please write only one C++ literal." << std::endl;;
 		break;
 	}
 	return (0);

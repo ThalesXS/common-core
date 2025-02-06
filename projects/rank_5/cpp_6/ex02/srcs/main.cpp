@@ -64,7 +64,7 @@ void	identify(Base& p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		(void) dynamic_cast<A&>(p);
 		std::cout << "Object is of Type A." << std::endl;
 		return ;
 	}
@@ -72,7 +72,7 @@ void	identify(Base& p)
 	{}
 	try
 	{
-		dynamic_cast<B&>(p);
+		(void) dynamic_cast<B&>(p);
 		std::cout << "Object is of Type B." << std::endl;
 		return ;
 	}
@@ -80,7 +80,7 @@ void	identify(Base& p)
 	{}
 	try
 	{
-		dynamic_cast<C&>(p);
+		(void) dynamic_cast<C&>(p);
 		std::cout << "Object is of Type C." << std::endl;
 		return ;
 	}

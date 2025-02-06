@@ -120,7 +120,7 @@ void ScalarConverter::convertDouble(std::string const str, long double ld)
 
 void ScalarConverter::printChar(char c, long double ld)
 {
-	if (c > 31 && c < 127)
+	if (ld > 31 && ld < 127)
 		std::cout << "char: " << c << std::endl;
 	else if (ld >= 0 && ld <= 255)
 		std::cout << "char: Not displayable"<< std::endl;

@@ -18,7 +18,7 @@ BitcoinExchange::BitcoinExchange()
 
 	if (!file.is_open())
 		throw NoDatabaseException();
-		this->_populateDatabase(file);
+	this->_populateDatabase(file);
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange& obj) : _database(obj.getDatabase())
@@ -66,19 +66,33 @@ void	BitcoinExchange::_populateHistory(std::ifstream& file)
 		ss.str(str);
 		getline(ss, key, '|');
 		getline(ss, value, '|');
-		this->_checkDates(key);
 		value.erase(0, value.find_first_not_of (" "));
-		this->_history[key] = std::strtof(value.c_str(), NULL);
-		std::cout << key << "|" << this->_history[key] << std::endl;
+		this->_printHistory(key, std::strtof(value.c_str(), NULL));
 	}
 }
 
-void	BitcoinExchange::_checkDates(std::string&	date)
+void	BitcoinExchange::_printHistory(std::string key, float value)
+{
+
+	try
+	{
+		key = this->_checkDates(key);
+		this->_checkValues(value);
+		std::cout << key << " => " << value << " = " << this->_database[key] * value << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << "error: " << e.what() << '\n';
+	}
+}
+
+std::string	BitcoinExchange::_checkDates(std::string & date)
 {
 	std::stringstream	ss;
 	std::string			year;
 	std::string			month;
 	std::string			day;
+	std::string			try_date;
 	float				aux_y;
 	float				aux_m;
 	float				aux_d;
@@ -98,6 +112,35 @@ void	BitcoinExchange::_checkDates(std::string&	date)
 		throw BadInputException(date);
 	if (aux_d < 0 || aux_d > this->_maxDay(aux_y, aux_m))
 		throw BadInputException(date);
+	while (aux_y >= 2011)
+	{
+		while (aux_m > 0)
+		{
+			while (aux_d > 0)
+			{
+				ss.clear();
+			ss.str("");
+				ss << std::setfill('0') << std::setw(2) << aux_y << std::setw(0) << "-" << std::setw(2) << aux_m << std::setw(0) << "-" << std::setw(2) << aux_d;
+				ss >> try_date;
+				if (this->_database[try_date])
+					return (try_date);
+				aux_d--;
+			}
+			aux_d = std::strtof(day.c_str(), NULL);
+			aux_m--;
+		}
+		aux_m = std::strtof(month.c_str(), NULL);
+		aux_y--;
+	}
+	return (date);
+}
+
+void	BitcoinExchange::_checkValues(float & value)
+{
+	if (value < 0)
+		throw NegativeException();
+	if (value > 1000)
+		throw TooLargeException();
 }
 
 int	BitcoinExchange::_maxDay(int year, int month)
@@ -134,7 +177,6 @@ void	BitcoinExchange::_populateDatabase(std::ifstream& file)
 		getline(ss, key, ',');
 		getline(ss, value, ',');
 		this->_database[key] = std::strtof(value.c_str(), NULL);
-		std::cout << key << "," << this->_database[key] << std::endl;
 	}
 }
 
@@ -153,12 +195,14 @@ const char* BitcoinExchange::WrongFormatException::what() const throw()
 	return ("wrong file format.");
 }
 
-BitcoinExchange::BadInputException::BadInputException(std::string input) : _input(input) {}
+BitcoinExchange::BadInputException::BadInputException(std::string input)
+{
+	this->_input = "bad input => " + input;
+}
 
 const char* BitcoinExchange::BadInputException::what() const throw()
 {
-	std::string	error = "bad input => " + this->_input;
-	return (error.c_str());
+	return (this->_input.c_str());
 }
 
 const char* BitcoinExchange::NoDatabaseException::what() const throw()
@@ -169,4 +213,10 @@ const char* BitcoinExchange::NoDatabaseException::what() const throw()
 const char* BitcoinExchange::FileFailureException::what() const throw()
 {
 	return ("could not open file.");
+}
+
+
+BitcoinExchange::BadInputException::~BadInputException() throw()
+{
+
 }

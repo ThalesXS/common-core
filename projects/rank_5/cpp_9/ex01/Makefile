@@ -1,6 +1,6 @@
 #	====================	Files      			====================
 
-NAME = Mutant
+NAME = RPN
 FILES = main.cpp
 
 #	====================	Objects & Target	====================

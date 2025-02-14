@@ -25,12 +25,14 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, float>	_database;
-		std::map<std::string, float>	_history;
 		
 		void							_populateDatabase(std::ifstream& file);
 		void							_populateHistory(std::ifstream& file);
-		void							_checkDates(std::string& date);
+		void							_printHistory(std::string key, float value);
+		std::string						_checkDates(std::string & date);
+		void							_checkValues(float & value);
 		int								_maxDay(int year, int month);
+
 	public:
 		BitcoinExchange();
 		BitcoinExchange(BitcoinExchange& obj);
@@ -64,6 +66,7 @@ class BitcoinExchange
 				std::string	_input;
 			public:
 				BadInputException(std::string input);
+				virtual ~BadInputException() throw();
 				const char* what() const throw();
 		};
 		class NoDatabaseException : public std::exception

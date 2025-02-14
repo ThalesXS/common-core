@@ -1,6 +1,6 @@
 #	====================	Files      			====================
 
-NAME = Mutant
+NAME = PmergeMe
 FILES = main.cpp
 
 #	====================	Objects & Target	====================

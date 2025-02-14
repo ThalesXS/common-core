@@ -1,7 +1,7 @@
 #	====================	Files      			====================
 
-NAME = Mutant
-FILES = main.cpp
+NAME = btc
+FILES = main.cpp BitcoinExchange.cpp
 
 #	====================	Objects & Target	====================
 

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 21:30:40 by txisto-d          #+#    #+#             */
-/*   Updated: 2025/02/09 03:23:10 by txisto-d         ###   ########.fr       */
+/*   Created: 2025/02/11 22:12:43 by txisto-d          #+#    #+#             */
+/*   Updated: 2025/02/13 13:05:23 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include "BitcoinExchange.hpp"
 
-# include <exception>
-# include <algorithm>
-
-template <typename T>
-int	easyfind(const T& container, int find);
-
-class NoItemException : public std::exception
+int	main(/* int argc, char** argv */)
 {
-	public:
-	const char* what() const throw();	
-};
-
-# include "easyfind.tpp"
-
-#endif
+	BitcoinExchange btc;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	btc.convertHistory("input.txt");
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:30:36 by txisto-d          #+#    #+#             */
-/*   Updated: 2025/02/05 22:30:20 by txisto-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 03:28:25 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 # include "easyfind.hpp"
 
 template <typename T>
-T*	easyfind(const T& container, int find)
+int	easyfind(const T& container, int num)
 {
-	T::std::iterator i;
-	T::std::iterator end;
-	i = T.begin();
-	end = T.end();
-	while (i <= end)
-	{
-		if (T[i] == find)
-			return T;
-		i++;
-	}
-	throw std::exception("error: item not founded");
+	typename T::const_iterator position;
+
+	position = std::find(container.begin(), container.end(), num);
+	if (position == container.end())
+		throw NoItemException();
+	return (std::distance(container.begin(), position));
+}
+
+const char* NoItemException::what() const throw()
+{
+	return ("error: item not found.");
 }
 
 #endif

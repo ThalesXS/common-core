@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:12:29 by txisto-d          #+#    #+#             */
-/*   Updated: 2025/02/14 12:36:40 by txisto-d         ###   ########.fr       */
+/*   Updated: 2025/02/15 12:59:40 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,26 @@ void	BitcoinExchange::_populateHistory(std::ifstream& file)
 		getline(ss, key, '|');
 		getline(ss, value, '|');
 		value.erase(0, value.find_first_not_of (" "));
-		this->_printHistory(key, std::strtof(value.c_str(), NULL));
+		this->_printHistory(key, value, str);
 	}
 }
 
-void	BitcoinExchange::_printHistory(std::string key, float value)
+void	BitcoinExchange::_printHistory(std::string key, std::string value, std::string str)
 {
+	std::string	date;
+	size_t		sepPosition;
 
+	key.erase(0, key.find_first_not_of (" "));
+	key.erase(key.find_last_not_of(" ") + 1);
+	date = key;
 	try
 	{
+		sepPosition = str.find("|");
+		if (sepPosition == std::string::npos || key == "\0" || value == "\0")
+			throw BadInputException(str);
 		key = this->_checkDates(key);
 		this->_checkValues(value);
-		std::cout << key << " => " << value << " = " << this->_database[key] * value << std::endl;
+		std::cout << date << " => " << value << " = " << this->_database[key] * std::strtof(value.c_str(), NULL) << std::endl;
 	}
 	catch(std::exception& e)
 	{
@@ -100,9 +108,16 @@ std::string	BitcoinExchange::_checkDates(std::string & date)
 	date.erase(0, date.find_first_not_of (" "));
 	date.erase(date.find_last_not_of(" ") + 1);
 	ss.str(date);
+	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
+		throw BadInputException(date);
 	getline(ss, year, '-');
 	getline(ss, month, '-');
 	getline(ss, day, '-');
+	if (!std::isdigit(year[0]) || !std::isdigit(year[1]) || 
+	!std::isdigit(year[2]) || !std::isdigit(year[3]) ||
+	!std::isdigit(month[0]) || !std::isdigit(month[1]) ||
+	!std::isdigit(day[0]) || !std::isdigit(day[1]))
+		throw BadInputException(date);
 	if (!year.c_str() || !month.c_str() || !day.c_str())
 		throw BadInputException(date);
 	aux_y = std::strtof(year.c_str(), NULL);
@@ -135,11 +150,17 @@ std::string	BitcoinExchange::_checkDates(std::string & date)
 	return (date);
 }
 
-void	BitcoinExchange::_checkValues(float & value)
+void	BitcoinExchange::_checkValues(std::string & value)
 {
-	if (value < 0)
+	char*	endPtr;
+	float	fValue;
+	
+	fValue = std::strtof(value.c_str(), &endPtr);
+	if (*endPtr)
+		throw BadInputException(value);
+	if (fValue < 0)
 		throw NegativeException();
-	if (value > 1000)
+	if (fValue > 1000)
 		throw TooLargeException();
 }
 

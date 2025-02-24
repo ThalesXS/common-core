@@ -1,7 +1,7 @@
 #	====================	Files      			====================
 
 NAME = PmergeMe
-FILES = main.cpp
+FILES = main.cpp PmergeMe.cpp
 
 #	====================	Objects & Target	====================
 

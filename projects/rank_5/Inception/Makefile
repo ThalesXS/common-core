@@ -1,7 +1,7 @@
 #	====================	Files      			====================
 
-NAME = RPN
-FILES = main.cpp RPN.cpp
+NAME = btc
+FILES = 
 
 #	====================	Objects & Target	====================
 

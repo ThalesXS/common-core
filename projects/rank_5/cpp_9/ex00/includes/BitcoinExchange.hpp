@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:12:05 by txisto-d          #+#    #+#             */
-/*   Updated: 2025/02/14 11:53:36 by txisto-d         ###   ########.fr       */
+/*   Updated: 2025/02/15 12:56:47 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <map>
 # include <cstdlib>
 # include <sstream>
+# include <string>
+# include <cctype>
 
 class BitcoinExchange
 {
@@ -28,9 +30,9 @@ class BitcoinExchange
 		
 		void							_populateDatabase(std::ifstream& file);
 		void							_populateHistory(std::ifstream& file);
-		void							_printHistory(std::string key, float value);
+		void							_printHistory(std::string key, std::string value, std::string str);
 		std::string						_checkDates(std::string & date);
-		void							_checkValues(float & value);
+		void							_checkValues(std::string & value);
 		int								_maxDay(int year, int month);
 
 	public:

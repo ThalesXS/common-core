@@ -69,6 +69,8 @@
 		"variant": "cpp",
 		"stack": "cpp",
 		"version": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"csignal": "cpp",
+		"ranges": "cpp"
 	}
 }

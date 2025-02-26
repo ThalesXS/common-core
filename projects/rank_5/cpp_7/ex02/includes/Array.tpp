@@ -14,7 +14,6 @@
 # define ARRAY_TPP
 
 # include "Array.hpp"
-# include <iostream>
 
 template <typename T>
 Array<T>::Array() : _elements(new T[0]), _size(0) {}
@@ -64,13 +63,14 @@ T& Array<T>::operator[](size_t i)
 }
 
 template <typename T>
-const T& Array<T>::operator[](size_t i) const
+const T& Array<T>::operator[](long long i) const
 {
-	if (i >= _size)
+	size_t index = static_cast<size_t>(i);;
+	if (index >= _size || i < 0)
 	{
 		throw SizeException();
 	}
-	return _elements[i];
+	return _elements[index];
 }
 
 template <typename T>

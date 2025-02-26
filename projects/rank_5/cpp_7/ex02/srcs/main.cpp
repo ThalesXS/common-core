@@ -14,7 +14,7 @@
 #include <Array.hpp>
 #include <cstdlib>
 
-#define MAX_VAL 750
+#define MAX_VAL 5000
 
 
 #include <iostream>
@@ -61,10 +61,10 @@ static void TestDefaultArray()
 {
 	Array<int> array(5);
 	
-	for(unsigned int i = 0; i < array.size(); i++)
+	for(size_t i = 0; i < array.size(); i++)
 		array[i] = rand() % 100;
 	
-	for(unsigned int i = 0; i < array.size(); i++)
+	for(size_t i = 0; i < array.size(); i++)
 		std::cout << CYAN << "index[" << i << "]: " << array[i] << std::endl << RESET;
 	enter_to_continue();
 }
@@ -73,7 +73,7 @@ static void TestCopyArray()
 {
 	Array<int> array(5);
 	
-	for(unsigned int i = 0; i < array.size(); i++)
+	for(size_t i = 0; i < array.size(); i++)
 	{
 		array[i] = rand() % 100;
 		std::cout << CYAN << "Original index[" << i << "]: " << array[i] << std::endl << RESET;
@@ -81,7 +81,7 @@ static void TestCopyArray()
 	
 	Array<int> copy(array);
 	
-	for(unsigned int i = 0; i < copy.size(); i++)
+	for(size_t i = 0; i < copy.size(); i++)
 		std::cout << "Copy index[" << i << "]: " << copy[i] << std::endl;
 	enter_to_continue();
 }
@@ -90,7 +90,7 @@ static void TestAssignArray()
 {
 	Array<int> array(5);
 	
-	for(unsigned int i = 0; i < array.size(); i++)
+	for(size_t i = 0; i < array.size(); i++)
 	{
 		array[i] = rand() % 100;
 		std::cout << CYAN << "Original index[" << i << "]: " << array[i] << std::endl << RESET;
@@ -100,7 +100,7 @@ static void TestAssignArray()
 	
 	copy = array;
 	
-	for(unsigned int i = 0; i < copy.size(); i++)
+	for(size_t i = 0; i < copy.size(); i++)
 		std::cout << "Copy index[" << i << "]: " << copy[i] << std::endl;
 	enter_to_continue();
 }
@@ -109,7 +109,7 @@ static void TestAccessingElements()
 {
 	Array<int> array(5);
 	
-	for(unsigned int i = 0; i < array.size(); i++)
+	for(size_t i = 0; i < array.size(); i++)
 	{
 		array[i] = rand() % 100;
 		std::cout << CYAN << "index[" << i << "]: " << array[i] << std::endl << RESET;
@@ -150,7 +150,7 @@ static void TestChangingElementsAfterCopy()
 {
 	Array<int> array(5);
 	
-	for(unsigned int i = 0; i < array.size(); i++)
+	for(size_t i = 0; i < array.size(); i++)
 	{
 		array[i] = rand() % 100;
 		std::cout << CYAN << "Before changing copy index[" << i << "]: " << array[i] << std::endl << RESET;
@@ -158,7 +158,29 @@ static void TestChangingElementsAfterCopy()
 	
 	Array<int> copy(array);
 	
-	for(unsigned int i = 0; i < copy.size(); i++)
+	for(size_t i = 0; i < copy.size(); i++)
+	{
+		copy[i] = rand() % 100;
+		std::cout << CYAN << "Changed Copy index[" << i << "]: " << copy[i] << std::endl << RESET;
+		std::cout << RESET << "After Change index[" << i << "]: " << array[i] << std::endl << RESET;
+	}
+	enter_to_continue();
+}
+
+static void TestChangingElementsAfterAssignment()
+{
+	Array<int> array(5);
+	
+	for(size_t i = 0; i < array.size(); i++)
+	{
+		array[i] = rand() % 100;
+		std::cout << CYAN << "Before changing copy index[" << i << "]: " << array[i] << std::endl << RESET;
+	}
+	
+	Array<int> copy(3);
+	copy = array;
+	
+	for(size_t i = 0; i < copy.size(); i++)
 	{
 		copy[i] = rand() % 100;
 		std::cout << CYAN << "Changed Copy index[" << i << "]: " << copy[i] << std::endl << RESET;
@@ -178,14 +200,12 @@ static void TestChangingElementsAfterCopy()
 
 
 
-
-
 int main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
 	srand(time(NULL));
-	for (int i = 0; i < MAX_VAL; i++)
+	for (size_t i = 0; i < MAX_VAL; i++)
 	{
 		const int value = rand();
 		numbers[i] = value;
@@ -197,7 +217,7 @@ int main(int, char**)
 		Array<int> test(tmp);
 	}
 
-	for (int i = 0; i < MAX_VAL; i++)
+	for (size_t i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])
 		{
@@ -222,13 +242,11 @@ int main(int, char**)
 		std::cerr << e.what() << '\n';
 	}
 
-	for (int i = 0; i < MAX_VAL; i++)
+	for (size_t i = 0; i < MAX_VAL; i++)
 	{
 		numbers[i] = rand();
 	}
-	delete [] mirror;//
-
-
+	delete [] mirror;
 
 	std::cout << YELLOW << "--- Test Empty Array ---" << RESET << std::endl;
 	TestEmptyArray();
@@ -244,5 +262,7 @@ int main(int, char**)
 	TestMemberFunction();
 	std::cout << YELLOW << "--- Test Changing Copy Function ---" << RESET << std::endl;
 	TestChangingElementsAfterCopy();
+	std::cout << YELLOW << "--- Test Changing Assignment Function ---" << RESET << std::endl;
+	TestChangingElementsAfterAssignment();
 	return (0);
 }

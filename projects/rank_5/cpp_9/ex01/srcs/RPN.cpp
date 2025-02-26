@@ -33,6 +33,8 @@ RPN::RPN(std::string expression)
 			if (aux == "/")
 			this->_expression.push(this->_divisionOperation());
 		}
+		if (this->_expression.size() != 1)
+			throw BadInputException();
 		std::cout << this->_expression.top() << std::endl;
 	}
 	catch (std::exception& e)

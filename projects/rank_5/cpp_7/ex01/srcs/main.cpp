@@ -41,7 +41,6 @@ int main()
     const int constArray[] = {6, 7, 8, 9, 10};
     length = sizeof(constArray) / sizeof(constArray[0]);
 
-    iter(constArray, length, static_cast<void(*)(const int&)>(printMsg));
-
+	iter(constArray, length, (printMsg<const int>));
     return 0;
 }

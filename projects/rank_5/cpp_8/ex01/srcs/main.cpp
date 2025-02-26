@@ -139,7 +139,7 @@ static void testThousands()
 		std::deque<int>::iterator end;
 
 		std::cout << ORANGE << "Adding numbers to deque..." << std::endl << RESET;
-		for(unsigned int i = 0; i < 100000; i++)
+		for(unsigned int i = 0; i < 10000; i++)
 		{
 			v.push_back(rand() % 100);
 			std::cout << PURPLE << "Deque Value: " << RESET << v[i] << std::endl;

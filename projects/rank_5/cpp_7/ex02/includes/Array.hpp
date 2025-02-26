@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <exception>
+# include <limits>
 
 
 template <typename T>
@@ -31,7 +32,7 @@ class Array
 		~Array<T>(void);
 		Array& operator=(const Array<T>& obj);
 		T& operator[](size_t i);
-		const T& operator[](size_t i) const;
+		const T& operator[](long long i) const;
 		std::size_t size(void) const;
 		
 

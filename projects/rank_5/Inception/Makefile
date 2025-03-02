@@ -1,32 +1,21 @@
-#	====================	Files      			====================
+#	====================	DIRECTORIES			====================
 
-NAME = btc
-FILES = 
-
-#	====================	Objects & Target	====================
-
-OBJ = $(FILES:.cpp=.o)
-TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
-
-#	====================	Directories			====================
-
-INC = includes
+SAFE = safety
 SRC = srcs
-OBJ_DIR = objects
 
-#	====================	Commands   			====================
+#	====================	FILES				====================
 
-CC = c++
-RM = rm -rf
+NAME = inception
+FILE = docker-compose.yml
+SERVICES = nginx wordpress mariadb
 
-#	====================	Flags      			====================
+#	====================	COMMANDS			====================
 
-W = -Wall -Wextra -Werror -std=c++98
-O = -c
-I = -I $(INC)
-WBLOCK = --no-print-directory
+COMPOSE = docker compose
 
-#	====================	Colors     			====================
+#	====================	FLAGS				====================
+
+#	====================	COLORS				====================
 
 RED = \033[0;31m
 GREEN = \033[0;32m
@@ -46,29 +35,24 @@ L_BLUE = \033[1;94m
 
 RESET = \033[0m
 
-#	====================	Rules      			====================
+#	====================	RULES      			====================
 
 all: $(NAME)
 
-$(NAME):$(OBJ_DIR) $(TARGET)
-	@$(CC) $(W) $(TARGET) -o $(NAME)
-	@echo "$(B_GREEN)$(NAME) created$(RESET)"
+$(NAME): volumes check_hosts
+	$(COMPOSE) -f $(SRC)/$(FILE) up --build
 
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+volumes:
+	@if [ ! -d "home/txisto-d/data/mariadb" ] && [ ! -d "home/txisto-d/data/wordpress;" ]; then \
+	mkdir -p home/txisto-d/data/mariadb && mkdir -p home/txisto-d/data/wordpress; fi
 
-$(OBJ_DIR)/%.o: $(SRC)/%.cpp
-	@$(CC) $(W) $(O) $(I) $< -o $@
-	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $@ created$(RESET)"
+check_hosts:
+	@if ! grep -q "127.0.0.1       txisto-d.42.fr" /etc/hosts; then \
+		echo "127.0.0.1 txisto-d.42.fr" | sudo tee -a /etc/hosts; \
+	fi
 
 clean:
-	@$(RM) -rf $(OBJ_DIR)
-	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $(OBJ_DIR) deleted$(RESET)"
+	docker remove $(SERVICES) -f
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(B_YELLOW)$(NAME)$(RESET):$(YELLOW) $(NAME) deleted$(RESET)"
-
-re: fclean all
-
-.PHONY: all clean fclean re bonus
+	sudo rm -rf home

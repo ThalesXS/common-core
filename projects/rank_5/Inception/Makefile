@@ -1,58 +1,51 @@
-#	====================	DIRECTORIES			====================
-
-SAFE = safety
-SRC = srcs
-
-#	====================	FILES				====================
-
-NAME = inception
-FILE = docker-compose.yml
-SERVICES = nginx wordpress mariadb
-
 #	====================	COMMANDS			====================
 
 COMPOSE = docker compose
 
-#	====================	FLAGS				====================
-
-#	====================	COLORS				====================
-
-RED = \033[0;31m
-GREEN = \033[0;32m
-BLUE = \033[0;34m
-YELLOW = \033[0;33m
-MAGENTA = \033[0;35m
-CYAN = \033[0;36m
-
-B_RED = \033[1;31m
-B_GREEN = \033[1;32m
-B_BLUE = \033[1;34m
-B_YELLOW = \033[1;33m
-B_MAGENTA = \033[1;35m
-B_CYAN = \033[1;36m
-
-L_BLUE = \033[1;94m
-
-RESET = \033[0m
-
 #	====================	RULES      			====================
 
-all: $(NAME)
+all: up
 
-$(NAME): volumes check_hosts
-	$(COMPOSE) -f $(SRC)/$(FILE) up --build
+up: build check_hosts
+	docker compose --file srcs/docker-compose.yml up
 
-volumes:
-	@if [ ! -d "home/txisto-d/data/mariadb" ] && [ ! -d "home/txisto-d/data/wordpress;" ]; then \
-	mkdir -p home/txisto-d/data/mariadb && mkdir -p home/txisto-d/data/wordpress; fi
+re: down build up
+
+fullre: fclean up
+
+stop:
+	docker compose --file srcs/docker-compose.yml stop
+
+down:
+	docker compose --file srcs/docker-compose.yml down
+
+logs:
+	docker compose --file srcs/docker-compose.yml logs
+
+ps:
+	docker compose --file srcs/docker-compose.yml ps
+
+restart:
+	docker compose --file srcs/docker-compose.yml restart
 
 check_hosts:
-	@if ! grep -q "127.0.0.1       txisto-d.42.fr" /etc/hosts; then \
-		echo "127.0.0.1 txisto-d.42.fr" | sudo tee -a /etc/hosts; \
+	@if ! grep -q "127.0.0.1 $(USER).42.fr" /etc/hosts; then \
+		echo "127.0.0.1 $(USER).42.fr" | sudo tee -a /etc/hosts; \
 	fi
 
-clean:
-	docker remove $(SERVICES) -f
+volumes:
+	@if [ ! -d "/home/$(USER)/data/mariadb" ] && [ ! -d "/home/$(USER)/data/wordpress;" ]; then \
+	mkdir -p /home/$(USER)/data/mariadb && mkdir -p /home/$(USER)/data/wordpress; fi
 
-fclean: clean
-	sudo rm -rf home
+build: volumes
+	docker compose --file srcs/docker-compose.yml build
+	
+clean:
+	docker system prune -a
+
+volume_free:
+	docker volume rm srcs_v_db
+	docker volume rm srcs_v_web
+	sudo rm -rf /home/$(USER)/data/wordpress /home/$(USER)/data/mariadb
+
+fclean: down clean volume_free

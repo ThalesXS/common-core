@@ -5,4 +5,4 @@ echo "GRANT ALL PRIVILEGES ON *.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD'
 echo "FLUSH PRIVILEGES;" >> /etc/mysql/init.sql
 sleep 5
 mysql_install_db 
-mysqld
+mysqld --init-file=/etc/mysql/init.sql

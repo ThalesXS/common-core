@@ -1,9 +1,5 @@
-name: inception
-version: "3.8"
-
 services:
   nginx:
-    image: nginx:v1.0
     build:
       context: requirements/nginx/.
       args:
@@ -27,7 +23,6 @@ services:
     volumes:
       - v_web:/var/www/html
   wordpress:
-    image: wordpress:v1.0
     build: requirements/wordpress/.
     container_name: wordpress
     restart: on-failure
@@ -42,7 +37,6 @@ services:
     env_file:
       - .env
   mariadb:
-    image: mariadb:v1.0
     build: requirements/mariadb/.
     container_name: mariadb
     restart: on-failure
@@ -61,13 +55,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ../home/txisto-d/data/wordpress
+      device: ${HOME}/data/wordpress
   v_db:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ../home/txisto-d/data/mariadb
+      device: ${HOME}/data/mariadb
 
 networks:
   inception:

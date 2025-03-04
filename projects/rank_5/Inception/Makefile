@@ -46,6 +46,6 @@ clean:
 volume_free:
 	docker volume rm srcs_v_db
 	docker volume rm srcs_v_web
-	sudo rm -rf /home/$(USER)/data/wordpress /home/$(USER)/data/mariadb
+	sudo rm -rf /home/$(USER)/data
 
 fclean: down clean volume_free

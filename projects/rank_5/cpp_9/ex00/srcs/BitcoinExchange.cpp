@@ -208,7 +208,7 @@ const char* BitcoinExchange::TooLargeException::what() const throw()
 
 const char* BitcoinExchange::NegativeException::what() const throw()
 {
-	return ("not a possitive number.");
+	return ("not a positive number.");
 }
 
 const char* BitcoinExchange::WrongFormatException::what() const throw()

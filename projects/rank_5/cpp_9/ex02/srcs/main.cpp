@@ -19,7 +19,14 @@ int	main(int argc, char** argv)
 		std::cout << "Please provide a sequence of positive integers." << std::endl;
 		return (0);
 	}
-	PmergeMe pmm(&argv[1]);
-	pmm._sortContainers();
+	try
+	{
+		PmergeMe pmm(&argv[1]);
+		pmm._sortContainers();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return (0);	
 }

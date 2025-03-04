@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <vector>
-# include <list>
+# include <deque>
 # include <string>
 # include <sstream>
 # include <ctime>
@@ -23,46 +23,40 @@
 # include <exception>
 # include <utility>
 # include <algorithm>
-# include <deque>
 # include <iomanip>
 
 typedef std::vector<unsigned int>			t_vec;
-typedef std::deque<unsigned int>				t_list;
+typedef std::deque<unsigned int>			t_deque;
 typedef std::vector<unsigned int>::iterator	i_vec;
-typedef std::deque<unsigned int>::iterator	i_list;
+typedef std::deque<unsigned int>::iterator	i_deque;
 
 class PmergeMe
 {
 	private:
 		t_vec	_sequence1;
-		t_list	_sequence2;
+		t_deque	_sequence2;
 		
 		void						_printVector();
-		void						_printList();
+		void						_printDeque();
 		
 		int							_jacobsthal(int k);
-		void						_insertVector(t_vec& main, t_vec& pend, unsigned int odd, t_vec& left, t_vec& vec, bool is_odd, int order);
+		void						_insertVector(t_vec& main, t_vec& pending_elements, unsigned int odd, t_vec& left, t_vec& vec, bool is_odd, int order);
 		void						_mergeVector(t_vec& vec);
-		void						_insertList(t_list& main, t_list& pend, unsigned int odd, t_list& left, t_list& list, bool is_odd, int order);
-		void						_mergeList(t_list& list);
+		void						_insertDeque(t_deque& main, t_deque& pending_elements, unsigned int odd, t_deque& left, t_deque& deque, bool is_odd, int blocks);
+		void						_mergeDeque(t_deque& deque);
+		bool						_onlyPositiveNumbers(char* str);
 		
 	public:
 		PmergeMe(char** argv);
-		PmergeMe(PmergeMe& obj);
-		PmergeMe& operator=(PmergeMe& obj);
-		~PmergeMe();
+		PmergeMe(const PmergeMe& obj);
+		PmergeMe& operator=(const PmergeMe& obj);
+		~PmergeMe(void);
 		
-		void	_sortContainers();
-		t_vec	getVector();
-		t_list	getList();
+		void	_sortContainers(void);
+		t_vec	getVector(void) const;
+		t_deque	getDeque(void) const;
 
-		class DuplicateException : public std::exception
-		{
-			public:
-				const char* what() const throw();
-		};
-
-		class NegativeException : public std::exception
+		class InvalidInputException : public std::exception
 		{
 			public:
 				const char* what() const throw();

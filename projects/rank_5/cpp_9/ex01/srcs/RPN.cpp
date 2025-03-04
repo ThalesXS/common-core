@@ -120,6 +120,8 @@ std::string	RPN::_divisionOperation()
 	this->_expression.pop();
 	base = this->_expression.top();
 	this->_expression.pop();
+	if (ator(num.c_str()) == 0)
+		throw BadInputException();
 	ss << atoi(base.c_str()) / atoi(num.c_str());
 	return (ss.str());
 }
